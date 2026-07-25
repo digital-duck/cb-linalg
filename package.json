@@ -1,13 +1,14 @@
 {
-  "name": "concept-book-base",
+  "name": "cb-linalg",
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "homepage": "https://digital-duck.github.io/cb-linalg/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist --no-history --dotfiles"
+    "deploy": "vite build && gh-pages -d dist --no-history --dotfiles && node -p \"'Homepage: ' + require('./package.json').homepage\""
   },
   "devDependencies": {
     "gh-pages": "^6.0.0",

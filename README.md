@@ -216,7 +216,34 @@ domain".
 
 ```bash
 npm run deploy      # vite build && gh-pages -d dist --no-history --dotfiles
+                     # then prints "Homepage: https://digital-duck.github.io/cb-linalg/"
 ```
+
+`npm run deploy` builds the static site and pushes it to the `gh-pages`
+branch — an orphan branch (`--no-history`) containing only the compiled
+`dist/` output, with no shared commit history with `main`. Never open a PR
+from `gh-pages` into `main`; there's no common ancestor, so the diff would
+just show your entire source tree replaced by build artifacts.
+
+### One-time repo setting
+
+GitHub Pages must be told to actually serve `gh-pages`, not `main` — this
+isn't set by `npm run deploy` itself:
+
+1. Repo → **Settings → Pages**.
+2. Under "Build and deployment" → **Source**: "Deploy from a branch".
+3. **Branch**: `gh-pages`, folder `/ (root)`. Save.
+
+If this is left on `main` (or never set), the published URL serves `main`'s
+raw, unbuilt `index.html` — which references `/src/main.js` directly and
+renders blank, since GitHub Pages only serves static files and can't resolve
+an unbundled ES module entrypoint. Symptom: the page loads (HTTP 200) but is
+blank, and the built JS/CSS bundle paths 404.
+
+`vite.config.js`'s `base` must also match the repo name (`/cb-linalg/`) for
+the built asset paths to resolve under `https://digital-duck.github.io/cb-linalg/`
+— already set correctly here, but worth checking first if you ever fork this
+app under a different repo name.
 
 The backend API and `spl/` workflow are local-only tools, not deployed —
 generated book/concept HTML files are committed into `public/domains/` and

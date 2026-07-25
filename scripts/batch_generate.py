@@ -3,6 +3,8 @@
 
 Picks 1-2 application nodes per domain and runs spl3 for each,
 updating catalog.json on success — same path as the FastAPI backend.
+Targets already present in catalog.json are skipped by default (pass
+--no-skip-existing to force regeneration, e.g. after a prompt/style change).
 
 Prerequisites (spl123 conda env must be active):
     conda activate spl123
@@ -23,8 +25,8 @@ Usage examples:
     # Only specific domains
     python scripts/batch_generate.py --domain linalg_ch01 --domain linalg_ch02
 
-    # Skip already-generated targets
-    python scripts/batch_generate.py --skip-existing
+    # Force-regenerate targets already in catalog.json (default is to skip them)
+    python scripts/batch_generate.py --no-skip-existing
 
     # Override level and LLM
     python scripts/batch_generate.py --level college --llm claude_cli:claude-opus-4-8
@@ -34,6 +36,7 @@ Usage examples:
     python scripts/batch_generate.py --language French
     python scripts/batch_generate.py --language zh
 """
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -48,6 +51,17 @@ REPO_ROOT = Path(__file__).parent.parent
 SPL_WORKFLOW = REPO_ROOT / "spl"
 DOMAINS_DIR = REPO_ROOT / "public" / "domains"
 CATALOG_PATH = DOMAINS_DIR / "catalog.json"
+
+# api/config.py's Settings is the single source of truth for these limits
+# (CB_SPL_WHILE_MAX_ITER / CB_SPL_MAX_LLM_CALLS env vars, default 50 each) —
+# the FastAPI backend (api/services/executor.py) already passes them to spl3
+# this way. This script used to invoke spl3 with a bare environment, silently
+# falling back to SPL.py's own hardcoded default of 15 for SPL_WHILE_MAX_ITER
+# — much tighter than the backend's 50, and the actual cause of "WHILE loop
+# exceeded 15 iterations" failures on longer sections that the same domain
+# generates fine through the web UI.
+sys.path.insert(0, str(REPO_ROOT))
+from api.config import settings as _api_settings  # noqa: E402
 
 # Maps friendly language names and aliases → ISO 639-1 codes (case-insensitive lookup).
 _LANG_MAP: dict[str, str] = {
@@ -184,7 +198,13 @@ def _run_spl3(
         "--param", f"llm={llm}",
     ]
 
-    result = subprocess.run(cmd, cwd=str(spl_dir))
+    spl_env = {
+        **os.environ,
+        "SPL_WHILE_MAX_ITER": str(_api_settings.spl_while_max_iter),
+        "SPL_MAX_LLM_CALLS": str(_api_settings.spl_max_llm_calls),
+    }
+
+    result = subprocess.run(cmd, cwd=str(spl_dir), env=spl_env)
     return result.returncode == 0
 
 
@@ -213,8 +233,9 @@ def _run_spl3(
 )
 @click.option("--skip-cache", is_flag=True, help="Pass skip_cache=yes to spl3.")
 @click.option(
-    "--skip-existing", is_flag=True,
-    help="Skip targets already present in catalog.json books list for this model.",
+    "--skip-existing/--no-skip-existing", default=True,
+    help="Skip targets already present in catalog.json books list for this model "
+         "(default: on — pass --no-skip-existing to force regeneration).",
 )
 @click.option("--dry-run", is_flag=True, help="Print planned jobs without running them.")
 @click.option(

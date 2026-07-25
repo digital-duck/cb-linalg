@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/concept-book-base/',
+  base: '/cb-linalg/',
   server: {
     proxy: {
       '/api': 'http://localhost:8200',

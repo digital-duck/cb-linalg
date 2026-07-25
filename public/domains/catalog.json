@@ -71,9 +71,88 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "gram_schmidt_procedure",
+        "file": "output/college.en/sonnet/html/book_gram_schmidt_procedure.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "column_vector",
+        "label": "Column Vector",
+        "file": "output/college.en/sonnet/html/concept_column_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "complex_conjugate_vector",
+        "label": "Complex Conjugate Vector",
+        "file": "output/college.en/sonnet/html/concept_complex_conjugate_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "complex_number",
+        "label": "Complex Number",
+        "file": "output/college.en/sonnet/html/concept_complex_number.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gram_schmidt_procedure",
+        "label": "Gram Schmidt Procedure",
+        "file": "output/college.en/sonnet/html/concept_gram_schmidt_procedure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inner_product",
+        "label": "Inner Product",
+        "file": "output/college.en/sonnet/html/concept_inner_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_combination",
+        "label": "Linear Combination",
+        "file": "output/college.en/sonnet/html/concept_linear_combination.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_independence",
+        "label": "Linear Independence",
+        "file": "output/college.en/sonnet/html/concept_linear_independence.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthogonal_set",
+        "label": "Orthogonal Set",
+        "file": "output/college.en/sonnet/html/concept_orthogonal_set.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthogonal_vectors",
+        "label": "Orthogonal Vectors",
+        "file": "output/college.en/sonnet/html/concept_orthogonal_vectors.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "relation_of_linear_dependence",
+        "label": "Relation Of Linear Dependence",
+        "file": "output/college.en/sonnet/html/concept_relation_of_linear_dependence.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
+        "file": "output/college.en/sonnet/html/concept_scalar_multiplication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector_addition",
+        "label": "Vector Addition",
+        "file": "output/college.en/sonnet/html/concept_vector_addition.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
@@ -97,9 +176,69 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "money_best_cities_ranking",
+        "file": "output/college.en/sonnet/html/book_money_best_cities_ranking.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "solving_systems_via_inverse",
+        "file": "output/college.en/sonnet/html/book_solving_systems_via_inverse.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "matrix",
+        "label": "Matrix",
+        "file": "output/college.en/sonnet/html/concept_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_inverse",
+        "label": "Matrix Inverse",
+        "file": "output/college.en/sonnet/html/concept_matrix_inverse.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_multiplication",
+        "label": "Matrix Multiplication",
+        "file": "output/college.en/sonnet/html/concept_matrix_multiplication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "money_best_cities_ranking",
+        "label": "Money Best Cities Ranking",
+        "file": "output/college.en/sonnet/html/concept_money_best_cities_ranking.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nonsingular_matrix",
+        "label": "Nonsingular Matrix",
+        "file": "output/college.en/sonnet/html/concept_nonsingular_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "solving_systems_via_inverse",
+        "label": "Solving Systems Via Inverse",
+        "file": "output/college.en/sonnet/html/concept_solving_systems_via_inverse.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "systems_as_matrix_multiplication",
+        "label": "Systems As Matrix Multiplication",
+        "file": "output/college.en/sonnet/html/concept_systems_as_matrix_multiplication.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
@@ -149,9 +288,88 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "determinant_by_row_reduction",
+        "file": "output/college.en/sonnet/html/book_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "determinant_by_row_reduction",
+        "label": "Determinant By Row Reduction",
+        "file": "output/college.en/sonnet/html/concept_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_definition",
+        "label": "Determinant Definition",
+        "file": "output/college.en/sonnet/html/concept_determinant_definition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_columns",
+        "label": "Determinant Expansion About Columns",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_columns.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_rows",
+        "label": "Determinant Expansion About Rows",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_rows.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_of_transpose",
+        "label": "Determinant Of Transpose",
+        "file": "output/college.en/sonnet/html/concept_determinant_of_transpose.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple",
+        "label": "Determinant Row Column Multiple",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple_and_addition",
+        "label": "Determinant Row Column Multiple And Addition",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple_and_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_swap",
+        "label": "Determinant Row Column Swap",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_swap.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_upper_triangular",
+        "label": "Determinant Upper Triangular",
+        "file": "output/college.en/sonnet/html/concept_determinant_upper_triangular.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "row_operations",
+        "label": "Row Operations",
+        "file": "output/college.en/sonnet/html/concept_row_operations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "square_matrix",
+        "label": "Square Matrix",
+        "file": "output/college.en/sonnet/html/concept_square_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "submatrix",
+        "label": "Submatrix",
+        "file": "output/college.en/sonnet/html/concept_submatrix.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
@@ -175,9 +393,69 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "matrix_power_via_diagonalization",
+        "file": "output/college.en/sonnet/html/book_matrix_power_via_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "fibonacci_closed_form",
+        "file": "output/college.en/sonnet/html/book_fibonacci_closed_form.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "diagonal_matrix",
+        "label": "Diagonal Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalizable_matrix",
+        "label": "Diagonalizable Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonalizable_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalization_characterization",
+        "label": "Diagonalization Characterization",
+        "file": "output/college.en/sonnet/html/concept_diagonalization_characterization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "eigenvalue_eigenvector",
+        "label": "Eigenvalue Eigenvector",
+        "file": "output/college.en/sonnet/html/concept_eigenvalue_eigenvector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fibonacci_closed_form",
+        "label": "Fibonacci Closed Form",
+        "file": "output/college.en/sonnet/html/concept_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_power_via_diagonalization",
+        "label": "Matrix Power Via Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_matrix_power_via_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "similar_matrices",
+        "label": "Similar Matrices",
+        "file": "output/college.en/sonnet/html/concept_similar_matrices.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
@@ -201,9 +479,64 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "linear_transformations_and_systems_of_equations",
+        "file": "output/college.en/sonnet/html/book_linear_transformations_and_systems_of_equations.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/sonnet/html/concept_function.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kernel_of_linear_transformation",
+        "label": "Kernel Of Linear Transformation",
+        "file": "output/college.en/sonnet/html/concept_kernel_of_linear_transformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_transformation",
+        "label": "Linear Transformation",
+        "file": "output/college.en/sonnet/html/concept_linear_transformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_transformations_and_systems_of_equations",
+        "label": "Linear Transformations And Systems Of Equations",
+        "file": "output/college.en/sonnet/html/concept_linear_transformations_and_systems_of_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pre_image",
+        "label": "Pre Image",
+        "file": "output/college.en/sonnet/html/concept_pre_image.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "range_of_linear_transformation",
+        "label": "Range Of Linear Transformation",
+        "file": "output/college.en/sonnet/html/concept_range_of_linear_transformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector_space",
+        "label": "Vector Space",
+        "file": "output/college.en/sonnet/html/concept_vector_space.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
@@ -227,9 +560,34 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "orthonormal_basis_normal_matrix",
+        "file": "output/college.en/sonnet/html/book_orthonormal_basis_normal_matrix.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "normal_matrix",
+        "label": "Normal Matrix",
+        "file": "output/college.en/sonnet/html/concept_normal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthonormal_basis_normal_matrix",
+        "label": "Orthonormal Basis Normal Matrix",
+        "file": "output/college.en/sonnet/html/concept_orthonormal_basis_normal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthonormal_diagonalization",
+        "label": "Orthonormal Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_orthonormal_diagonalization.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
@@ -253,9 +611,165 @@
       "math"
     ],
     "has_navigator": true,
-    "has_book": false,
-    "books": [],
-    "generated_concepts": [],
+    "has_book": true,
+    "books": [
+      {
+        "target": "fibonacci_closed_form",
+        "file": "output/college.en/sonnet/html/book_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "determinant_by_row_reduction",
+        "file": "output/college.en/sonnet/html/book_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "determinant_by_row_reduction",
+        "label": "Determinant By Row Reduction",
+        "file": "output/college.en/sonnet/html/concept_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_definition",
+        "label": "Determinant Definition",
+        "file": "output/college.en/sonnet/html/concept_determinant_definition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_columns",
+        "label": "Determinant Expansion About Columns",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_columns.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_rows",
+        "label": "Determinant Expansion About Rows",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_rows.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_of_transpose",
+        "label": "Determinant Of Transpose",
+        "file": "output/college.en/sonnet/html/concept_determinant_of_transpose.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple",
+        "label": "Determinant Row Column Multiple",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple_and_addition",
+        "label": "Determinant Row Column Multiple And Addition",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple_and_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_swap",
+        "label": "Determinant Row Column Swap",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_swap.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_upper_triangular",
+        "label": "Determinant Upper Triangular",
+        "file": "output/college.en/sonnet/html/concept_determinant_upper_triangular.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonal_matrix",
+        "label": "Diagonal Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalizable_matrix",
+        "label": "Diagonalizable Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonalizable_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalization_characterization",
+        "label": "Diagonalization Characterization",
+        "file": "output/college.en/sonnet/html/concept_diagonalization_characterization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "eigenvalue_eigenvector",
+        "label": "Eigenvalue Eigenvector",
+        "file": "output/college.en/sonnet/html/concept_eigenvalue_eigenvector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "equation_operations",
+        "label": "Equation Operations",
+        "file": "output/college.en/sonnet/html/concept_equation_operations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fibonacci_closed_form",
+        "label": "Fibonacci Closed Form",
+        "file": "output/college.en/sonnet/html/concept_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_equation",
+        "label": "Linear Equation",
+        "file": "output/college.en/sonnet/html/concept_linear_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix",
+        "label": "Matrix",
+        "file": "output/college.en/sonnet/html/concept_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_power_via_diagonalization",
+        "label": "Matrix Power Via Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_matrix_power_via_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "row_operations",
+        "label": "Row Operations",
+        "file": "output/college.en/sonnet/html/concept_row_operations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "similar_matrices",
+        "label": "Similar Matrices",
+        "file": "output/college.en/sonnet/html/concept_similar_matrices.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "square_matrix",
+        "label": "Square Matrix",
+        "file": "output/college.en/sonnet/html/concept_square_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "submatrix",
+        "label": "Submatrix",
+        "file": "output/college.en/sonnet/html/concept_submatrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "system_of_linear_equations",
+        "label": "System Of Linear Equations",
+        "file": "output/college.en/sonnet/html/concept_system_of_linear_equations.html",
+        "model": "sonnet"
+      }
+    ],
     "source": {
       "title": "A First Course in Linear Algebra (FCLA), v3.50",
       "authors": "Robert A. Beezer",
