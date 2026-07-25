@@ -120,6 +120,30 @@ function _injectSidebarTheme(win, doc) {
     .primitive-k { background: #fffde7 !important; color: #795548 !important; }
     .concept-k   { background: #e8f5e9 !important; color: #2e7d32 !important; }
     .application-k { background: #fce4ec !important; color: #c62828 !important; }
+    /* Notes sidebar — match the dark theme applied to #path-sidebar above;
+       the generated graph.html ships it light/cream by default. */
+    #notes-sidebar {
+      background: #1e3a5f !important;
+      color: #e8f0fe !important;
+      border-left-color: rgba(255,255,255,0.12) !important;
+    }
+    #notes-header { border-bottom-color: rgba(255,255,255,0.12) !important; }
+    #notes-header h2 { color: #90b4e8 !important; }
+    #notes-node-label { color: #a8c8f0 !important; }
+    .nb-btn {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.25) !important;
+      color: #cfe0f7 !important;
+    }
+    .nb-btn:hover { background: rgba(255,255,255,0.18) !important; color: #fff !important; }
+    #notes-textarea { background: #1e3a5f !important; color: #e8f0fe !important; }
+    #notes-textarea::placeholder { color: #6f93bf !important; }
+    #notes-with-entries { border-top-color: rgba(255,255,255,0.12) !important; }
+    .note-entry { border-bottom-color: rgba(255,255,255,0.08) !important; }
+    .note-entry:hover { background: rgba(255,255,255,0.07) !important; }
+    .note-entry .note-node { color: #e8f0fe !important; }
+    .note-entry .note-ts { color: #90b4e8 !important; }
+    .note-entry .note-preview { color: #90b4e8 !important; }
   `
   doc.head.appendChild(style)
 
