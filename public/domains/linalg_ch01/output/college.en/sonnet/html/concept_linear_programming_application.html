@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Programming Application | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch01/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch01/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch01/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="linear-programming-application">Linear Programming Application</h2>
+<p><strong>Definition.</strong> A <em>linear program</em> (LP) is an optimization problem of the form</p>
+$$\text{maximize} \quad \mathbf{c}^\top \mathbf{x} \quad \text{subject to} \quad A\mathbf{x} \leq \mathbf{b},\; \mathbf{x} \geq \mathbf{0},$$
+<p>where $\mathbf{x} \in \mathbb{R}^n$ is the decision vector, $\mathbf{c} \in \mathbb{R}^n$ is the objective coefficient vector, $A \in \mathbb{R}^{m \times n}$ is the constraint matrix, and $\mathbf{b} \in \mathbb{R}^m$ encodes resource limits. The <em>feasible region</em> $\mathcal{F} = \{\mathbf{x} : A\mathbf{x} \leq \mathbf{b},\, \mathbf{x} \geq \mathbf{0}\}$ is a convex polytope; an optimal solution, when it exists, always occurs at a vertex of this polytope.</p>
+<p><strong>Worked Example.</strong> A small bakery produces two goods: croissants ($x_1$) and muffins ($x_2$). Each croissant yields \$3 profit and requires 2 units of flour and 1 unit of butter. Each muffin yields \$4 profit and requires 1 unit of flour and 2 units of butter. Daily supplies are 100 units of flour and 80 units of butter. The LP is</p>
+$$\text{maximize} \quad 3x_1 + 4x_2$$
+$$\text{subject to} \quad 2x_1 + x_2 \leq 100,\quad x_1 + 2x_2 \leq 80,\quad x_1, x_2 \geq 0.$$
+<p>Solving by finding the vertices of $\mathcal{F}$: the intersection of the two binding constraints gives $x_1 = 40,\; x_2 = 20$, yielding an objective value of $3(40)+4(20) = 200$. Checking all other vertices confirms this is the global maximum.</p>
+<p><strong>Key Theorem (Fundamental Theorem of Linear Programming).</strong> If a linear program has a bounded, non-empty feasible region, then an optimal solution exists and is attained at a vertex (extreme point) of the feasible polytope $\mathcal{F}$. This fact underlies the correctness of the <em>Simplex algorithm</em>, which traverses adjacent vertices along improving edges, terminating in finite time under non-degeneracy. In the worst case the Simplex method is exponential, but interior-point methods solve any LP in polynomial time $O(n^{3.5})$.</p>
+<p><strong>Lab Cell.</strong></p>
+<pre><code>from sympy import symbols, Rational
+from sympy.solvers.inequalities import reduce_rational_inequalities
+
+# Verify the bakery corner point analytically
+x1, x2 = symbols('x1 x2', nonneg=True)
+
+# Binding constraints: 2x1 + x2 = 100, x1 + 2x2 = 80
+from sympy import solve, Eq
+sol = solve([Eq(2*x1 + x2, 100), Eq(x1 + 2*x2, 80)], [x1, x2])
+profit = 3*sol[x1] + 4*sol[x2]
+print(f"Optimal point: {sol}")   # {x1: 40, x2: 20}
+print(f"Maximum profit: {profit}")  # 200</code></pre>
+  </main>
+</div>
+</body>
+</html>

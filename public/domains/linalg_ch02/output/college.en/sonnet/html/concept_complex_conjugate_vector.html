@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Conjugate Vector | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch02/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="complex-conjugate-vector">Complex Conjugate Vector</h2>
+<p><strong>Definition.</strong> Let $\mathbf{v} = (v_1, v_2, \ldots, v_n) \in \mathbb{C}^n$ be a vector with complex entries, where each $v_k = a_k + b_k i$ for real numbers $a_k, b_k$. The <em>complex conjugate vector</em> of $\mathbf{v}$, denoted $\overline{\mathbf{v}}$, is the vector obtained by replacing each entry with its complex conjugate:</p>
+$$\overline{\mathbf{v}} = (\overline{v_1}, \overline{v_2}, \ldots, \overline{v_n}) = (a_1 - b_1 i,\; a_2 - b_2 i,\; \ldots,\; a_n - b_n i).$$
+<p>The operation is applied entrywise; no reordering of components occurs. When $\mathbf{v} \in \mathbb{R}^n$, every imaginary part is zero and $\overline{\mathbf{v}} = \mathbf{v}$.</p>
+<p><strong>Worked Example.</strong> Let $\mathbf{v} = (3 + 2i,\; -1 + 4i,\; 5i) \in \mathbb{C}^3$. Applying the definition entry by entry:</p>
+$$\overline{\mathbf{v}} = (3 - 2i,\; -1 - 4i,\; -5i).$$
+<p>To verify, compute the entrywise product $\mathbf{v} \odot \overline{\mathbf{v}}$:</p>
+$$(3+2i)(3-2i) = 9 + 4 = 13, \quad (-1+4i)(-1-4i) = 1 + 16 = 17, \quad (5i)(-5i) = 25.$$
+<p>Each result is a non-negative real number, illustrating the general identity $v_k \overline{v_k} = |v_k|^2$.</p>
+<p><strong>Key Theorem (Conjugate Linearity).</strong> For all $\mathbf{u}, \mathbf{v} \in \mathbb{C}^n$ and $\alpha \in \mathbb{C}$:</p>
+$$\overline{\mathbf{u} + \mathbf{v}} = \overline{\mathbf{u}} + \overline{\mathbf{v}}, \qquad \overline{\alpha\, \mathbf{v}} = \overline{\alpha}\;\overline{\mathbf{v}}.$$
+<p><em>Proof sketch.</em> Both identities follow immediately from the corresponding scalar identities $\overline{z + w} = \overline{z} + \overline{w}$ and $\overline{\alpha z} = \overline{\alpha}\,\overline{z}$, applied coordinate by coordinate. $\square$</p>
+<p>A direct consequence is that the standard Hermitian inner product on $\mathbb{C}^n$ is expressible as $\langle \mathbf{u}, \mathbf{v} \rangle = \overline{\mathbf{u}}^{\top} \mathbf{v}$, making the complex conjugate vector indispensable in quantum mechanics and signal processing.</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import symbols, conjugate, Matrix, I
+
+v = Matrix([3 + 2*I, -1 + 4*I, 5*I])
+v_conj = v.applyfunc(conjugate)
+print("v̄ =", v_conj)
+print("|v_k|² =", (v.applyfunc(conjugate).multiply_elementwise(v)))</code></pre>
+  </main>
+</div>
+</body>
+</html>

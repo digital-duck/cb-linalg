@@ -1,0 +1,129 @@
+domain: linalg_beezer_ch04
+primitives:
+  vector_space:
+    defines: A set V with vector addition and scalar multiplication (over a field such as the complex
+      numbers) satisfying ten defining properties (closure, commutativity, associativity, zero vector,
+      additive inverses, and distributivity/scalar laws).
+    tier: 0
+concepts:
+  linear_combination:
+    defines: An expression formed by adding scalar multiples of vectors from a vector space, α1u1 + α2u2
+      + ... + αnun.
+    composed_of:
+    - vector_space
+    tier: 1
+  subspace:
+    defines: A subset of a vector space that is itself a vector space under the same operations; equivalently,
+      a nonempty subset closed under vector addition and scalar multiplication (Theorem TSS).
+    composed_of:
+    - vector_space
+    tier: 1
+  span:
+    defines: The set of all linear combinations of a given set of vectors from a vector space; the span
+      of any subset is always a subspace (Theorem SSS).
+    composed_of:
+    - linear_combination
+    - subspace
+    tier: 2
+  linear_dependence_relation:
+    defines: An equation setting a linear combination of a set of vectors equal to the zero vector; it
+      is trivial if all scalars are zero.
+    composed_of:
+    - linear_combination
+    tier: 2
+  linear_independence:
+    defines: A set of vectors for which the only relation of linear dependence on it is the trivial one;
+      otherwise the set is linearly dependent.
+    composed_of:
+    - linear_dependence_relation
+    tier: 3
+  spanning_set:
+    defines: A subset S of a vector space V such that the span of S equals V.
+    composed_of:
+    - span
+    tier: 3
+  spanning_sets_and_dependence:
+    defines: If a finite set of t vectors spans a vector space, then any set of more than t vectors from
+      that space must be linearly dependent.
+    composed_of:
+    - spanning_set
+    - linear_independence
+    tier: 4
+  vector_representation:
+    defines: If a set is linearly independent and spans a vector space, every vector in the space can
+      be written uniquely as a linear combination of that set's vectors.
+    composed_of:
+    - linear_independence
+    - spanning_set
+    tier: 4
+  basis:
+    defines: A subset of a vector space that is both linearly independent and spans the vector space,
+      providing a minimal set of "raw materials" for building every vector uniquely.
+    composed_of:
+    - linear_independence
+    - spanning_set
+    tier: 4
+  orthonormal_basis:
+    defines: A basis whose vectors form an orthogonal set all normalized to length 1, allowing coordinates
+      relative to the basis to be computed directly via inner products (Theorem COB).
+    composed_of:
+    - basis
+    tier: 5
+  bases_have_identical_sizes:
+    defines: Any two finite bases of the same vector space contain the same number of vectors, which makes
+      the notion of dimension well-defined.
+    composed_of:
+    - basis
+    tier: 5
+  dimension:
+    defines: The number of vectors in any basis of a vector space, giving a well-defined measure of the
+      "size" of the space (infinite if no finite basis exists).
+    composed_of:
+    - bases_have_identical_sizes
+    tier: 6
+  rank:
+    defines: The dimension of the column space of a matrix.
+    composed_of:
+    - dimension
+    tier: 7
+  nullity:
+    defines: The dimension of the null space of a matrix.
+    composed_of:
+    - dimension
+    tier: 7
+  goldilocks_theorem:
+    defines: In a vector space of dimension t, a set of vectors is linearly dependent if it has more than
+      t vectors, fails to span if it has fewer than t vectors, and if it has exactly t vectors then linear
+      independence and spanning each imply the other.
+    composed_of:
+    - dimension
+    - linear_independence
+    - spanning_set
+    tier: 7
+  equal_dimensions_yields_equal_subspaces:
+    defines: If a subspace U is contained in a subspace V and the two have the same (finite) dimension,
+      then U and V must be the identical set.
+    composed_of:
+    - dimension
+    - subspace
+    tier: 7
+  rank_plus_nullity:
+    defines: For an m×n matrix A, the rank of A plus the nullity of A equals n, the number of columns.
+    composed_of:
+    - rank
+    - nullity
+    tier: 8
+  rank_of_transpose:
+    defines: For any matrix A, the rank of A equals the rank of its transpose, so the row space and column
+      space always have the same dimension.
+    composed_of:
+    - rank
+    tier: 8
+  four_subspace_dimensions:
+    defines: For an m×n matrix with rank r, the null space has dimension n−r, the column space and row
+      space each have dimension r, and the left null space has dimension m−r.
+    composed_of:
+    - rank_plus_nullity
+    - rank_of_transpose
+    tier: 9
+applications: {}

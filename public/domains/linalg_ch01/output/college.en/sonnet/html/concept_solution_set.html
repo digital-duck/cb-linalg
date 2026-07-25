@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution Set | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch01/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch01/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch01/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="solution-set">Solution Set</h2>
+<p><strong>Definition.</strong> Given an equation or system of equations in variables $x_1, x_2, \ldots, x_n$, the <em>solution set</em> is the collection of all $n$-tuples $(a_1, a_2, \ldots, a_n)$ that simultaneously satisfy every equation in the system. Formally, for a single equation $f(x) = 0$ over a domain $D$, the solution set is</p>
+$$S = \{ x \in D \mid f(x) = 0 \}.$$
+<p>For a system of $m$ equations $f_1(\mathbf{x}) = 0, \ldots, f_m(\mathbf{x}) = 0$, the solution set is the intersection of the individual solution sets:</p>
+$$S = \bigcap_{i=1}^{m} \{ \mathbf{x} \in D \mid f_i(\mathbf{x}) = 0 \}.$$
+<p>The solution set may be empty (no solution), finite, or infinite, depending on the structure of the system. An <em>inconsistent</em> system has $S = \emptyset$; a <em>consistent</em> system has $S \neq \emptyset$.</p>
+<p><strong>Worked Example.</strong> Consider the system over $\mathbb{R}^2$:</p>
+$$f_1: x + y = 4, \qquad f_2: x - y = 0.$$
+<p>From $f_2$ we obtain $x = y$. Substituting into $f_1$ gives $2x = 4$, so $x = 2$ and $y = 2$. The solution set is the single point $S = \{(2, 2)\}$. Geometrically, $f_1$ and $f_2$ define two lines in the plane that intersect at exactly one point; the solution set is that intersection.</p>
+<p><strong>Key Theorem (Dimension of the Solution Set for Linear Systems).</strong> Let $A\mathbf{x} = \mathbf{b}$ be a linear system with $A \in \mathbb{R}^{m \times n}$. If the system is consistent, then every solution can be written as $\mathbf{x} = \mathbf{x}_p + \mathbf{x}_h$, where $\mathbf{x}_p$ is any particular solution and $\mathbf{x}_h$ ranges over the null space $\ker(A)$. Consequently, $S = \mathbf{x}_p + \ker(A)$, an affine subspace of $\mathbb{R}^n$ of dimension $n - \operatorname{rank}(A)$.</p>
+<p><strong>Lab Cell.</strong></p>
+<pre><code>from sympy import symbols, Eq, solve
+
+x, y = symbols('x y')
+system = [Eq(x + y, 4), Eq(x - y, 0)]
+solution_set = solve(system, [x, y])
+print(solution_set)   # {x: 2, y: 2}</code></pre>
+<p>Running this cell confirms $S = \{(2, 2)\}$. Modify the right-hand sides or add a third equation to observe how the solution set changes — try making the system inconsistent by replacing $x + y = 4$ with $x + y = 5$ while keeping $x - y = 0$ and a redundant equation $2x + 2y = 9$.</p>
+  </main>
+</div>
+</body>
+</html>

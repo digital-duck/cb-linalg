@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scalar Multiplication | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch02/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="scalar-multiplication">Scalar Multiplication</h2>
+<p><strong>Definition.</strong> Let $\mathbf{v} = (v_1, v_2, \ldots, v_n) \in \mathbb{R}^n$ be a vector and let $c \in \mathbb{R}$ be a scalar. The <em>scalar multiple</em> of $\mathbf{v}$ by $c$ is the vector</p>
+$$c\mathbf{v} = (cv_1, cv_2, \ldots, cv_n) \in \mathbb{R}^n.$$
+<p>Geometrically, scalar multiplication scales the magnitude of $\mathbf{v}$ by $|c|$ and reverses its direction when $c < 0$. When $c = 0$ the result is the zero vector $\mathbf{0}$, and when $c = 1$ the vector is unchanged.</p>
+<p><strong>Worked Example.</strong> Let $\mathbf{v} = (3, -2, 5)$ and $c = -4$. Then</p>
+$$c\mathbf{v} = -4 \cdot (3, -2, 5) = (-12,\ 8,\ -20).$$
+<p>The Euclidean norm satisfies $\|c\mathbf{v}\| = |c|\,\|\mathbf{v}\|$. Here $\|\mathbf{v}\| = \sqrt{9 + 4 + 25} = \sqrt{38}$, so $\|c\mathbf{v}\| = 4\sqrt{38}$, which agrees with direct computation: $\sqrt{144 + 64 + 400} = \sqrt{608} = 4\sqrt{38}$.</p>
+<p><strong>Key Theorem (Properties of Scalar Multiplication).</strong> For all $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$ and $c, d \in \mathbb{R}$:</p>
+<li>$(cd)\mathbf{v} = c(d\mathbf{v})$ <em>(associativity)</em></li>
+<li>$c(\mathbf{u} + \mathbf{v}) = c\mathbf{u} + c\mathbf{v}$ <em>(distributivity over vector addition)</em></li>
+<li>$(c + d)\mathbf{v} = c\mathbf{v} + d\mathbf{v}$ <em>(distributivity over scalar addition)</em></li>
+<li>$1 \cdot \mathbf{v} = \mathbf{v}$ <em>(identity)</em></li>
+<p><em>Proof sketch.</em> Each identity follows directly from the componentwise definition and the corresponding properties of real-number arithmetic. For property 2, the $i$-th component of $c(\mathbf{u} + \mathbf{v})$ is $c(u_i + v_i) = cu_i + cv_i$, which is the $i$-th component of $c\mathbf{u} + c\mathbf{v}$. The remaining identities are analogous. $\square$</p>
+<p>These four properties, together with the axioms of vector addition, form the complete axiomatic definition of a <em>vector space</em> over $\mathbb{R}$.</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import Matrix
+v = Matrix([3, -2, 5])
+c = -4
+cv = c * v
+print(cv)           # Matrix([-12, 8, -20])
+print(cv.norm())    # 4*sqrt(38)</code></pre>
+  </main>
+</div>
+</body>
+</html>

@@ -1,1 +1,267 @@
-[]
+[
+  {
+    "id": "linalg_ch01",
+    "name": "Linear Algebra Ch1: Systems of Linear Equations",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 1: Systems of Linear Equations.",
+    "capstone": "linear_programming_application",
+    "default_level": "college",
+    "nodes": 24,
+    "edges": 44,
+    "primitives": 4,
+    "concepts": 19,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "linear_programming_application",
+        "file": "output/college.en/sonnet/html/book_linear_programming_application.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "linear_equation",
+        "label": "Linear Equation",
+        "file": "output/college.en/sonnet/html/concept_linear_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_programming_application",
+        "label": "Linear Programming Application",
+        "file": "output/college.en/sonnet/html/concept_linear_programming_application.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "solution_set",
+        "label": "Solution Set",
+        "file": "output/college.en/sonnet/html/concept_solution_set.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "system_of_linear_equations",
+        "label": "System Of Linear Equations",
+        "file": "output/college.en/sonnet/html/concept_system_of_linear_equations.html",
+        "model": "sonnet"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch02",
+    "name": "Linear Algebra Ch2: Vectors",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 2: Vectors.",
+    "capstone": "gram_schmidt_procedure",
+    "default_level": "college",
+    "nodes": 30,
+    "edges": 39,
+    "primitives": 4,
+    "concepts": 25,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch03",
+    "name": "Linear Algebra Ch3: Matrices",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 3: Matrices.",
+    "capstone": "money_best_cities_ranking",
+    "default_level": "college",
+    "nodes": 34,
+    "edges": 51,
+    "primitives": 9,
+    "concepts": 22,
+    "applications": 3,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch04",
+    "name": "Linear Algebra Ch4: Vector Spaces",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 4: Vector Spaces.",
+    "capstone": "four_subspace_dimensions",
+    "default_level": "college",
+    "nodes": 20,
+    "edges": 28,
+    "primitives": 1,
+    "concepts": 19,
+    "applications": 0,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch05",
+    "name": "Linear Algebra Ch5: Determinants",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 5: Determinants.",
+    "capstone": "determinant_by_row_reduction",
+    "default_level": "college",
+    "nodes": 29,
+    "edges": 52,
+    "primitives": 6,
+    "concepts": 22,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch06",
+    "name": "Linear Algebra Ch6: Eigenvalues",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 6: Eigenvalues.",
+    "capstone": "matrix_power_via_diagonalization",
+    "default_level": "college",
+    "nodes": 25,
+    "edges": 36,
+    "primitives": 2,
+    "concepts": 21,
+    "applications": 2,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch07",
+    "name": "Linear Algebra Ch7: Linear Transformations",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 7: Linear Transformations.",
+    "capstone": "linear_transformations_and_systems_of_equations",
+    "default_level": "college",
+    "nodes": 40,
+    "edges": 57,
+    "primitives": 4,
+    "concepts": 35,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch08",
+    "name": "Linear Algebra Ch8: Representations",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 8: Representations.",
+    "capstone": "orthonormal_basis_normal_matrix",
+    "default_level": "college",
+    "nodes": 22,
+    "edges": 25,
+    "primitives": 5,
+    "concepts": 16,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_full",
+    "name": "Linear Algebra: Full Book (Beezer FCLA)",
+    "description": "A First Course in Linear Algebra (Beezer) -- merged full-book concept graph across all 8 chapters. See concept-book-press's docs/projects/linalg/merge_report.md for how cross-chapter node collisions were resolved.",
+    "capstone": "determinant_by_row_reduction",
+    "default_level": "college",
+    "nodes": 207,
+    "edges": 327,
+    "primitives": 22,
+    "concepts": 175,
+    "applications": 10,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  }
+]

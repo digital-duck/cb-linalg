@@ -8,6 +8,11 @@ Prerequisites (spl123 conda env must be active):
     conda activate spl123
     pip install -r requirements-api.txt   # click, pyyaml, pydantic-settings
 
+    # Domains must exist under public/domains/ first. For the Beezer FCLA
+    # chapters (linalg_ch01..linalg_ch08, linalg_full), sync them from
+    # concept-book-press's ingestion output:
+    python scripts/sync_linalg_from_press.py
+
 Usage examples:
     # Dry-run: show what would be generated
     python scripts/batch_generate.py --dry-run
@@ -16,7 +21,7 @@ Usage examples:
     python scripts/batch_generate.py --n-targets 1
 
     # Only specific domains
-    python scripts/batch_generate.py --domain mechanics --domain calculus
+    python scripts/batch_generate.py --domain linalg_ch01 --domain linalg_ch02
 
     # Skip already-generated targets
     python scripts/batch_generate.py --skip-existing
@@ -156,11 +161,21 @@ def _run_spl3(
     output_dir = DOMAINS_DIR / domain_id / "output" / f"{level}.{language}" / model / "html"
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Pass the domain's own synced graph.yaml as an absolute path rather than
+    # a bare "{domain_id}_graph.yaml" filename. graph_lib.load_domain()
+    # resolves bare filenames relative to SPL.py's own cookbook/74_concept_book
+    # directory, which requires every domain's graph to also be hand-copied
+    # there; an absolute path is honored as-is and works for any domain synced
+    # into public/domains/ regardless of whether a same-named copy exists in
+    # SPL.py's cookbook dir (e.g. domains synced from concept-book-press's
+    # ingestion pipeline, which never puts anything there).
+    domain_yaml_path = DOMAINS_DIR / domain_id / "input" / "graph.yaml"
+
     cmd = [
         "spl3", "run", str(SPL_WORKFLOW / "build_concept_book.spl"),
         "--tools", str(SPL_WORKFLOW / "tools.py"),
         "--llm", llm,
-        "--param", f"domain_yaml={domain_id}_graph.yaml",
+        "--param", f"domain_yaml={domain_yaml_path}",
         "--param", f"target={target}",
         "--param", f"lvl={level}",
         "--param", f"language={language}",

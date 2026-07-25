@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vector Addition | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch02/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="vector-addition">Vector Addition</h2>
+<p><strong>Definition.</strong> Let $\mathbf{u} = (u_1, u_2, \ldots, u_n)$ and $\mathbf{v} = (v_1, v_2, \ldots, v_n)$ be vectors in $\mathbb{R}^n$. Their <em>vector sum</em> is defined componentwise as</p>
+$$\mathbf{u} + \mathbf{v} = (u_1 + v_1,\; u_2 + v_2,\; \ldots,\; u_n + v_n).$$
+<p>Geometrically, this corresponds to the <em>parallelogram law</em>: place $\mathbf{u}$ and $\mathbf{v}$ tail-to-tail at the origin; the diagonal of the parallelogram they span is $\mathbf{u} + \mathbf{v}$. Equivalently, under the <em>tip-to-tail</em> interpretation, translate $\mathbf{v}$ so that its tail meets the tip of $\mathbf{u}$; the resultant arrow from the origin to the new tip of $\mathbf{v}$ is the sum.</p>
+<p><strong>Worked Example.</strong> Consider $\mathbf{u} = (3, -1, 2)$ and $\mathbf{v} = (-1, 4, 5)$ in $\mathbb{R}^3$. Applying the definition component by component:</p>
+$$\mathbf{u} + \mathbf{v} = (3 + (-1),\; -1 + 4,\; 2 + 5) = (2, 3, 7).$$
+<p>We can verify the geometric interpretation: the magnitude of $\mathbf{u} + \mathbf{v}$ is $\|\mathbf{u} + \mathbf{v}\| = \sqrt{4 + 9 + 49} = \sqrt{62} \approx 7.87$, which lies between $\|\mathbf{u}\| = \sqrt{14}$ and $\|\mathbf{u}\| + \|\mathbf{v}\| = \sqrt{14} + \sqrt{42}$, consistent with the triangle inequality.</p>
+<p><strong>Key Theorem (Properties of Vector Addition).</strong> For all $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$:</p>
+<li><em>Commutativity:</em> $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$.</li>
+<li><em>Associativity:</em> $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$.</li>
+<li><em>Additive identity:</em> $\mathbf{u} + \mathbf{0} = \mathbf{u}$, where $\mathbf{0} = (0, 0, \ldots, 0)$.</li>
+<li><em>Additive inverse:</em> $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$.</li>
+<p>Each property follows directly from the corresponding property of real-number addition applied componentwise, so no separate proof is required beyond citing the field axioms of $\mathbb{R}$.</p>
+<p><strong>Lab Cell.</strong></p>
+<pre><code>from sympy.matrices import Matrix
+
+u = Matrix([3, -1, 2])
+v = Matrix([-1, 4, 5])
+
+w = u + v          # componentwise addition
+print("u + v =", w.T)
+print("||u + v|| =", w.norm())
+print("Commutative check:", u + v == v + u)</code></pre>
+<p>Running this cell confirms $\mathbf{u} + \mathbf{v} = (2, 3, 7)^{\top}$, $\|\mathbf{u} + \mathbf{v}\| = \sqrt{62}$, and commutativity, providing immediate computational verification of the definitions and theorem above.</p>
+  </main>
+</div>
+</body>
+</html>

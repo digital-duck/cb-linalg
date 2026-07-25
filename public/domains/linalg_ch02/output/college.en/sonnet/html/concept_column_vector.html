@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Column Vector | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch02/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="column-vector">Column Vector</h2>
+<p>A <strong>column vector</strong> is a matrix consisting of a single column — that is, an array of $n$ real (or complex) numbers arranged vertically. Formally, a column vector $\mathbf{v}$ of dimension $n$ is an element of $\mathbb{R}^{n \times 1}$, written</p>
+$$\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix},$$
+<p>where each $v_i \in \mathbb{R}$ is called the $i$-th <strong>component</strong> (or <strong>entry</strong>) of $\mathbf{v}$. When the dimension is clear from context, we write $\mathbf{v} \in \mathbb{R}^n$. The <strong>transpose</strong> $\mathbf{v}^\top = (v_1,\, v_2,\, \ldots,\, v_n)$ converts the column vector into a row vector.</p>
+<p><strong>Worked Example.</strong> Let $\mathbf{u} = \begin{pmatrix} 3 \\ -1 \\ 2 \end{pmatrix}$ and $\mathbf{w} = \begin{pmatrix} 0 \\ 4 \\ -3 \end{pmatrix}$ in $\mathbb{R}^3$. Their sum is</p>
+$$\mathbf{u} + \mathbf{w} = \begin{pmatrix} 3+0 \\ -1+4 \\ 2+(-3) \end{pmatrix} = \begin{pmatrix} 3 \\ 3 \\ -1 \end{pmatrix}.$$
+<p>Scalar multiplication by $c = 2$ yields $2\mathbf{u} = \begin{pmatrix} 6 \\ -2 \\ 4 \end{pmatrix}$. These operations are performed component-wise, confirming that $\mathbb{R}^n$ is closed under addition and scalar multiplication.</p>
+<p><strong>Theorem (Standard Inner Product).</strong> For column vectors $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$, the <strong>dot product</strong> is defined as</p>
+$$\mathbf{u} \cdot \mathbf{v} = \mathbf{u}^\top \mathbf{v} = \sum_{i=1}^{n} u_i v_i.$$
+<p>This is a real number, not a vector. In particular, the <strong>Euclidean norm</strong> of $\mathbf{v}$ is $\|\mathbf{v}\| = \sqrt{\mathbf{v}^\top \mathbf{v}}$, and two vectors are <strong>orthogonal</strong> if and only if $\mathbf{u}^\top \mathbf{v} = 0$. For the example above, $\mathbf{u}^\top \mathbf{w} = (3)(0)+(-1)(4)+(2)(-3) = -10 \neq 0$, so $\mathbf{u}$ and $\mathbf{w}$ are not orthogonal.</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import Matrix, sqrt
+
+u = Matrix([3, -1, 2])
+w = Matrix([0,  4, -3])
+
+print("Sum:      ", u + w)
+print("2u:       ", 2 * u)
+print("Dot prod: ", u.dot(w))
+print("||u||:    ", sqrt(u.dot(u)))</code></pre>
+<p>Running this cell confirms $\mathbf{u} + \mathbf{w} = (3, 3, -1)^\top$, $\mathbf{u} \cdot \mathbf{w} = -10$, and $\|\mathbf{u}\| = \sqrt{14}$.</p>
+  </main>
+</div>
+</body>
+</html>
