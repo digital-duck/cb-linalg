@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relation Of Linear Dependence | /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <a href="../../#/domain//home/gongai/projects/digital-duck/cb-linalg/public/domains/linalg_ch02/input/graph" class="back">← /Home/Gongai/Projects/Digital-Duck/Cb-Linalg/Public/Domains/Linalg Ch02/Input/Graph</a>
+  </header>
+  <main>
+    <h2 id="relation-of-linear-dependence">Relation Of Linear Dependence</h2>
+<p><strong>Definition.</strong> Let $V$ be a vector space over a field $\mathbb{F}$, and let $S = \{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k\}$ be a finite subset of $V$. The set $S$ is said to satisfy a <em>relation of linear dependence</em> if there exist scalars $c_1, c_2, \ldots, c_k \in \mathbb{F}$, not all zero, such that</p>
+$$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_k\mathbf{v}_k = \mathbf{0}.$$
+<p>The equation itself — together with the specific coefficients $(c_1, \ldots, c_k)$ — is called a <strong>relation of linear dependence</strong> among the vectors. When no such non-trivial combination exists (i.e., the only solution is $c_1 = c_2 = \cdots = c_k = 0$), the set is <em>linearly independent</em>.</p>
+<p><strong>Worked Example.</strong> Consider $\mathbb{R}^3$ and the three vectors</p>
+$$\mathbf{v}_1 = \begin{pmatrix}1\\0\\2\end{pmatrix},\quad \mathbf{v}_2 = \begin{pmatrix}0\\1\\-1\end{pmatrix},\quad \mathbf{v}_3 = \begin{pmatrix}2\\-1\\5\end{pmatrix}.$$
+<p>We seek scalars satisfying $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 = \mathbf{0}$. Row-reducing the augmented matrix yields $c_1 = 2c_3$, $c_2 = -c_3$ for any free parameter $c_3$. Setting $c_3 = 1$ gives the relation $2\mathbf{v}_1 - \mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}$, confirming that $\mathbf{v}_3 = 2\mathbf{v}_1 - \mathbf{v}_2$ and the set is linearly dependent.</p>
+<p><strong>Key Theorem.</strong> A set $\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$ in $\mathbb{R}^n$ is linearly dependent if and only if at least one vector in the set lies in the span of the remaining vectors. Equivalently, the matrix $A = [\mathbf{v}_1 \mid \cdots \mid \mathbf{v}_k]$ has a non-trivial null space, i.e., $\operatorname{rank}(A) < k$.</p>
+<p><em>Proof sketch.</em> If a relation $\sum c_i\mathbf{v}_i = \mathbf{0}$ holds with some $c_j \neq 0$, isolate $\mathbf{v}_j = -c_j^{-1}\sum_{i \neq j} c_i\mathbf{v}_i$, placing it in $\operatorname{span}\{\mathbf{v}_i : i \neq j\}$. The converse is immediate by negating that expression. $\square$</p>
+<p><strong>Lab Cell (SymPy).</strong></p>
+<pre><code>from sympy import Matrix
+A = Matrix([[1, 0, 2],
+            [0, 1,-1],
+            [2,-1, 5]])
+print(A.nullspace())   # non-empty ⟹ linearly dependent</code></pre>
+<p>Running this cell returns one null vector, confirming the relation found above and illustrating how <code>nullspace()</code> mechanically detects linear dependence.</p>
+  </main>
+</div>
+</body>
+</html>
