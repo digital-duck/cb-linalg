@@ -123,9 +123,9 @@ def _get_application_ids(domain_id: str) -> list[str]:
     return list(apps.keys())
 
 
-def _already_generated(catalog_entry: dict, target: str, model: str) -> bool:
+def _already_generated(catalog_entry: dict, target: str, model: str, language: str) -> bool:
     return any(
-        b["target"] == target and b.get("model") == model
+        b["target"] == target and b.get("model") == model and b.get("language", "en") == language
         for b in catalog_entry.get("books", [])
     )
 
@@ -150,11 +150,20 @@ def _mark_generated(domain_id: str, target: str, level: str, language: str, mode
                 continue
             books: list[dict] = d.setdefault("books", [])
             book_file = f"output/{variant}/{model}/html/book_{target}.html"
-            if not any(b["target"] == target and b.get("model") == model for b in books):
-                books.append({"target": target, "file": book_file, "model": model})
+            if not any(
+                b["target"] == target and b.get("model") == model
+                and b.get("language", "en") == language
+                for b in books
+            ):
+                books.append({"target": target, "file": book_file, "model": model, "language": language})
             d["has_book"] = True
-            # Preserve legacy entries (no model field) and entries from other models
-            other = [c for c in d.get("generated_concepts", []) if c.get("model") != model]
+            # Preserve legacy entries (no model field) and entries from other models/languages
+            other = [
+                c for c in d.get("generated_concepts", [])
+                if c.get("model") != model or c.get("language", "en") != language
+            ]
+            for c in new_concepts:
+                c["language"] = language
             d["generated_concepts"] = sorted(other + new_concepts, key=lambda c: c["label"])
             break
 
@@ -280,7 +289,7 @@ def main(
             continue
         selected = app_ids[:n_targets]
         for target in selected:
-            if skip_existing and _already_generated(entry, target, model):
+            if skip_existing and _already_generated(entry, target, model, language):
                 click.echo(f"[skip] {did}/{target} ({model}): already in catalog")
                 continue
             jobs.append((did, target, eff_level))
