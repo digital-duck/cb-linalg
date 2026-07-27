@@ -38,6 +38,11 @@ DOMAINS_ROOT = REPO_ROOT / "public" / "domains"
 CATALOG_PATH = DOMAINS_ROOT / "catalog.json"
 GRAPH_TOOL = REPO_ROOT / "scripts" / "concept_graph.py"
 
+# concept-book-press's level_map.py is the single source of truth for which
+# academic level a known source book targets (see that module's docstring).
+sys.path.insert(0, str(PRESS_ROOT))
+from pipeline.level_map import derive_level  # noqa: E402
+
 SOURCE = {
     "title": "A First Course in Linear Algebra (FCLA), v3.50",
     "authors": "Robert A. Beezer",
@@ -115,7 +120,7 @@ def _sync_one(
         "name": name,
         "description": description,
         "capstone": capstone or "",
-        "default_level": "college",
+        "default_level": derive_level("linalg"),
         **stats,
         "tags": ["math"],
         "has_navigator": True,
