@@ -4,7 +4,7 @@ export default defineConfig({
   base: '/cb-linalg/',
   server: {
     proxy: {
-      '/api': 'http://localhost:8200',
+      '/api': 'http://localhost:8206',
     },
   },
 })
