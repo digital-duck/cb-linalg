@@ -1,0 +1,171 @@
+domain: linalg_beezer_ch02
+primitives:
+  column_vector:
+    defines: An ordered list of complex numbers written vertically.
+    tier: 0
+  complex_number:
+    defines: A number of the form a + bi used as the scalar field for vectors in this chapter.
+    tier: 0
+  complex_conjugate_vector:
+    defines: The vector formed by taking the complex conjugate of every entry of a vector.
+    tier: 0
+  standard_unit_vectors:
+    defines: The vectors e_j with a 1 in position j and 0 elsewhere, forming the columns of the identity
+      matrix.
+    tier: 0
+concepts:
+  vector_space_cm:
+    defines: The set of all column vectors of a fixed size m with entries from the complex numbers.
+    composed_of:
+    - column_vector
+    - complex_number
+    tier: 1
+  vector_equality:
+    defines: Two vectors are equal when all their corresponding entries are equal.
+    composed_of:
+    - column_vector
+    tier: 1
+  vector_addition:
+    defines: The sum of two vectors of the same size, formed by adding corresponding entries.
+    composed_of:
+    - column_vector
+    tier: 1
+  scalar_multiplication:
+    defines: The vector formed by multiplying every entry of a vector by a fixed scalar.
+    composed_of:
+    - column_vector
+    - complex_number
+    tier: 1
+  vector_space_properties:
+    defines: Ten basic algebraic properties satisfied by vector addition and scalar multiplication.
+    composed_of:
+    - vector_addition
+    - scalar_multiplication
+    tier: 2
+  linear_combination:
+    defines: A vector formed by combining a set of vectors using scalar multiplication and vector addition.
+    composed_of:
+    - vector_addition
+    - scalar_multiplication
+    tier: 2
+  solutions_as_linear_combinations:
+    defines: A vector x is a solution to LS(A,b) iff b equals the linear combination of the columns of
+      A formed with the entries of x.
+    composed_of:
+    - linear_combination
+    tier: 3
+  span:
+    defines: The set of all possible linear combinations of a given finite set of vectors.
+    composed_of:
+    - linear_combination
+    tier: 3
+  relation_of_linear_dependence:
+    defines: A true equation expressing a linear combination of a set of vectors as equal to the zero
+      vector.
+    composed_of:
+    - linear_combination
+    tier: 3
+  vector_form_of_solutions:
+    defines: A technique for expressing all solutions to a consistent linear system as a fixed vector
+      plus a linear combination of vectors.
+    composed_of:
+    - solutions_as_linear_combinations
+    - linear_combination
+    tier: 4
+  linear_independence:
+    defines: A set of vectors for which the only relation of linear dependence is the trivial one.
+    composed_of:
+    - relation_of_linear_dependence
+    tier: 4
+  particular_plus_homogeneous:
+    defines: Every solution to a consistent linear system can be written as one particular solution plus
+      some solution of the corresponding homogeneous system.
+    composed_of:
+    - vector_form_of_solutions
+    tier: 5
+  spanning_set_of_null_space:
+    defines: A specific set of vectors, derived from free variables of a row-reduced matrix, whose span
+      equals the null space of the matrix.
+    composed_of:
+    - span
+    - vector_form_of_solutions
+    tier: 5
+  linear_independence_and_homogeneous_systems:
+    defines: A set of vectors is linearly independent iff the homogeneous system formed from them as matrix
+      columns has only the trivial solution.
+    composed_of:
+    - linear_independence
+    tier: 5
+  more_vectors_than_size:
+    defines: Any set of more than m vectors from C^m must be linearly dependent.
+    composed_of:
+    - linear_independence
+    tier: 5
+  nonsingular_linear_independence:
+    defines: A square matrix is nonsingular iff its columns form a linearly independent set.
+    composed_of:
+    - linear_independence
+    tier: 5
+  dependency_in_linearly_dependent_sets:
+    defines: A set of vectors is linearly dependent iff at least one vector can be written as a linear
+      combination of the others.
+    composed_of:
+    - linear_independence
+    tier: 5
+  basis_for_null_space:
+    defines: The spanning set for a null space is also linearly independent, forming a basis for the null
+      space.
+    composed_of:
+    - spanning_set_of_null_space
+    - linear_independence
+    tier: 6
+  casting_out_vectors:
+    defines: A procedure for removing redundant vectors from a spanning set, using pivot columns, to obtain
+      a linearly independent set with the same span.
+    composed_of:
+    - span
+    - dependency_in_linearly_dependent_sets
+    tier: 6
+  inner_product:
+    defines: A scalar formed from two vectors by summing products of entries of the first vector's conjugate
+      with entries of the second.
+    composed_of:
+    - column_vector
+    - complex_conjugate_vector
+    tier: 1
+  norm:
+    defines: The square root of the sum of the squared moduli of a vector's entries.
+    composed_of:
+    - inner_product
+    tier: 2
+  orthogonal_vectors:
+    defines: A pair of vectors whose inner product is zero.
+    composed_of:
+    - inner_product
+    tier: 2
+  orthogonal_set:
+    defines: A set of vectors in which every pair of distinct vectors is orthogonal.
+    composed_of:
+    - orthogonal_vectors
+    tier: 3
+  orthonormal_set:
+    defines: An orthogonal set of vectors in which every vector has norm equal to 1.
+    composed_of:
+    - orthogonal_set
+    - norm
+    tier: 4
+  orthogonal_sets_linearly_independent:
+    defines: Any orthogonal set of nonzero vectors is automatically a linearly independent set.
+    composed_of:
+    - orthogonal_set
+    - linear_independence
+    tier: 5
+applications:
+  gram_schmidt_procedure:
+    defines: An algorithm that converts a linearly independent set of vectors into an orthogonal set with
+      the same span.
+    needs:
+    - orthogonal_set
+    - linear_independence
+    - inner_product
+    tier: 5

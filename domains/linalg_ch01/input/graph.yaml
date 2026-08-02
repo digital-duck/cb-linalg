@@ -1,0 +1,163 @@
+domain: linalg_beezer_ch01
+primitives:
+  linear_equation:
+    defines: An equation involving only addition and multiplication of variables by constants (no products
+      of variables, exponents, or transcendental functions), of the form a1x1 + a2x2 + ... = b.
+    tier: 0
+  matrix:
+    defines: A rectangular array of numbers with m rows and n columns, used to encode the coefficients
+      and constants of a linear system.
+    tier: 0
+  column_vector:
+    defines: An ordered list of m numbers written vertically, used to represent variables, constants,
+      or solutions of a system.
+    tier: 0
+  square_matrix:
+    defines: A matrix with an equal number of rows and columns, m = n.
+    tier: 0
+concepts:
+  system_of_linear_equations:
+    defines: A collection of m linear equations in the same set of n variables x1,...,xn.
+    composed_of:
+    - linear_equation
+    tier: 1
+  solution_set:
+    defines: An ordered list of values for the variables that makes every equation in a system simultaneously
+      true, together with the set of all such lists.
+    composed_of:
+    - system_of_linear_equations
+    tier: 2
+  equation_operations:
+    defines: Three operations (swap two equations, multiply an equation by a nonzero scalar, add a multiple
+      of one equation to another) that transform a system without changing its solution set.
+    composed_of:
+    - linear_equation
+    - system_of_linear_equations
+    tier: 2
+  equivalent_systems:
+    defines: Two systems of linear equations are equivalent if they have identical solution sets.
+    composed_of:
+    - system_of_linear_equations
+    - solution_set
+    - equation_operations
+    tier: 3
+  coefficient_matrix:
+    defines: The matrix formed from the coefficients aij of a system of linear equations, with each row
+      corresponding to one equation.
+    composed_of:
+    - matrix
+    - system_of_linear_equations
+    tier: 2
+  vector_of_constants:
+    defines: The column vector formed from the right-hand-side constants bi of a system of linear equations.
+    composed_of:
+    - column_vector
+    - system_of_linear_equations
+    tier: 2
+  augmented_matrix:
+    defines: The matrix [A | b] formed by appending the vector of constants as an extra column to the
+      coefficient matrix, representing a full system of equations.
+    composed_of:
+    - coefficient_matrix
+    - vector_of_constants
+    tier: 3
+  row_operations:
+    defines: Three operations on a matrix (swap two rows, multiply a row by a nonzero scalar, add a multiple
+      of one row to another) analogous to equation operations, used to transform an augmented matrix.
+    composed_of:
+    - matrix
+    - equation_operations
+    tier: 3
+  row_equivalent_matrices:
+    defines: Two matrices related by a sequence of row operations; row-equivalent augmented matrices represent
+      equivalent systems of equations.
+    composed_of:
+    - row_operations
+    - augmented_matrix
+    - equivalent_systems
+    tier: 4
+  reduced_row_echelon_form:
+    defines: A canonical matrix form characterized by leading 1's (pivots) in a staircase pattern, each
+      the only nonzero entry in its column, with zero rows at the bottom; every matrix has a unique row-equivalent
+      matrix in this form, obtainable via Gauss-Jordan elimination.
+    composed_of:
+    - matrix
+    - row_operations
+    tier: 4
+  pivot_column:
+    defines: A column of a matrix in reduced row-echelon form that contains a leading 1; the set of pivot
+      column indices (D) versus non-pivot indices (F) determines dependent versus free variables.
+    composed_of:
+    - reduced_row_echelon_form
+    tier: 5
+  consistent_system:
+    defines: A system of linear equations that has at least one solution; a system is inconsistent exactly
+      when the last column of its reduced row-echelon augmented matrix is a pivot column.
+    composed_of:
+    - pivot_column
+    - augmented_matrix
+    - solution_set
+    tier: 6
+  free_dependent_variables:
+    defines: In a consistent system's reduced row-echelon form, variables corresponding to pivot columns
+      are dependent (determined by the others), while the remaining variables are free (may take any value),
+      with n − r free variables total.
+    composed_of:
+    - pivot_column
+    - consistent_system
+    tier: 7
+  possible_solution_sets:
+    defines: Every system of linear equations has exactly zero, one, or infinitely many solutions, determined
+      by comparing the number of pivot columns r to the number of variables n.
+    composed_of:
+    - pivot_column
+    - solution_set
+    - free_dependent_variables
+    tier: 8
+  homogeneous_system:
+    defines: A system of linear equations LS(A,0) in which every constant term is zero; such a system
+      is always consistent since the trivial (all-zero) solution always works.
+    composed_of:
+    - system_of_linear_equations
+    - vector_of_constants
+    tier: 3
+  trivial_solution:
+    defines: The solution x1=0, x2=0, ..., xn=0 of a homogeneous system, which always exists.
+    composed_of:
+    - homogeneous_system
+    tier: 4
+  null_space:
+    defines: The set N(A) of all solution vectors to the homogeneous system LS(A,0), viewed as a property
+      of the coefficient matrix A.
+    composed_of:
+    - homogeneous_system
+    - trivial_solution
+    - solution_set
+    tier: 5
+  identity_matrix:
+    defines: The square matrix Im with 1's on the diagonal and 0's elsewhere, which is already in reduced
+      row-echelon form with every column a pivot column.
+    composed_of:
+    - square_matrix
+    - reduced_row_echelon_form
+    tier: 5
+  nonsingular_matrix:
+    defines: A square matrix A for which the homogeneous system LS(A,0) has only the trivial solution;
+      equivalently A row-reduces to the identity matrix, has trivial null space, and yields a unique solution
+      to LS(A,b) for every constant vector b.
+    composed_of:
+    - square_matrix
+    - homogeneous_system
+    - trivial_solution
+    - identity_matrix
+    - null_space
+    tier: 6
+applications:
+  linear_programming_application:
+    defines: A real-world optimization scenario, illustrated by the trail mix example, where systems of
+      linear equations model production constraints and profit is maximized by choosing among the resulting
+      solution sets.
+    needs:
+    - system_of_linear_equations
+    - solution_set
+    tier: 3

@@ -1,0 +1,1220 @@
+[
+  {
+    "id": "linalg_ch01",
+    "name": "Linear Algebra Ch1: Systems of Linear Equations",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 1: Systems of Linear Equations.",
+    "capstone": "linear_programming_application",
+    "default_level": "college",
+    "nodes": 24,
+    "edges": 44,
+    "primitives": 4,
+    "concepts": 19,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "linear_programming_application",
+        "file": "output/college.en/sonnet/html/book_linear_programming_application.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "linear_programming_application",
+        "file": "output/college.zh/sonnet/html/book_linear_programming_application.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "linear_equation",
+        "label": "Linear Equation",
+        "file": "output/college.en/sonnet/html/concept_linear_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_equation_zh",
+        "label": "Linear Equation Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_equation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "linear_programming_application",
+        "label": "Linear Programming Application",
+        "file": "output/college.en/sonnet/html/concept_linear_programming_application.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_programming_application_zh",
+        "label": "Linear Programming Application Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_programming_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "solution_set",
+        "label": "Solution Set",
+        "file": "output/college.en/sonnet/html/concept_solution_set.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "solution_set_zh",
+        "label": "Solution Set Zh",
+        "file": "output/college.zh/sonnet/html/concept_solution_set_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "system_of_linear_equations",
+        "label": "System Of Linear Equations",
+        "file": "output/college.en/sonnet/html/concept_system_of_linear_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "system_of_linear_equations_zh",
+        "label": "System Of Linear Equations Zh",
+        "file": "output/college.zh/sonnet/html/concept_system_of_linear_equations_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch02",
+    "name": "Linear Algebra Ch2: Vectors",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 2: Vectors.",
+    "capstone": "gram_schmidt_procedure",
+    "default_level": "college",
+    "nodes": 30,
+    "edges": 39,
+    "primitives": 4,
+    "concepts": 25,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "gram_schmidt_procedure",
+        "file": "output/college.en/sonnet/html/book_gram_schmidt_procedure.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "gram_schmidt_procedure",
+        "file": "output/college.zh/sonnet/html/book_gram_schmidt_procedure.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "column_vector",
+        "label": "Column Vector",
+        "file": "output/college.en/sonnet/html/concept_column_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "column_vector_zh",
+        "label": "Column Vector Zh",
+        "file": "output/college.zh/sonnet/html/concept_column_vector_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "complex_conjugate_vector",
+        "label": "Complex Conjugate Vector",
+        "file": "output/college.en/sonnet/html/concept_complex_conjugate_vector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "complex_conjugate_vector_zh",
+        "label": "Complex Conjugate Vector Zh",
+        "file": "output/college.zh/sonnet/html/concept_complex_conjugate_vector_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "complex_number",
+        "label": "Complex Number",
+        "file": "output/college.en/sonnet/html/concept_complex_number.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "complex_number_zh",
+        "label": "Complex Number Zh",
+        "file": "output/college.zh/sonnet/html/concept_complex_number_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "gram_schmidt_procedure",
+        "label": "Gram Schmidt Procedure",
+        "file": "output/college.en/sonnet/html/concept_gram_schmidt_procedure.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "gram_schmidt_procedure_zh",
+        "label": "Gram Schmidt Procedure Zh",
+        "file": "output/college.zh/sonnet/html/concept_gram_schmidt_procedure_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "inner_product",
+        "label": "Inner Product",
+        "file": "output/college.en/sonnet/html/concept_inner_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "inner_product_zh",
+        "label": "Inner Product Zh",
+        "file": "output/college.zh/sonnet/html/concept_inner_product_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "linear_combination",
+        "label": "Linear Combination",
+        "file": "output/college.en/sonnet/html/concept_linear_combination.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_combination_zh",
+        "label": "Linear Combination Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_combination_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "linear_independence",
+        "label": "Linear Independence",
+        "file": "output/college.en/sonnet/html/concept_linear_independence.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_independence_zh",
+        "label": "Linear Independence Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_independence_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "orthogonal_set",
+        "label": "Orthogonal Set",
+        "file": "output/college.en/sonnet/html/concept_orthogonal_set.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthogonal_set_zh",
+        "label": "Orthogonal Set Zh",
+        "file": "output/college.zh/sonnet/html/concept_orthogonal_set_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "orthogonal_vectors",
+        "label": "Orthogonal Vectors",
+        "file": "output/college.en/sonnet/html/concept_orthogonal_vectors.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthogonal_vectors_zh",
+        "label": "Orthogonal Vectors Zh",
+        "file": "output/college.zh/sonnet/html/concept_orthogonal_vectors_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "relation_of_linear_dependence",
+        "label": "Relation Of Linear Dependence",
+        "file": "output/college.en/sonnet/html/concept_relation_of_linear_dependence.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "relation_of_linear_dependence_zh",
+        "label": "Relation Of Linear Dependence Zh",
+        "file": "output/college.zh/sonnet/html/concept_relation_of_linear_dependence_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
+        "file": "output/college.en/sonnet/html/concept_scalar_multiplication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "scalar_multiplication_zh",
+        "label": "Scalar Multiplication Zh",
+        "file": "output/college.zh/sonnet/html/concept_scalar_multiplication_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "vector_addition",
+        "label": "Vector Addition",
+        "file": "output/college.en/sonnet/html/concept_vector_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector_addition_zh",
+        "label": "Vector Addition Zh",
+        "file": "output/college.zh/sonnet/html/concept_vector_addition_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch03",
+    "name": "Linear Algebra Ch3: Matrices",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 3: Matrices.",
+    "capstone": "money_best_cities_ranking",
+    "default_level": "college",
+    "nodes": 34,
+    "edges": 51,
+    "primitives": 9,
+    "concepts": 22,
+    "applications": 3,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "money_best_cities_ranking",
+        "file": "output/college.en/sonnet/html/book_money_best_cities_ranking.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "solving_systems_via_inverse",
+        "file": "output/college.en/sonnet/html/book_solving_systems_via_inverse.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "money_best_cities_ranking",
+        "file": "output/college.zh/sonnet/html/book_money_best_cities_ranking.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "solving_systems_via_inverse",
+        "file": "output/college.zh/sonnet/html/book_solving_systems_via_inverse.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "matrix",
+        "label": "Matrix",
+        "file": "output/college.en/sonnet/html/concept_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_inverse",
+        "label": "Matrix Inverse",
+        "file": "output/college.en/sonnet/html/concept_matrix_inverse.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_inverse_zh",
+        "label": "Matrix Inverse Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_inverse_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "matrix_multiplication",
+        "label": "Matrix Multiplication",
+        "file": "output/college.en/sonnet/html/concept_matrix_multiplication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_multiplication_zh",
+        "label": "Matrix Multiplication Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_multiplication_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product_zh",
+        "label": "Matrix Vector Product Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_vector_product_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "matrix_zh",
+        "label": "Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "money_best_cities_ranking",
+        "label": "Money Best Cities Ranking",
+        "file": "output/college.en/sonnet/html/concept_money_best_cities_ranking.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "money_best_cities_ranking_zh",
+        "label": "Money Best Cities Ranking Zh",
+        "file": "output/college.zh/sonnet/html/concept_money_best_cities_ranking_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "nonsingular_matrix",
+        "label": "Nonsingular Matrix",
+        "file": "output/college.en/sonnet/html/concept_nonsingular_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "nonsingular_matrix_zh",
+        "label": "Nonsingular Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_nonsingular_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "solving_systems_via_inverse",
+        "label": "Solving Systems Via Inverse",
+        "file": "output/college.en/sonnet/html/concept_solving_systems_via_inverse.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "solving_systems_via_inverse_zh",
+        "label": "Solving Systems Via Inverse Zh",
+        "file": "output/college.zh/sonnet/html/concept_solving_systems_via_inverse_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "systems_as_matrix_multiplication",
+        "label": "Systems As Matrix Multiplication",
+        "file": "output/college.en/sonnet/html/concept_systems_as_matrix_multiplication.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "systems_as_matrix_multiplication_zh",
+        "label": "Systems As Matrix Multiplication Zh",
+        "file": "output/college.zh/sonnet/html/concept_systems_as_matrix_multiplication_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch04",
+    "name": "Linear Algebra Ch4: Vector Spaces",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 4: Vector Spaces.",
+    "capstone": "four_subspace_dimensions",
+    "default_level": "college",
+    "nodes": 20,
+    "edges": 28,
+    "primitives": 1,
+    "concepts": 19,
+    "applications": 0,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": false,
+    "books": [],
+    "generated_concepts": [],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch05",
+    "name": "Linear Algebra Ch5: Determinants",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 5: Determinants.",
+    "capstone": "determinant_by_row_reduction",
+    "default_level": "college",
+    "nodes": 29,
+    "edges": 52,
+    "primitives": 6,
+    "concepts": 22,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "determinant_by_row_reduction",
+        "file": "output/college.en/sonnet/html/book_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "determinant_by_row_reduction",
+        "file": "output/college.zh/sonnet/html/book_determinant_by_row_reduction.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "determinant_by_row_reduction",
+        "label": "Determinant By Row Reduction",
+        "file": "output/college.en/sonnet/html/concept_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_by_row_reduction_zh",
+        "label": "Determinant By Row Reduction Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_by_row_reduction_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_definition",
+        "label": "Determinant Definition",
+        "file": "output/college.en/sonnet/html/concept_determinant_definition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_definition_zh",
+        "label": "Determinant Definition Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_definition_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_expansion_about_columns",
+        "label": "Determinant Expansion About Columns",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_columns.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_columns_zh",
+        "label": "Determinant Expansion About Columns Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_expansion_about_columns_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_expansion_about_rows",
+        "label": "Determinant Expansion About Rows",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_rows.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_rows_zh",
+        "label": "Determinant Expansion About Rows Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_expansion_about_rows_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_of_transpose",
+        "label": "Determinant Of Transpose",
+        "file": "output/college.en/sonnet/html/concept_determinant_of_transpose.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_of_transpose_zh",
+        "label": "Determinant Of Transpose Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_of_transpose_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_row_column_multiple",
+        "label": "Determinant Row Column Multiple",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple_and_addition",
+        "label": "Determinant Row Column Multiple And Addition",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple_and_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple_and_addition_zh",
+        "label": "Determinant Row Column Multiple And Addition Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_row_column_multiple_and_addition_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_row_column_multiple_zh",
+        "label": "Determinant Row Column Multiple Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_row_column_multiple_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_row_column_swap",
+        "label": "Determinant Row Column Swap",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_swap.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_swap_zh",
+        "label": "Determinant Row Column Swap Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_row_column_swap_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "determinant_upper_triangular",
+        "label": "Determinant Upper Triangular",
+        "file": "output/college.en/sonnet/html/concept_determinant_upper_triangular.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_upper_triangular_zh",
+        "label": "Determinant Upper Triangular Zh",
+        "file": "output/college.zh/sonnet/html/concept_determinant_upper_triangular_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "row_operations",
+        "label": "Row Operations",
+        "file": "output/college.en/sonnet/html/concept_row_operations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "row_operations_zh",
+        "label": "Row Operations Zh",
+        "file": "output/college.zh/sonnet/html/concept_row_operations_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "square_matrix",
+        "label": "Square Matrix",
+        "file": "output/college.en/sonnet/html/concept_square_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "square_matrix_zh",
+        "label": "Square Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_square_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "submatrix",
+        "label": "Submatrix",
+        "file": "output/college.en/sonnet/html/concept_submatrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "submatrix_zh",
+        "label": "Submatrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_submatrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch06",
+    "name": "Linear Algebra Ch6: Eigenvalues",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 6: Eigenvalues.",
+    "capstone": "matrix_power_via_diagonalization",
+    "default_level": "college",
+    "nodes": 25,
+    "edges": 36,
+    "primitives": 2,
+    "concepts": 21,
+    "applications": 2,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "matrix_power_via_diagonalization",
+        "file": "output/college.en/sonnet/html/book_matrix_power_via_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "fibonacci_closed_form",
+        "file": "output/college.en/sonnet/html/book_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "matrix_power_via_diagonalization",
+        "file": "output/college.zh/sonnet/html/book_matrix_power_via_diagonalization.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "fibonacci_closed_form",
+        "file": "output/college.zh/sonnet/html/book_fibonacci_closed_form.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "diagonal_matrix",
+        "label": "Diagonal Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonal_matrix_zh",
+        "label": "Diagonal Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_diagonal_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "diagonalizable_matrix",
+        "label": "Diagonalizable Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonalizable_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalizable_matrix_zh",
+        "label": "Diagonalizable Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_diagonalizable_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "diagonalization_characterization",
+        "label": "Diagonalization Characterization",
+        "file": "output/college.en/sonnet/html/concept_diagonalization_characterization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalization_characterization_zh",
+        "label": "Diagonalization Characterization Zh",
+        "file": "output/college.zh/sonnet/html/concept_diagonalization_characterization_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "eigenvalue_eigenvector",
+        "label": "Eigenvalue Eigenvector",
+        "file": "output/college.en/sonnet/html/concept_eigenvalue_eigenvector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "eigenvalue_eigenvector_zh",
+        "label": "Eigenvalue Eigenvector Zh",
+        "file": "output/college.zh/sonnet/html/concept_eigenvalue_eigenvector_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "fibonacci_closed_form",
+        "label": "Fibonacci Closed Form",
+        "file": "output/college.en/sonnet/html/concept_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fibonacci_closed_form_zh",
+        "label": "Fibonacci Closed Form Zh",
+        "file": "output/college.zh/sonnet/html/concept_fibonacci_closed_form_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "matrix_power_via_diagonalization",
+        "label": "Matrix Power Via Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_matrix_power_via_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_power_via_diagonalization_zh",
+        "label": "Matrix Power Via Diagonalization Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_power_via_diagonalization_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product_zh",
+        "label": "Matrix Vector Product Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_vector_product_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "similar_matrices",
+        "label": "Similar Matrices",
+        "file": "output/college.en/sonnet/html/concept_similar_matrices.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "similar_matrices_zh",
+        "label": "Similar Matrices Zh",
+        "file": "output/college.zh/sonnet/html/concept_similar_matrices_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch07",
+    "name": "Linear Algebra Ch7: Linear Transformations",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 7: Linear Transformations.",
+    "capstone": "linear_transformations_and_systems_of_equations",
+    "default_level": "college",
+    "nodes": 40,
+    "edges": 57,
+    "primitives": 4,
+    "concepts": 35,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "linear_transformations_and_systems_of_equations",
+        "file": "output/college.en/sonnet/html/book_linear_transformations_and_systems_of_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "linear_transformations_and_systems_of_equations",
+        "file": "output/college.zh/sonnet/html/book_linear_transformations_and_systems_of_equations.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/college.en/sonnet/html/concept_function.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "function_zh",
+        "label": "Function Zh",
+        "file": "output/college.zh/sonnet/html/concept_function_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "kernel_of_linear_transformation",
+        "label": "Kernel Of Linear Transformation",
+        "file": "output/college.en/sonnet/html/concept_kernel_of_linear_transformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "kernel_of_linear_transformation_zh",
+        "label": "Kernel Of Linear Transformation Zh",
+        "file": "output/college.zh/sonnet/html/concept_kernel_of_linear_transformation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "linear_transformation",
+        "label": "Linear Transformation",
+        "file": "output/college.en/sonnet/html/concept_linear_transformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_transformation_zh",
+        "label": "Linear Transformation Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_transformation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "linear_transformations_and_systems_of_equations",
+        "label": "Linear Transformations And Systems Of Equations",
+        "file": "output/college.en/sonnet/html/concept_linear_transformations_and_systems_of_equations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_transformations_and_systems_of_equations_zh",
+        "label": "Linear Transformations And Systems Of Equations Zh",
+        "file": "output/college.zh/sonnet/html/concept_linear_transformations_and_systems_of_equations_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product_zh",
+        "label": "Matrix Vector Product Zh",
+        "file": "output/college.zh/sonnet/html/concept_matrix_vector_product_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "pre_image",
+        "label": "Pre Image",
+        "file": "output/college.en/sonnet/html/concept_pre_image.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "pre_image_zh",
+        "label": "Pre Image Zh",
+        "file": "output/college.zh/sonnet/html/concept_pre_image_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "range_of_linear_transformation",
+        "label": "Range Of Linear Transformation",
+        "file": "output/college.en/sonnet/html/concept_range_of_linear_transformation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "range_of_linear_transformation_zh",
+        "label": "Range Of Linear Transformation Zh",
+        "file": "output/college.zh/sonnet/html/concept_range_of_linear_transformation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "vector_space",
+        "label": "Vector Space",
+        "file": "output/college.en/sonnet/html/concept_vector_space.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "vector_space_zh",
+        "label": "Vector Space Zh",
+        "file": "output/college.zh/sonnet/html/concept_vector_space_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_ch08",
+    "name": "Linear Algebra Ch8: Representations",
+    "description": "A First Course in Linear Algebra (Beezer), Chapter 8: Representations.",
+    "capstone": "orthonormal_basis_normal_matrix",
+    "default_level": "college",
+    "nodes": 22,
+    "edges": 25,
+    "primitives": 5,
+    "concepts": 16,
+    "applications": 1,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "orthonormal_basis_normal_matrix",
+        "file": "output/college.en/sonnet/html/book_orthonormal_basis_normal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "orthonormal_basis_normal_matrix",
+        "file": "output/college.zh/sonnet/html/book_orthonormal_basis_normal_matrix.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "normal_matrix",
+        "label": "Normal Matrix",
+        "file": "output/college.en/sonnet/html/concept_normal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "normal_matrix_zh",
+        "label": "Normal Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_normal_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "orthonormal_basis_normal_matrix",
+        "label": "Orthonormal Basis Normal Matrix",
+        "file": "output/college.en/sonnet/html/concept_orthonormal_basis_normal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthonormal_basis_normal_matrix_zh",
+        "label": "Orthonormal Basis Normal Matrix Zh",
+        "file": "output/college.zh/sonnet/html/concept_orthonormal_basis_normal_matrix_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "orthonormal_diagonalization",
+        "label": "Orthonormal Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_orthonormal_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "orthonormal_diagonalization_zh",
+        "label": "Orthonormal Diagonalization Zh",
+        "file": "output/college.zh/sonnet/html/concept_orthonormal_diagonalization_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  },
+  {
+    "id": "linalg_full",
+    "name": "Linear Algebra: Full Book (Beezer FCLA)",
+    "description": "A First Course in Linear Algebra (Beezer) -- merged full-book concept graph across all 8 chapters. See concept-book-press's docs/projects/linalg/merge_report.md for how cross-chapter node collisions were resolved.",
+    "capstone": "determinant_by_row_reduction",
+    "default_level": "college",
+    "nodes": 207,
+    "edges": 327,
+    "primitives": 22,
+    "concepts": 175,
+    "applications": 10,
+    "tags": [
+      "math"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "fibonacci_closed_form",
+        "file": "output/college.en/sonnet/html/book_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "target": "determinant_by_row_reduction",
+        "file": "output/college.en/sonnet/html/book_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "determinant_by_row_reduction",
+        "label": "Determinant By Row Reduction",
+        "file": "output/college.en/sonnet/html/concept_determinant_by_row_reduction.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_definition",
+        "label": "Determinant Definition",
+        "file": "output/college.en/sonnet/html/concept_determinant_definition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_columns",
+        "label": "Determinant Expansion About Columns",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_columns.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_expansion_about_rows",
+        "label": "Determinant Expansion About Rows",
+        "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_rows.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_of_transpose",
+        "label": "Determinant Of Transpose",
+        "file": "output/college.en/sonnet/html/concept_determinant_of_transpose.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple",
+        "label": "Determinant Row Column Multiple",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_multiple_and_addition",
+        "label": "Determinant Row Column Multiple And Addition",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple_and_addition.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_row_column_swap",
+        "label": "Determinant Row Column Swap",
+        "file": "output/college.en/sonnet/html/concept_determinant_row_column_swap.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "determinant_upper_triangular",
+        "label": "Determinant Upper Triangular",
+        "file": "output/college.en/sonnet/html/concept_determinant_upper_triangular.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonal_matrix",
+        "label": "Diagonal Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonal_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalizable_matrix",
+        "label": "Diagonalizable Matrix",
+        "file": "output/college.en/sonnet/html/concept_diagonalizable_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "diagonalization_characterization",
+        "label": "Diagonalization Characterization",
+        "file": "output/college.en/sonnet/html/concept_diagonalization_characterization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "eigenvalue_eigenvector",
+        "label": "Eigenvalue Eigenvector",
+        "file": "output/college.en/sonnet/html/concept_eigenvalue_eigenvector.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "equation_operations",
+        "label": "Equation Operations",
+        "file": "output/college.en/sonnet/html/concept_equation_operations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "fibonacci_closed_form",
+        "label": "Fibonacci Closed Form",
+        "file": "output/college.en/sonnet/html/concept_fibonacci_closed_form.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "linear_equation",
+        "label": "Linear Equation",
+        "file": "output/college.en/sonnet/html/concept_linear_equation.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix",
+        "label": "Matrix",
+        "file": "output/college.en/sonnet/html/concept_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_power_via_diagonalization",
+        "label": "Matrix Power Via Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_matrix_power_via_diagonalization.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
+        "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "row_operations",
+        "label": "Row Operations",
+        "file": "output/college.en/sonnet/html/concept_row_operations.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "similar_matrices",
+        "label": "Similar Matrices",
+        "file": "output/college.en/sonnet/html/concept_similar_matrices.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "square_matrix",
+        "label": "Square Matrix",
+        "file": "output/college.en/sonnet/html/concept_square_matrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "submatrix",
+        "label": "Submatrix",
+        "file": "output/college.en/sonnet/html/concept_submatrix.html",
+        "model": "sonnet"
+      },
+      {
+        "name": "system_of_linear_equations",
+        "label": "System Of Linear Equations",
+        "file": "output/college.en/sonnet/html/concept_system_of_linear_equations.html",
+        "model": "sonnet"
+      }
+    ],
+    "source": {
+      "title": "A First Course in Linear Algebra (FCLA), v3.50",
+      "authors": "Robert A. Beezer",
+      "license": "GNU Free Documentation License",
+      "url": "http://linear.pugetsound.edu",
+      "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
+    }
+  }
+]

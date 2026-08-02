@@ -1,0 +1,127 @@
+domain: linalg_beezer_ch08
+primitives:
+  vector_representation:
+    defines: A function rho_B mapping a vector w in an n-dimensional vector space V to its coordinate
+      vector in C^n, based on a chosen basis B.
+    tier: 0
+  matrix_representation:
+    defines: Given a linear transformation T, the m x n matrix whose columns are the vector representations
+      of T applied to each basis vector.
+    tier: 0
+  eigenvalue_eigenvector_linear_transformation:
+    defines: For T:V to V, a nonzero vector v is an eigenvector with eigenvalue lambda if T(v) equals
+      lambda times v.
+    tier: 0
+  triangular_matrix:
+    defines: A square matrix whose entries below (upper) or above (lower) the main diagonal are all zero.
+    tier: 0
+  normal_matrix:
+    defines: A square matrix A that commutes with its adjoint, satisfying A*A equals AA*.
+    tier: 0
+concepts:
+  vector_representation_is_linear_transformation:
+    defines: The vector representation function rho_B is itself a linear transformation from V to C^n.
+    composed_of:
+    - vector_representation
+    tier: 1
+  vector_representation_invertible:
+    defines: Vector representation rho_B is injective and surjective, hence an invertible linear transformation
+      (isomorphism).
+    composed_of:
+    - vector_representation_is_linear_transformation
+    tier: 2
+  characterization_finite_dim_vector_spaces:
+    defines: Every finite-dimensional vector space of dimension n is isomorphic to C^n.
+    composed_of:
+    - vector_representation_invertible
+    tier: 3
+  isomorphic_vector_spaces:
+    defines: Two finite-dimensional vector spaces are isomorphic if and only if they have the same dimension.
+    composed_of:
+    - characterization_finite_dim_vector_spaces
+    tier: 4
+  coordinatization_and_linear_independence_spanning:
+    defines: A subset of a vector space is linearly independent (or spans/contains a vector) iff its vector
+      representation in C^n has the same property.
+    composed_of:
+    - vector_representation_invertible
+    tier: 3
+  coordinatization_principle:
+    defines: Questions about a vector space depending on addition, scalar multiplication, linear independence,
+      or spanning can be translated into C^n via vector representation and back.
+    composed_of:
+    - coordinatization_and_linear_independence_spanning
+    tier: 4
+  fundamental_theorem_matrix_representation:
+    defines: The action of T on u equals coordinatizing u, multiplying by the matrix representation of
+      T, then un-coordinatizing the result.
+    composed_of:
+    - matrix_representation
+    - vector_representation
+    tier: 1
+  matrix_representation_of_combinations:
+    defines: The matrix representation of a sum, scalar multiple, or composition of linear transformations
+      equals the corresponding combination of individual matrix representations.
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    tier: 2
+  kernel_null_space_isomorphism:
+    defines: The kernel of T is isomorphic to the null space of its matrix representation, via vector
+      representation restricted to the kernel.
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    - vector_representation_invertible
+    tier: 3
+  range_column_space_isomorphism:
+    defines: The range of T is isomorphic to the column space of its matrix representation, via vector
+      representation restricted to the range.
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    - vector_representation_invertible
+    tier: 3
+  invertible_matrix_representations:
+    defines: A linear transformation T is invertible iff its matrix representation is invertible, with
+      the inverse transformation represented by the inverse matrix.
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    tier: 2
+  change_of_basis_matrix:
+    defines: The matrix representation of the identity transformation on V relative to two bases B and
+      C, used to convert vector representations between bases.
+    composed_of:
+    - matrix_representation
+    tier: 1
+  matrix_representation_and_similarity:
+    defines: Two matrix representations of the same T relative to different bases are related by a similarity
+      transformation using the change-of-basis matrix.
+    composed_of:
+    - change_of_basis_matrix
+    - fundamental_theorem_matrix_representation
+    tier: 2
+  eigenvalues_eigenvectors_representations:
+    defines: The eigenvalues and eigenvectors of T are intrinsic, independent of basis; eigenvectors of
+      T correspond via rho_B to eigenvectors of any matrix representation.
+    composed_of:
+    - eigenvalue_eigenvector_linear_transformation
+    - matrix_representation_and_similarity
+    tier: 3
+  upper_triangular_matrix_representation:
+    defines: Every T:V to V has a basis relative to which its matrix representation is upper triangular,
+      with diagonal entries equal to its eigenvalues.
+    composed_of:
+    - triangular_matrix
+    - eigenvalue_eigenvector_linear_transformation
+    - matrix_representation
+    tier: 1
+  orthonormal_diagonalization:
+    defines: A square matrix A can be diagonalized by a unitary matrix iff A is normal.
+    composed_of:
+    - normal_matrix
+    tier: 1
+applications:
+  orthonormal_basis_normal_matrix:
+    defines: Every normal matrix has an orthonormal basis of C^n composed entirely of its eigenvectors.
+    needs:
+    - orthonormal_diagonalization
+    - normal_matrix
+    tier: 2
