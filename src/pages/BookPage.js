@@ -229,12 +229,35 @@ async function _loadDomains() {
   } catch (_) { return [] }
 }
 
+// Multiple catalog entries can share the same target/name (e.g. a legacy
+// unmodeled English entry alongside a freshly-generated tagged one, or the
+// same concept generated at different level/language/model combos) — without
+// disambiguation these render as identical-looking picker options, so
+// picking the "wrong" one silently resolves to a different combination than
+// the user intended. Append "[level.lang, model]" whenever a label collides.
+function _disambiguateLabels(entries, baseLabel) {
+  const counts = {}
+  entries.forEach(e => { counts[baseLabel(e)] = (counts[baseLabel(e)] || 0) + 1 })
+  return entries.map(e => {
+    const base = baseLabel(e)
+    if (counts[base] <= 1) return { ...e, label: base }
+    const { level, lang } = parseLevelLang(e.file)
+    return { ...e, label: `${base} [${level}.${lang}, ${e.model || 'legacy'}]` }
+  })
+}
+
 async function _loadDomainBooks(domainId) {
   try {
     const catalog = await loadCatalog()
     const raw = catalog.find(e => e.id === domainId) ?? {}
-    const books = (raw.books || []).map(b => ({ file: b.file, label: b.target.replace(/_/g, ' ').trim() || b.target, model: b.model || parseModel(b.file) }))
-    const concepts = (raw.generated_concepts || []).map(c => ({ file: c.file, label: c.label, model: c.model || parseModel(c.file) }))
+    const books = _disambiguateLabels(
+      (raw.books || []).map(b => ({ file: b.file, model: b.model || parseModel(b.file), target: b.target })),
+      b => b.target.replace(/_/g, ' ').trim() || b.target,
+    )
+    const concepts = _disambiguateLabels(
+      (raw.generated_concepts || []).map(c => ({ file: c.file, model: c.model || parseModel(c.file), origLabel: c.label })),
+      c => c.origLabel,
+    )
     // Pre-populate existence cache so opening any listed file skips the HTTP check
     _markKnownUrls(domainId, [...books, ...concepts])
     return { books, concepts }

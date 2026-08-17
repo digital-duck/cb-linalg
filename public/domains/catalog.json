@@ -23,7 +23,7 @@
       },
       {
         "target": "linear_programming_application",
-        "file": "output/college.zh/sonnet/html/book_linear_programming_application.html",
+        "file": "output/college.zh/sonnet/html/book_linear_programming_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -36,9 +36,9 @@
         "model": "sonnet"
       },
       {
-        "name": "linear_equation_zh",
-        "label": "Linear Equation Zh",
-        "file": "output/college.zh/sonnet/html/concept_linear_equation_zh.html",
+        "name": "linear_equation",
+        "label": "Linear Equation",
+        "file": "output/core.zh/sonnet/html/concept_linear_equation_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -49,9 +49,9 @@
         "model": "sonnet"
       },
       {
-        "name": "linear_programming_application_zh",
-        "label": "Linear Programming Application Zh",
-        "file": "output/college.zh/sonnet/html/concept_linear_programming_application_zh.html",
+        "name": "linear_programming_application",
+        "label": "Linear Programming Application",
+        "file": "output/core.zh/sonnet/html/concept_linear_programming_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -62,9 +62,9 @@
         "model": "sonnet"
       },
       {
-        "name": "solution_set_zh",
-        "label": "Solution Set Zh",
-        "file": "output/college.zh/sonnet/html/concept_solution_set_zh.html",
+        "name": "solution_set",
+        "label": "Solution Set",
+        "file": "output/core.zh/sonnet/html/concept_solution_set_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -75,9 +75,9 @@
         "model": "sonnet"
       },
       {
-        "name": "system_of_linear_equations_zh",
-        "label": "System Of Linear Equations Zh",
-        "file": "output/college.zh/sonnet/html/concept_system_of_linear_equations_zh.html",
+        "name": "system_of_linear_equations",
+        "label": "System Of Linear Equations",
+        "file": "output/core.zh/sonnet/html/concept_system_of_linear_equations_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -114,7 +114,7 @@
       },
       {
         "target": "gram_schmidt_procedure",
-        "file": "output/college.zh/sonnet/html/book_gram_schmidt_procedure.html",
+        "file": "output/college.zh/sonnet/html/book_gram_schmidt_procedure_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -127,8 +127,8 @@
         "model": "sonnet"
       },
       {
-        "name": "column_vector_zh",
-        "label": "Column Vector Zh",
+        "name": "column_vector",
+        "label": "Column Vector",
         "file": "output/college.zh/sonnet/html/concept_column_vector_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -140,8 +140,8 @@
         "model": "sonnet"
       },
       {
-        "name": "complex_conjugate_vector_zh",
-        "label": "Complex Conjugate Vector Zh",
+        "name": "complex_conjugate_vector",
+        "label": "Complex Conjugate Vector",
         "file": "output/college.zh/sonnet/html/concept_complex_conjugate_vector_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -153,8 +153,8 @@
         "model": "sonnet"
       },
       {
-        "name": "complex_number_zh",
-        "label": "Complex Number Zh",
+        "name": "complex_number",
+        "label": "Complex Number",
         "file": "output/college.zh/sonnet/html/concept_complex_number_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -166,8 +166,8 @@
         "model": "sonnet"
       },
       {
-        "name": "gram_schmidt_procedure_zh",
-        "label": "Gram Schmidt Procedure Zh",
+        "name": "gram_schmidt_procedure",
+        "label": "Gram Schmidt Procedure",
         "file": "output/college.zh/sonnet/html/concept_gram_schmidt_procedure_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -179,8 +179,8 @@
         "model": "sonnet"
       },
       {
-        "name": "inner_product_zh",
-        "label": "Inner Product Zh",
+        "name": "inner_product",
+        "label": "Inner Product",
         "file": "output/college.zh/sonnet/html/concept_inner_product_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -192,8 +192,8 @@
         "model": "sonnet"
       },
       {
-        "name": "linear_combination_zh",
-        "label": "Linear Combination Zh",
+        "name": "linear_combination",
+        "label": "Linear Combination",
         "file": "output/college.zh/sonnet/html/concept_linear_combination_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -205,8 +205,8 @@
         "model": "sonnet"
       },
       {
-        "name": "linear_independence_zh",
-        "label": "Linear Independence Zh",
+        "name": "linear_independence",
+        "label": "Linear Independence",
         "file": "output/college.zh/sonnet/html/concept_linear_independence_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -218,8 +218,8 @@
         "model": "sonnet"
       },
       {
-        "name": "orthogonal_set_zh",
-        "label": "Orthogonal Set Zh",
+        "name": "orthogonal_set",
+        "label": "Orthogonal Set",
         "file": "output/college.zh/sonnet/html/concept_orthogonal_set_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -231,8 +231,8 @@
         "model": "sonnet"
       },
       {
-        "name": "orthogonal_vectors_zh",
-        "label": "Orthogonal Vectors Zh",
+        "name": "orthogonal_vectors",
+        "label": "Orthogonal Vectors",
         "file": "output/college.zh/sonnet/html/concept_orthogonal_vectors_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -244,8 +244,8 @@
         "model": "sonnet"
       },
       {
-        "name": "relation_of_linear_dependence_zh",
-        "label": "Relation Of Linear Dependence Zh",
+        "name": "relation_of_linear_dependence",
+        "label": "Relation Of Linear Dependence",
         "file": "output/college.zh/sonnet/html/concept_relation_of_linear_dependence_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -257,8 +257,8 @@
         "model": "sonnet"
       },
       {
-        "name": "scalar_multiplication_zh",
-        "label": "Scalar Multiplication Zh",
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
         "file": "output/college.zh/sonnet/html/concept_scalar_multiplication_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -270,8 +270,8 @@
         "model": "sonnet"
       },
       {
-        "name": "vector_addition_zh",
-        "label": "Vector Addition Zh",
+        "name": "vector_addition",
+        "label": "Vector Addition",
         "file": "output/college.zh/sonnet/html/concept_vector_addition_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -314,13 +314,13 @@
       },
       {
         "target": "money_best_cities_ranking",
-        "file": "output/college.zh/sonnet/html/book_money_best_cities_ranking.html",
+        "file": "output/college.zh/sonnet/html/book_money_best_cities_ranking_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "solving_systems_via_inverse",
-        "file": "output/college.zh/sonnet/html/book_solving_systems_via_inverse.html",
+        "file": "output/college.zh/sonnet/html/book_solving_systems_via_inverse_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -339,8 +339,8 @@
         "model": "sonnet"
       },
       {
-        "name": "matrix_inverse_zh",
-        "label": "Matrix Inverse Zh",
+        "name": "matrix_inverse",
+        "label": "Matrix Inverse",
         "file": "output/college.zh/sonnet/html/concept_matrix_inverse_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -352,8 +352,8 @@
         "model": "sonnet"
       },
       {
-        "name": "matrix_multiplication_zh",
-        "label": "Matrix Multiplication Zh",
+        "name": "matrix_multiplication",
+        "label": "Matrix Multiplication",
         "file": "output/college.zh/sonnet/html/concept_matrix_multiplication_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -365,15 +365,15 @@
         "model": "sonnet"
       },
       {
-        "name": "matrix_vector_product_zh",
-        "label": "Matrix Vector Product Zh",
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
         "file": "output/college.zh/sonnet/html/concept_matrix_vector_product_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
-        "name": "matrix_zh",
-        "label": "Matrix Zh",
+        "name": "matrix",
+        "label": "Matrix",
         "file": "output/college.zh/sonnet/html/concept_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -385,8 +385,8 @@
         "model": "sonnet"
       },
       {
-        "name": "money_best_cities_ranking_zh",
-        "label": "Money Best Cities Ranking Zh",
+        "name": "money_best_cities_ranking",
+        "label": "Money Best Cities Ranking",
         "file": "output/college.zh/sonnet/html/concept_money_best_cities_ranking_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -398,8 +398,8 @@
         "model": "sonnet"
       },
       {
-        "name": "nonsingular_matrix_zh",
-        "label": "Nonsingular Matrix Zh",
+        "name": "nonsingular_matrix",
+        "label": "Nonsingular Matrix",
         "file": "output/college.zh/sonnet/html/concept_nonsingular_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -411,8 +411,8 @@
         "model": "sonnet"
       },
       {
-        "name": "solving_systems_via_inverse_zh",
-        "label": "Solving Systems Via Inverse Zh",
+        "name": "solving_systems_via_inverse",
+        "label": "Solving Systems Via Inverse",
         "file": "output/college.zh/sonnet/html/concept_solving_systems_via_inverse_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -424,8 +424,8 @@
         "model": "sonnet"
       },
       {
-        "name": "systems_as_matrix_multiplication_zh",
-        "label": "Systems As Matrix Multiplication Zh",
+        "name": "systems_as_matrix_multiplication",
+        "label": "Systems As Matrix Multiplication",
         "file": "output/college.zh/sonnet/html/concept_systems_as_matrix_multiplication_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -489,7 +489,7 @@
       },
       {
         "target": "determinant_by_row_reduction",
-        "file": "output/college.zh/sonnet/html/book_determinant_by_row_reduction.html",
+        "file": "output/college.zh/sonnet/html/book_determinant_by_row_reduction_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -502,8 +502,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_by_row_reduction_zh",
-        "label": "Determinant By Row Reduction Zh",
+        "name": "determinant_by_row_reduction",
+        "label": "Determinant By Row Reduction",
         "file": "output/college.zh/sonnet/html/concept_determinant_by_row_reduction_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -515,8 +515,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_definition_zh",
-        "label": "Determinant Definition Zh",
+        "name": "determinant_definition",
+        "label": "Determinant Definition",
         "file": "output/college.zh/sonnet/html/concept_determinant_definition_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -528,8 +528,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_expansion_about_columns_zh",
-        "label": "Determinant Expansion About Columns Zh",
+        "name": "determinant_expansion_about_columns",
+        "label": "Determinant Expansion About Columns",
         "file": "output/college.zh/sonnet/html/concept_determinant_expansion_about_columns_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -541,8 +541,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_expansion_about_rows_zh",
-        "label": "Determinant Expansion About Rows Zh",
+        "name": "determinant_expansion_about_rows",
+        "label": "Determinant Expansion About Rows",
         "file": "output/college.zh/sonnet/html/concept_determinant_expansion_about_rows_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -554,8 +554,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_of_transpose_zh",
-        "label": "Determinant Of Transpose Zh",
+        "name": "determinant_of_transpose",
+        "label": "Determinant Of Transpose",
         "file": "output/college.zh/sonnet/html/concept_determinant_of_transpose_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -573,15 +573,15 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_row_column_multiple_and_addition_zh",
-        "label": "Determinant Row Column Multiple And Addition Zh",
+        "name": "determinant_row_column_multiple_and_addition",
+        "label": "Determinant Row Column Multiple And Addition",
         "file": "output/college.zh/sonnet/html/concept_determinant_row_column_multiple_and_addition_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
-        "name": "determinant_row_column_multiple_zh",
-        "label": "Determinant Row Column Multiple Zh",
+        "name": "determinant_row_column_multiple",
+        "label": "Determinant Row Column Multiple",
         "file": "output/college.zh/sonnet/html/concept_determinant_row_column_multiple_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -593,8 +593,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_row_column_swap_zh",
-        "label": "Determinant Row Column Swap Zh",
+        "name": "determinant_row_column_swap",
+        "label": "Determinant Row Column Swap",
         "file": "output/college.zh/sonnet/html/concept_determinant_row_column_swap_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -606,8 +606,8 @@
         "model": "sonnet"
       },
       {
-        "name": "determinant_upper_triangular_zh",
-        "label": "Determinant Upper Triangular Zh",
+        "name": "determinant_upper_triangular",
+        "label": "Determinant Upper Triangular",
         "file": "output/college.zh/sonnet/html/concept_determinant_upper_triangular_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -619,8 +619,8 @@
         "model": "sonnet"
       },
       {
-        "name": "row_operations_zh",
-        "label": "Row Operations Zh",
+        "name": "row_operations",
+        "label": "Row Operations",
         "file": "output/college.zh/sonnet/html/concept_row_operations_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -632,8 +632,8 @@
         "model": "sonnet"
       },
       {
-        "name": "square_matrix_zh",
-        "label": "Square Matrix Zh",
+        "name": "square_matrix",
+        "label": "Square Matrix",
         "file": "output/college.zh/sonnet/html/concept_square_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -645,8 +645,8 @@
         "model": "sonnet"
       },
       {
-        "name": "submatrix_zh",
-        "label": "Submatrix Zh",
+        "name": "submatrix",
+        "label": "Submatrix",
         "file": "output/college.zh/sonnet/html/concept_submatrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -689,13 +689,13 @@
       },
       {
         "target": "matrix_power_via_diagonalization",
-        "file": "output/college.zh/sonnet/html/book_matrix_power_via_diagonalization.html",
+        "file": "output/college.zh/sonnet/html/book_matrix_power_via_diagonalization_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "fibonacci_closed_form",
-        "file": "output/college.zh/sonnet/html/book_fibonacci_closed_form.html",
+        "file": "output/college.zh/sonnet/html/book_fibonacci_closed_form_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -708,8 +708,8 @@
         "model": "sonnet"
       },
       {
-        "name": "diagonal_matrix_zh",
-        "label": "Diagonal Matrix Zh",
+        "name": "diagonal_matrix",
+        "label": "Diagonal Matrix",
         "file": "output/college.zh/sonnet/html/concept_diagonal_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -721,8 +721,8 @@
         "model": "sonnet"
       },
       {
-        "name": "diagonalizable_matrix_zh",
-        "label": "Diagonalizable Matrix Zh",
+        "name": "diagonalizable_matrix",
+        "label": "Diagonalizable Matrix",
         "file": "output/college.zh/sonnet/html/concept_diagonalizable_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -734,8 +734,8 @@
         "model": "sonnet"
       },
       {
-        "name": "diagonalization_characterization_zh",
-        "label": "Diagonalization Characterization Zh",
+        "name": "diagonalization_characterization",
+        "label": "Diagonalization Characterization",
         "file": "output/college.zh/sonnet/html/concept_diagonalization_characterization_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -747,8 +747,8 @@
         "model": "sonnet"
       },
       {
-        "name": "eigenvalue_eigenvector_zh",
-        "label": "Eigenvalue Eigenvector Zh",
+        "name": "eigenvalue_eigenvector",
+        "label": "Eigenvalue Eigenvector",
         "file": "output/college.zh/sonnet/html/concept_eigenvalue_eigenvector_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -760,8 +760,8 @@
         "model": "sonnet"
       },
       {
-        "name": "fibonacci_closed_form_zh",
-        "label": "Fibonacci Closed Form Zh",
+        "name": "fibonacci_closed_form",
+        "label": "Fibonacci Closed Form",
         "file": "output/college.zh/sonnet/html/concept_fibonacci_closed_form_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -773,8 +773,8 @@
         "model": "sonnet"
       },
       {
-        "name": "matrix_power_via_diagonalization_zh",
-        "label": "Matrix Power Via Diagonalization Zh",
+        "name": "matrix_power_via_diagonalization",
+        "label": "Matrix Power Via Diagonalization",
         "file": "output/college.zh/sonnet/html/concept_matrix_power_via_diagonalization_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -786,8 +786,8 @@
         "model": "sonnet"
       },
       {
-        "name": "matrix_vector_product_zh",
-        "label": "Matrix Vector Product Zh",
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
         "file": "output/college.zh/sonnet/html/concept_matrix_vector_product_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -799,8 +799,8 @@
         "model": "sonnet"
       },
       {
-        "name": "similar_matrices_zh",
-        "label": "Similar Matrices Zh",
+        "name": "similar_matrices",
+        "label": "Similar Matrices",
         "file": "output/college.zh/sonnet/html/concept_similar_matrices_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -838,7 +838,7 @@
       },
       {
         "target": "linear_transformations_and_systems_of_equations",
-        "file": "output/college.zh/sonnet/html/book_linear_transformations_and_systems_of_equations.html",
+        "file": "output/college.zh/sonnet/html/book_linear_transformations_and_systems_of_equations_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -851,8 +851,8 @@
         "model": "sonnet"
       },
       {
-        "name": "function_zh",
-        "label": "Function Zh",
+        "name": "function",
+        "label": "Function",
         "file": "output/college.zh/sonnet/html/concept_function_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -864,8 +864,8 @@
         "model": "sonnet"
       },
       {
-        "name": "kernel_of_linear_transformation_zh",
-        "label": "Kernel Of Linear Transformation Zh",
+        "name": "kernel_of_linear_transformation",
+        "label": "Kernel Of Linear Transformation",
         "file": "output/college.zh/sonnet/html/concept_kernel_of_linear_transformation_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -877,8 +877,8 @@
         "model": "sonnet"
       },
       {
-        "name": "linear_transformation_zh",
-        "label": "Linear Transformation Zh",
+        "name": "linear_transformation",
+        "label": "Linear Transformation",
         "file": "output/college.zh/sonnet/html/concept_linear_transformation_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -890,8 +890,8 @@
         "model": "sonnet"
       },
       {
-        "name": "linear_transformations_and_systems_of_equations_zh",
-        "label": "Linear Transformations And Systems Of Equations Zh",
+        "name": "linear_transformations_and_systems_of_equations",
+        "label": "Linear Transformations And Systems Of Equations",
         "file": "output/college.zh/sonnet/html/concept_linear_transformations_and_systems_of_equations_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -903,8 +903,8 @@
         "model": "sonnet"
       },
       {
-        "name": "matrix_vector_product_zh",
-        "label": "Matrix Vector Product Zh",
+        "name": "matrix_vector_product",
+        "label": "Matrix Vector Product",
         "file": "output/college.zh/sonnet/html/concept_matrix_vector_product_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -916,8 +916,8 @@
         "model": "sonnet"
       },
       {
-        "name": "pre_image_zh",
-        "label": "Pre Image Zh",
+        "name": "pre_image",
+        "label": "Pre Image",
         "file": "output/college.zh/sonnet/html/concept_pre_image_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -929,8 +929,8 @@
         "model": "sonnet"
       },
       {
-        "name": "range_of_linear_transformation_zh",
-        "label": "Range Of Linear Transformation Zh",
+        "name": "range_of_linear_transformation",
+        "label": "Range Of Linear Transformation",
         "file": "output/college.zh/sonnet/html/concept_range_of_linear_transformation_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -942,8 +942,8 @@
         "model": "sonnet"
       },
       {
-        "name": "vector_space_zh",
-        "label": "Vector Space Zh",
+        "name": "vector_space",
+        "label": "Vector Space",
         "file": "output/college.zh/sonnet/html/concept_vector_space_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -981,7 +981,7 @@
       },
       {
         "target": "orthonormal_basis_normal_matrix",
-        "file": "output/college.zh/sonnet/html/book_orthonormal_basis_normal_matrix.html",
+        "file": "output/college.zh/sonnet/html/book_orthonormal_basis_normal_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -994,8 +994,8 @@
         "model": "sonnet"
       },
       {
-        "name": "normal_matrix_zh",
-        "label": "Normal Matrix Zh",
+        "name": "normal_matrix",
+        "label": "Normal Matrix",
         "file": "output/college.zh/sonnet/html/concept_normal_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -1007,8 +1007,8 @@
         "model": "sonnet"
       },
       {
-        "name": "orthonormal_basis_normal_matrix_zh",
-        "label": "Orthonormal Basis Normal Matrix Zh",
+        "name": "orthonormal_basis_normal_matrix",
+        "label": "Orthonormal Basis Normal Matrix",
         "file": "output/college.zh/sonnet/html/concept_orthonormal_basis_normal_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -1020,8 +1020,8 @@
         "model": "sonnet"
       },
       {
-        "name": "orthonormal_diagonalization_zh",
-        "label": "Orthonormal Diagonalization Zh",
+        "name": "orthonormal_diagonalization",
+        "label": "Orthonormal Diagonalization",
         "file": "output/college.zh/sonnet/html/concept_orthonormal_diagonalization_zh.html",
         "model": "sonnet",
         "language": "zh"
