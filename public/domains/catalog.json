@@ -26,6 +26,18 @@
         "file": "output/college.zh/sonnet/html/book_linear_programming_application_zh.html",
         "model": "sonnet",
         "language": "zh"
+      },
+      {
+        "target": "linear_programming_application",
+        "file": "output/core.zh/sonnet/html/book_linear_programming_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "linear_equation",
+        "file": "output/college.zh/sonnet/html/book_linear_equation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -43,6 +55,13 @@
         "language": "zh"
       },
       {
+        "name": "linear_equation",
+        "label": "Linear Equation",
+        "file": "output/college.zh/sonnet/html/concept_linear_equation_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "linear_programming_application",
         "label": "Linear Programming Application",
         "file": "output/college.en/sonnet/html/concept_linear_programming_application.html",
@@ -52,6 +71,13 @@
         "name": "linear_programming_application",
         "label": "Linear Programming Application",
         "file": "output/core.zh/sonnet/html/concept_linear_programming_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "name": "linear_programming_application",
+        "label": "Linear Programming Application",
+        "file": "output/college.zh/sonnet/html/concept_linear_programming_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -69,6 +95,13 @@
         "language": "zh"
       },
       {
+        "name": "solution_set",
+        "label": "Solution Set",
+        "file": "output/college.zh/sonnet/html/concept_solution_set_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "system_of_linear_equations",
         "label": "System Of Linear Equations",
         "file": "output/college.en/sonnet/html/concept_system_of_linear_equations.html",
@@ -80,6 +113,13 @@
         "file": "output/core.zh/sonnet/html/concept_system_of_linear_equations_zh.html",
         "model": "sonnet",
         "language": "zh"
+      },
+      {
+        "name": "system_of_linear_equations",
+        "label": "System Of Linear Equations",
+        "file": "output/college.zh/sonnet/html/concept_system_of_linear_equations_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "source": {
@@ -88,7 +128,16 @@
       "license": "GNU Free Documentation License",
       "url": "http://linear.pugetsound.edu",
       "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
-    }
+    },
+    "pdfs": [
+      {
+        "target": "linear_equation",
+        "level": "college",
+        "language": "zh",
+        "model": "sonnet",
+        "file": "output/college.zh/sonnet/pdf/concept_linear_equation_zh.pdf"
+      }
+    ]
   },
   {
     "id": "linalg_ch02",
@@ -1061,6 +1110,12 @@
         "target": "determinant_by_row_reduction",
         "file": "output/college.en/sonnet/html/book_determinant_by_row_reduction.html",
         "model": "sonnet"
+      },
+      {
+        "target": "solution_set",
+        "file": "output/college.en/sonnet/html/book_solution_set.html",
+        "model": "sonnet",
+        "language": "en"
       }
     ],
     "generated_concepts": [
@@ -1068,145 +1123,176 @@
         "name": "determinant_by_row_reduction",
         "label": "Determinant By Row Reduction",
         "file": "output/college.en/sonnet/html/concept_determinant_by_row_reduction.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_definition",
         "label": "Determinant Definition",
         "file": "output/college.en/sonnet/html/concept_determinant_definition.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_expansion_about_columns",
         "label": "Determinant Expansion About Columns",
         "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_columns.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_expansion_about_rows",
         "label": "Determinant Expansion About Rows",
         "file": "output/college.en/sonnet/html/concept_determinant_expansion_about_rows.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_of_transpose",
         "label": "Determinant Of Transpose",
         "file": "output/college.en/sonnet/html/concept_determinant_of_transpose.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_row_column_multiple",
         "label": "Determinant Row Column Multiple",
         "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_row_column_multiple_and_addition",
         "label": "Determinant Row Column Multiple And Addition",
         "file": "output/college.en/sonnet/html/concept_determinant_row_column_multiple_and_addition.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_row_column_swap",
         "label": "Determinant Row Column Swap",
         "file": "output/college.en/sonnet/html/concept_determinant_row_column_swap.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "determinant_upper_triangular",
         "label": "Determinant Upper Triangular",
         "file": "output/college.en/sonnet/html/concept_determinant_upper_triangular.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "diagonal_matrix",
         "label": "Diagonal Matrix",
         "file": "output/college.en/sonnet/html/concept_diagonal_matrix.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "diagonalizable_matrix",
         "label": "Diagonalizable Matrix",
         "file": "output/college.en/sonnet/html/concept_diagonalizable_matrix.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "diagonalization_characterization",
         "label": "Diagonalization Characterization",
         "file": "output/college.en/sonnet/html/concept_diagonalization_characterization.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "eigenvalue_eigenvector",
         "label": "Eigenvalue Eigenvector",
         "file": "output/college.en/sonnet/html/concept_eigenvalue_eigenvector.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "equation_operations",
         "label": "Equation Operations",
         "file": "output/college.en/sonnet/html/concept_equation_operations.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "fibonacci_closed_form",
         "label": "Fibonacci Closed Form",
         "file": "output/college.en/sonnet/html/concept_fibonacci_closed_form.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "linear_equation",
         "label": "Linear Equation",
         "file": "output/college.en/sonnet/html/concept_linear_equation.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "matrix",
         "label": "Matrix",
         "file": "output/college.en/sonnet/html/concept_matrix.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "matrix_power_via_diagonalization",
         "label": "Matrix Power Via Diagonalization",
         "file": "output/college.en/sonnet/html/concept_matrix_power_via_diagonalization.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "matrix_vector_product",
         "label": "Matrix Vector Product",
         "file": "output/college.en/sonnet/html/concept_matrix_vector_product.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "row_operations",
         "label": "Row Operations",
         "file": "output/college.en/sonnet/html/concept_row_operations.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "similar_matrices",
         "label": "Similar Matrices",
         "file": "output/college.en/sonnet/html/concept_similar_matrices.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "solution_set",
+        "label": "Solution Set",
+        "file": "output/college.en/sonnet/html/concept_solution_set.html",
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "square_matrix",
         "label": "Square Matrix",
         "file": "output/college.en/sonnet/html/concept_square_matrix.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "submatrix",
         "label": "Submatrix",
         "file": "output/college.en/sonnet/html/concept_submatrix.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "system_of_linear_equations",
         "label": "System Of Linear Equations",
         "file": "output/college.en/sonnet/html/concept_system_of_linear_equations.html",
-        "model": "sonnet"
+        "model": "sonnet",
+        "language": "en"
       }
     ],
     "source": {
@@ -1215,6 +1301,15 @@
       "license": "GNU Free Documentation License",
       "url": "http://linear.pugetsound.edu",
       "attribution": "Concept graph extracted from: A First Course in Linear Algebra, by Robert A. Beezer, v3.50. Licensed under the GNU Free Documentation License. This concept graph is a companion learning aid, not a reproduction. Download the full textbook free at linear.pugetsound.edu."
-    }
+    },
+    "pdfs": [
+      {
+        "target": "solution_set",
+        "level": "college",
+        "language": "en",
+        "model": "sonnet",
+        "file": "output/college.en/sonnet/pdf/concept_solution_set.pdf"
+      }
+    ]
   }
 ]

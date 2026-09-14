@@ -8,11 +8,19 @@ _REPO_ROOT = Path(__file__).parent.parent
 class Settings(BaseSettings):
     spl_dir: Path = Path.home() / "projects/digital-duck/SPL.py"
     public_domains: Path = _REPO_ROOT / "public" / "domains"
-    llm: str = "claude_cli:claude-sonnet-4-6"
+    llm: str = "claude_cli:claude-sonnet-5"
     default_model: str = "gemma4"
-    compare_cache_ttl: int = 86400  # seconds; 0 = never expire
     spl_while_max_iter: int = 50
     spl_max_llm_calls: int = 50
+
+    # User-supplied API keys for adapters that need one (set from the
+    # Settings page, kept in-memory only like every other setting here —
+    # never echoed back to the browser, only injected into the spl3
+    # subprocess env at generate time; see executor.py's _ADAPTER_ENV_VAR).
+    anthropic_api_key: str = ""
+    gemini_api_key: str = ""
+    openai_api_key: str = ""
+    openrouter_api_key: str = ""
 
     model_config = {"env_prefix": "CB_", "env_file": ".env", "extra": "ignore"}
 

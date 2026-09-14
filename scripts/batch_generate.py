@@ -97,40 +97,9 @@ def _resolve_lang(raw: str) -> str:
     return key
 
 
-# Maps content levels (intro/core/college/research, per CLAUDE.md's learner-
-# progression axis) to a spl/style_profiles.py profile name. build_concept_book.spl
-# has no @lvl input parameter — only @style — so passing --param lvl=... (the
-# prior behavior) was silently ignored by spl3 and every job generated at the
-# hardcoded @style DEFAULT 'textbook' (university/calculus-background audience)
-# regardless of the requested level. This map is what --level actually controls now.
-#
-# college -> "college" (not "textbook"): "textbook"'s structure forces a "Key
-# theorem" + notation-heavy treatment on every concept regardless of whether the
-# concept is actually mathematical. "college" makes that formalism conditional
-# on the concept's own nature; forced rigorous math/proof notation is reserved
-# for "research".
-_LEVEL_TO_STYLE: dict[str, str] = {
-    "intro":    "feynman",
-    "core":     "core",
-    "college":  "college",
-    "research": "research",
-}
-
-# Domain catalog "tags" values for which full mathematical/proof-notation rigor
-# (the "research" style profile) is appropriate at research level. Any other
-# domain — technology, chemistry, biology, etc. — falls back to
-# "research_applied" instead: same graduate-level depth and citation-readiness,
-# but without inventing math/proof notation for concepts that aren't themselves
-# mathematical results. "college" level is separately conditional per-concept
-# (see the "college" style profile's own depth instruction).
-_STEM_MATH_TAGS = {"math", "physics", "engineering"}
-
-
-def _resolve_style(level: str, tags: list[str]) -> str:
-    style = _LEVEL_TO_STYLE.get(level, "college")
-    if style == "research" and not (_STEM_MATH_TAGS & set(tags)):
-        return "research_applied"
-    return style
+# level->style mapping shared with api/services/executor.py — see
+# scripts/level_style.py for the map and math-tag fallback rationale.
+from level_style import LEVEL_TO_STYLE as _LEVEL_TO_STYLE, resolve_style as _resolve_style  # noqa: E402
 
 
 # Maps spl3 llm strings → short model names used as folder segments.
@@ -138,7 +107,7 @@ def _resolve_style(level: str, tags: list[str]) -> str:
 _LLM_TO_MODEL: dict[str, str] = {
     "ollama:gemma3":                    "gemma3",
     "ollama:gemma4":                    "gemma4",
-    "claude_cli:claude-sonnet-4-6":     "sonnet",
+    "claude_cli:claude-sonnet-5":     "sonnet",
     "claude_cli:claude-haiku-4-5-20251001": "haiku",
     "claude_cli:claude-opus-4-8":       "opus",
 }
@@ -207,17 +176,27 @@ def _mark_generated(domain_id: str, target: str, level: str, language: str, mode
                 continue
             books: list[dict] = d.setdefault("books", [])
             book_file = f"output/{variant}/{model}/html/book_{target}{suffix}.html"
-            if not any(
-                b["target"] == target and b.get("model") == model
-                and b.get("language", "en") == language
-                for b in books
-            ):
+            # Dedupe by the exact output file path (which already encodes
+            # level/language/model) rather than the (target, model, language)
+            # triple — that triple collided across levels: generating the
+            # same target/model/language at a level different from an
+            # earlier run matched the earlier run's entry and silently
+            # skipped recording the new file at all.
+            if not any(b.get("file") == book_file for b in books):
                 books.append({"target": target, "file": book_file, "model": model, "language": language})
             d["has_book"] = True
-            # Preserve legacy entries (no model field) and entries from other models/languages
+            # Preserve every entry except the ones this exact directory glob
+            # just superseded (same level/language/model). Filtering by
+            # (model, language) alone — the old behavior — wiped out a
+            # *different* level's already-generated concepts sharing the
+            # same model/language: e.g. generating "research" level for
+            # model=sonnet silently deleted the "college" level sonnet
+            # entries an earlier run had recorded, even though those files
+            # were untouched on disk.
+            variant_dir_prefix = f"output/{variant}/{model}/html/"
             other = [
                 c for c in d.get("generated_concepts", [])
-                if c.get("model") != model or c.get("language", "en") != language
+                if not c.get("file", "").startswith(variant_dir_prefix)
             ]
             d["generated_concepts"] = sorted(other + new_concepts, key=lambda c: c["label"])
             break
@@ -285,7 +264,7 @@ def _run_spl3(
         "--param", f"language={language}",
         "--param", f"output_dir={output_dir}",
         "--param", f"skip_cache={'yes' if skip_cache else 'no'}",
-        "--param", f"llm={llm}",
+        "--param", f"model={model}",
     ]
 
     spl_env = {
@@ -336,7 +315,7 @@ def _run_spl3(
 )
 @click.option("--language", default="en", show_default=True, help="Output language code.")
 @click.option(
-    "--llm", default="claude_cli:claude-sonnet-4-6", show_default=True,
+    "--llm", default="claude_cli:claude-sonnet-5", show_default=True,
     envvar="CB_LLM", help="LLM backend string passed to spl3.",
 )
 @click.option(
