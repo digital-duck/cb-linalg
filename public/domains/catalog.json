@@ -1033,14 +1033,28 @@
         "file": "output/college.zh/sonnet/html/book_orthonormal_basis_normal_matrix_zh.html",
         "model": "sonnet",
         "language": "zh"
+      },
+      {
+        "target": "fundamental_theorem_matrix_representation",
+        "file": "output/college.en/sonnet/html/book_fundamental_theorem_matrix_representation.html",
+        "model": "sonnet",
+        "language": "en"
       }
     ],
     "generated_concepts": [
       {
-        "name": "normal_matrix",
-        "label": "Normal Matrix",
-        "file": "output/college.en/sonnet/html/concept_normal_matrix.html",
-        "model": "sonnet"
+        "name": "fundamental_theorem_matrix_representation",
+        "label": "Fundamental Theorem Matrix Representation",
+        "file": "output/college.en/sonnet/html/concept_fundamental_theorem_matrix_representation.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "matrix_representation",
+        "label": "Matrix Representation",
+        "file": "output/college.en/sonnet/html/concept_matrix_representation.html",
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "normal_matrix",
@@ -1050,10 +1064,11 @@
         "language": "zh"
       },
       {
-        "name": "orthonormal_basis_normal_matrix",
-        "label": "Orthonormal Basis Normal Matrix",
-        "file": "output/college.en/sonnet/html/concept_orthonormal_basis_normal_matrix.html",
-        "model": "sonnet"
+        "name": "normal_matrix",
+        "label": "Normal Matrix",
+        "file": "output/college.en/sonnet/html/concept_normal_matrix.html",
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "orthonormal_basis_normal_matrix",
@@ -1063,10 +1078,11 @@
         "language": "zh"
       },
       {
-        "name": "orthonormal_diagonalization",
-        "label": "Orthonormal Diagonalization",
-        "file": "output/college.en/sonnet/html/concept_orthonormal_diagonalization.html",
-        "model": "sonnet"
+        "name": "orthonormal_basis_normal_matrix",
+        "label": "Orthonormal Basis Normal Matrix",
+        "file": "output/college.en/sonnet/html/concept_orthonormal_basis_normal_matrix.html",
+        "model": "sonnet",
+        "language": "en"
       },
       {
         "name": "orthonormal_diagonalization",
@@ -1074,6 +1090,20 @@
         "file": "output/college.zh/sonnet/html/concept_orthonormal_diagonalization_zh.html",
         "model": "sonnet",
         "language": "zh"
+      },
+      {
+        "name": "orthonormal_diagonalization",
+        "label": "Orthonormal Diagonalization",
+        "file": "output/college.en/sonnet/html/concept_orthonormal_diagonalization.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "vector_representation",
+        "label": "Vector Representation",
+        "file": "output/college.en/sonnet/html/concept_vector_representation.html",
+        "model": "sonnet",
+        "language": "en"
       }
     ],
     "source": {
