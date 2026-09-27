@@ -26,6 +26,9 @@ concepts:
     - column_vector
     tier: 1
   vector_addition:
+    diagram:
+      type: flowchart LR
+      hint: "parallelogram rule: vector v and vector w placed tail-to-tail; diagonal of parallelogram = v+w; also show tip-to-tail: place w at tip of v, result is the same vector"
     defines: The sum of two vectors of the same size, formed by adding corresponding entries.
     composed_of:
     - column_vector
@@ -43,6 +46,9 @@ concepts:
     - scalar_multiplication
     tier: 2
   linear_combination:
+    diagram:
+      type: graph TD
+      hint: "two basis vectors v1 and v2 in the plane; scale each by c1 and c2; their sum c1*v1 + c2*v2 = w shown as diagonal; label: w lies in the span of v1 and v2"
     defines: A vector formed by combining a set of vectors using scalar multiplication and vector addition.
     composed_of:
     - vector_addition
