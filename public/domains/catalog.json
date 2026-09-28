@@ -172,21 +172,14 @@
       {
         "name": "column_vector",
         "label": "Column Vector",
-        "file": "output/college.zh/sonnet/html/concept_column_vector_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "column_vector",
-        "label": "Column Vector",
         "file": "output/college.en/sonnet/html/concept_column_vector.html",
         "model": "sonnet",
         "language": "en"
       },
       {
-        "name": "complex_conjugate_vector",
-        "label": "Complex Conjugate Vector",
-        "file": "output/college.zh/sonnet/html/concept_complex_conjugate_vector_zh.html",
+        "name": "column_vector",
+        "label": "Column Vector",
+        "file": "output/college.zh/sonnet/html/concept_column_vector_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -198,9 +191,9 @@
         "language": "en"
       },
       {
-        "name": "complex_number",
-        "label": "Complex Number",
-        "file": "output/college.zh/sonnet/html/concept_complex_number_zh.html",
+        "name": "complex_conjugate_vector",
+        "label": "Complex Conjugate Vector",
+        "file": "output/college.zh/sonnet/html/concept_complex_conjugate_vector_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -212,9 +205,9 @@
         "language": "en"
       },
       {
-        "name": "gram_schmidt_procedure",
-        "label": "Gram Schmidt Procedure",
-        "file": "output/college.zh/sonnet/html/concept_gram_schmidt_procedure_zh.html",
+        "name": "complex_number",
+        "label": "Complex Number",
+        "file": "output/college.zh/sonnet/html/concept_complex_number_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -226,9 +219,9 @@
         "language": "en"
       },
       {
-        "name": "inner_product",
-        "label": "Inner Product",
-        "file": "output/college.zh/sonnet/html/concept_inner_product_zh.html",
+        "name": "gram_schmidt_procedure",
+        "label": "Gram Schmidt Procedure",
+        "file": "output/college.zh/sonnet/html/concept_gram_schmidt_procedure_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -240,9 +233,9 @@
         "language": "en"
       },
       {
-        "name": "linear_combination",
-        "label": "Linear Combination",
-        "file": "output/college.zh/sonnet/html/concept_linear_combination_zh.html",
+        "name": "inner_product",
+        "label": "Inner Product",
+        "file": "output/college.zh/sonnet/html/concept_inner_product_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -254,9 +247,9 @@
         "language": "en"
       },
       {
-        "name": "linear_independence",
-        "label": "Linear Independence",
-        "file": "output/college.zh/sonnet/html/concept_linear_independence_zh.html",
+        "name": "linear_combination",
+        "label": "Linear Combination",
+        "file": "output/college.zh/sonnet/html/concept_linear_combination_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -268,9 +261,9 @@
         "language": "en"
       },
       {
-        "name": "orthogonal_set",
-        "label": "Orthogonal Set",
-        "file": "output/college.zh/sonnet/html/concept_orthogonal_set_zh.html",
+        "name": "linear_independence",
+        "label": "Linear Independence",
+        "file": "output/college.zh/sonnet/html/concept_linear_independence_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -282,9 +275,9 @@
         "language": "en"
       },
       {
-        "name": "orthogonal_vectors",
-        "label": "Orthogonal Vectors",
-        "file": "output/college.zh/sonnet/html/concept_orthogonal_vectors_zh.html",
+        "name": "orthogonal_set",
+        "label": "Orthogonal Set",
+        "file": "output/college.zh/sonnet/html/concept_orthogonal_set_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -296,9 +289,9 @@
         "language": "en"
       },
       {
-        "name": "relation_of_linear_dependence",
-        "label": "Relation Of Linear Dependence",
-        "file": "output/college.zh/sonnet/html/concept_relation_of_linear_dependence_zh.html",
+        "name": "orthogonal_vectors",
+        "label": "Orthogonal Vectors",
+        "file": "output/college.zh/sonnet/html/concept_orthogonal_vectors_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -310,9 +303,9 @@
         "language": "en"
       },
       {
-        "name": "scalar_multiplication",
-        "label": "Scalar Multiplication",
-        "file": "output/college.zh/sonnet/html/concept_scalar_multiplication_zh.html",
+        "name": "relation_of_linear_dependence",
+        "label": "Relation Of Linear Dependence",
+        "file": "output/college.zh/sonnet/html/concept_relation_of_linear_dependence_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -324,9 +317,9 @@
         "language": "en"
       },
       {
-        "name": "vector_addition",
-        "label": "Vector Addition",
-        "file": "output/college.zh/sonnet/html/concept_vector_addition_zh.html",
+        "name": "scalar_multiplication",
+        "label": "Scalar Multiplication",
+        "file": "output/college.zh/sonnet/html/concept_scalar_multiplication_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -336,6 +329,13 @@
         "file": "output/college.en/sonnet/html/concept_vector_addition.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "vector_addition",
+        "label": "Vector Addition",
+        "file": "output/college.zh/sonnet/html/concept_vector_addition_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "source": {

@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -35,37 +43,30 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="gram-schmidt-procedure">Gram Schmidt Procedure</h2>
-<h3 id="定义">定义</h3>
-<p>设 $V$ 为内积空间，$\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ 为 $V$ 的一组线性无关向量组。<strong>Gram-Schmidt 正交化过程</strong>是一种将该向量组转化为正交基（进而归一化为标准正交基）的系统算法。</p>
-<p>具体地，定义如下递推构造：</p>
+<p><strong>定义</strong></p>
+<p>Gram-Schmidt 正交化过程是一种算法,它将一组线性无关的向量 $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ 转换为一组正交向量 $\{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\}$,且两组向量张成相同的子空间。若进一步将每个 $\mathbf{u}_i$ 单位化,则得到一组<strong>标准正交基</strong>(orthonormal basis)。</p>
+<p>算法的核心思想是:逐个处理向量,每次从当前向量中减去它在之前所有正交向量方向上的投影分量,只保留与它们都垂直的部分。递推公式为:</p>
 $$
-\mathbf{u}_1 = \mathbf{v}_1
+\mathbf{u}_1 = \mathbf{v}_1, \qquad
+\mathbf{u}_k = \mathbf{v}_k - \sum_{i=1}^{k-1} \operatorname{proj}_{\mathbf{u}_i}(\mathbf{v}_k), \quad k = 2, \ldots, n
 $$
+<p>其中投影算子定义为 $\operatorname{proj}_{\mathbf{u}}(\mathbf{v}) = \dfrac{\langle \mathbf{v}, \mathbf{u} \rangle}{\langle \mathbf{u}, \mathbf{u} \rangle}\mathbf{u}$。可以证明,若 $\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}$ 线性无关,则每一步得到的 $\mathbf{u}_k \neq \mathbf{0}$,且 $\operatorname{span}\{\mathbf{u}_1,\ldots,\mathbf{u}_k\} = \operatorname{span}\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}$——这正是算法正确性的关键。</p>
+<p><strong>示例</strong></p>
+<p>设 $\mathbf{v}_1 = (1,1,0)$,$\mathbf{v}_2 = (1,0,1)$。</p>
+<p>第一步:$\mathbf{u}_1 = \mathbf{v}_1 = (1,1,0)$。</p>
+<p>第二步:计算投影</p>
 $$
-\mathbf{u}_k = \mathbf{v}_k - \sum_{j=1}^{k-1} \frac{\langle \mathbf{v}_k, \mathbf{u}_j \rangle}{\langle \mathbf{u}_j, \mathbf{u}_j \rangle} \mathbf{u}_j, \quad k = 2, 3, \ldots, n
+\operatorname{proj}_{\mathbf{u}_1}(\mathbf{v}_2) = \frac{1}{2}(1,1,0)
 $$
-<p>其中 $\langle \cdot, \cdot \rangle$ 表示内积。最终令 $\mathbf{e}_k = \dfrac{\mathbf{u}_k}{\|\mathbf{u}_k\|}$，即得标准正交基 $\{\mathbf{e}_1, \mathbf{e}_2, \ldots, \mathbf{e}_n\}$。</p>
-<h3 id="具体例题">具体例题</h3>
-<p>取 $\mathbb{R}^3$ 中的向量组 $\mathbf{v}_1 = (1, 1, 0)^\top$，$\mathbf{v}_2 = (1, 0, 1)^\top$，$\mathbf{v}_3 = (0, 1, 1)^\top$。</p>
-<p><strong>第一步：</strong> $\mathbf{u}_1 = (1, 1, 0)^\top$，$\|\mathbf{u}_1\|^2 = 2$。</p>
-<p><strong>第二步：</strong> 计算投影系数 $\dfrac{\langle \mathbf{v}_2, \mathbf{u}_1 \rangle}{\|\mathbf{u}_1\|^2} = \dfrac{1}{2}$，故</p>
-$$\mathbf{u}_2 = (1, 0, 1)^\top - \frac{1}{2}(1, 1, 0)^\top = \left(\frac{1}{2}, -\frac{1}{2}, 1\right)^\top$$
-<p><strong>第三步：</strong> 类似地，对 $\mathbf{v}_3$ 分别减去在 $\mathbf{u}_1$、$\mathbf{u}_2$ 上的投影分量，得到 $\mathbf{u}_3 = \left(-\dfrac{2}{3}, \dfrac{2}{3}, \dfrac{2}{3}\right)^\top$。</p>
-<p>归一化后即得三个两两正交的单位向量。</p>
-<h3 id="关键定理">关键定理</h3>
-<p><strong>定理（Gram-Schmidt 保生成空间）：</strong> 对任意 $k \in \{1, \ldots, n\}$，有</p>
-$$\operatorname{span}\{\mathbf{u}_1, \ldots, \mathbf{u}_k\} = \operatorname{span}\{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$$
-<p><strong>证明思路：</strong> 由递推定义，每个 $\mathbf{u}_k$ 均为 $\mathbf{v}_1, \ldots, \mathbf{v}_k$ 的线性组合；反之，$\mathbf{v}_k$ 也可由 $\mathbf{u}_1, \ldots, \mathbf{u}_k$ 线性表出。因此两组向量张成相同的子空间。正交性由内积的双线性性与递推中减去投影分量的操作直接验证。$\blacksquare$</p>
-<h3 id="实验单元-sympy">实验单元（SymPy）</h3>
-<pre><code>from sympy import Matrix, GramSchmidt
-
-vecs = [Matrix([1,1,0]), Matrix([1,0,1]), Matrix([0,1,1])]
-orthonormal_basis = GramSchmidt(vecs, orthonormal=True)
-for i, e in enumerate(orthonormal_basis):
-    print(f"e_{i+1} =", e.T)</code></pre>
-<p>运行上述代码，SymPy 将自动执行 Gram-Schmidt 过程并输出归一化的标准正交基，验证手算结果的正确性。</p>
+<p>于是</p>
+$$
+\mathbf{u}_2 = (1,0,1) - \left(\tfrac{1}{2},\tfrac{1}{2},0\right) = \left(\tfrac{1}{2}, -\tfrac{1}{2}, 1\right)
+$$
+<p>验证 $\mathbf{u}_1 \cdot \mathbf{u}_2 = \tfrac{1}{2} - \tfrac{1}{2} + 0 = 0$,确认正交。</p>
+<p><strong>应用</strong></p>
+<p>该算法是 <strong>QR 分解</strong>的理论基础:将矩阵 $A$ 的列向量正交化后单位化,即得正交矩阵 $Q$,而投影系数恰好构成上三角矩阵 $R$,满足 $A = QR$。QR 分解广泛应用于最小二乘回归、特征值数值计算(QR 算法)以及数据降维中的正交基构造。掌握这一过程,是理解后续线性代数中"正交投影解决最优逼近问题"这一核心思想的关键一步。</p>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>
