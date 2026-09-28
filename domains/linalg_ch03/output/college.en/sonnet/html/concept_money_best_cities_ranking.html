@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Best Cities Ranking | Linalg Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+.back{display:inline-block;font-family:system-ui,sans-serif;font-size:.85rem;
+      color:#2563eb;text-decoration:none;margin-bottom:24px}
+.back:hover{text-decoration:underline}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+header{margin-bottom:32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="money-best-cities-ranking">Money Best Cities Ranking</h2>
+<h3 id="definition">Definition</h3>
+<p>A <strong>money best-cities ranking</strong> is a composite linear scoring procedure that reduces a high-dimensional municipal attribute vector to a single real-valued index, enabling a total ordering of cities by economic desirability. Formally, let $\mathcal{C} = \{c_1, c_2, \ldots, c_n\}$ be a finite set of cities and let each city $c_i$ be described by an attribute matrix $\mathbf{x}_i \in \mathbb{R}^m$, where the $j$-th component $x_{ij}$ records the raw value of indicator $j$ (e.g., median household income, cost of living index, unemployment rate). Because indicators carry incommensurable units, each column is first <strong>min–max normalized</strong>:</p>
+$$\tilde{x}_{ij} = \frac{x_{ij} - \min_k x_{kj}}{\max_k x_{kj} - \min_k x_{kj}} \in [0,1].$$
+<p>A weight vector $\mathbf{w} \in \mathbb{R}^m$ with $\mathbf{w} \geq \mathbf{0}$ and $\|\mathbf{w}\|_1 = 1$ encodes editorial priorities. The <strong>composite score</strong> of city $c_i$ is then</p>
+$$S_i = \sum_{j=1}^{m} w_j \tilde{x}_{ij} = \mathbf{w}^\top \tilde{\mathbf{x}}_i.$$
+<p>Cities are ranked by $S_i$ in descending order; rank $r_i = 1$ denotes the most desirable city.</p>
+<h3 id="worked-example">Worked Example</h3>
+<p>Consider three cities—Austin, Denver, and Raleigh—evaluated on two indicators: normalized income ($j=1$) and inverted cost-of-living ($j=2$, so higher is cheaper). Suppose</p>
+$$\tilde{X} = \begin{pmatrix} 0.8 & 0.5 \\ 0.6 & 0.9 \\ 0.7 & 0.7 \end{pmatrix}, \quad \mathbf{w} = \begin{pmatrix} 0.6 \\ 0.4 \end{pmatrix}.$$
+<p>Then $S_{\text{Austin}} = 0.6(0.8)+0.4(0.5) = 0.68$, $S_{\text{Denver}} = 0.6(0.6)+0.4(0.9) = 0.72$, $S_{\text{Raleigh}} = 0.6(0.7)+0.4(0.7) = 0.70$. The ranking is Denver $\succ$ Raleigh $\succ$ Austin.</p>
+<h3 id="key-theorem-rank-sensitivity">Key Theorem (Rank Sensitivity)</h3>
+<p><strong>Theorem.</strong> The ranking $r_i < r_k$ is reversed by a perturbation $\Delta \mathbf{w}$ satisfying $\mathbf{1}^\top \Delta\mathbf{w} = 0$ if and only if $(\tilde{\mathbf{x}}_i - \tilde{\mathbf{x}}_k)^\top \Delta\mathbf{w} < 0$.</p>
+<p><em>Proof sketch.</em> The score gap $S_i - S_k = \mathbf{w}^\top(\tilde{\mathbf{x}}_i - \tilde{\mathbf{x}}_k)$ changes sign exactly when the inner product with the difference vector $\delta = \tilde{\mathbf{x}}_i - \tilde{\mathbf{x}}_k$ changes sign under $\mathbf{w} + \Delta\mathbf{w}$, giving the stated linear condition. $\square$</p>
+<p>This theorem quantifies editorial instability: cities with nearly equal scores on all indicators are robust to weight changes, while cities that excel on only a subset are sensitive.</p>
+<h3 id="lab-cell">Lab Cell</h3>
+<pre><code>import sympy as sp
+
+# Attribute matrix (rows = cities, cols = indicators)
+X_raw = sp.Matrix([[80000, 95], [70000, 75], [75000, 85]])
+cities = ["Austin", "Denver", "Raleigh"]
+
+# Min-max normalization (column-wise)
+X_norm = sp.zeros(*X_raw.shape)
+for j in range(X_raw.cols):
+    col = X_raw.col(j)
+    lo, hi = min(col), max(col)
+    for i in range(X_raw.rows):
+        X_norm[i, j] = (col[i] - lo) / (hi - lo)
+
+w = sp.Matrix([sp.Rational(3, 5), sp.Rational(2, 5)])
+scores = X_norm * w
+ranking = sorted(zip(cities, scores), key=lambda t: -t[1])
+for rank, (city, score) in enumerate(ranking, 1):
+    print(f"{rank}. {city}: {float(score):.4f}")</code></pre>
+  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,241 @@
+domain: linalg_beezer_ch07
+primitives:
+  function:
+    defines: A rule associating each element of a domain set with exactly one element of a codomain set.
+    tier: 0
+  vector_space:
+    defines: A set of objects (vectors) with operations of vector addition and scalar multiplication satisfying
+      ten defining properties.
+    tier: 0
+  matrix_vector_product:
+    defines: The operation of multiplying a matrix by a vector, previously defined and reused to build
+      linear transformations.
+    tier: 0
+  identity_linear_transformation:
+    defines: The linear transformation on a vector space that maps every vector to itself.
+    tier: 0
+concepts:
+  linear_transformation:
+    defines: A function between vector spaces that preserves vector addition and scalar multiplication.
+    composed_of:
+    - function
+    - vector_space
+    - matrix_vector_product
+    tier: 1
+  linear_transformations_take_zero_to_zero:
+    defines: Every linear transformation sends the zero vector of the domain to the zero vector of the
+      codomain.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  matrix_representation_of_linear_transformation:
+    defines: Every linear transformation between vector spaces of column vectors corresponds to a unique
+      matrix such that the transformation is matrix-vector multiplication, and vice versa.
+    composed_of:
+    - linear_transformation
+    - matrix_vector_product
+    tier: 2
+  linear_transformations_and_linear_combinations:
+    defines: A linear transformation applied to a linear combination of vectors equals the same linear
+      combination of the transformed vectors.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  linear_transformation_defined_on_basis:
+    defines: A linear transformation is uniquely determined by specifying its outputs on a basis of the
+      domain.
+    composed_of:
+    - linear_transformations_and_linear_combinations
+    tier: 3
+  pre_image:
+    defines: For a linear transformation T and vector v in the codomain, the set of all domain vectors
+      that T sends to v.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  linear_transformation_addition:
+    defines: The sum of two linear transformations with the same domain and codomain, defined pointwise
+      by adding their outputs.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  linear_transformation_scalar_multiplication:
+    defines: The scalar multiple of a linear transformation, defined pointwise by scaling its outputs.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  vector_space_of_linear_transformations:
+    defines: The set of all linear transformations between two fixed vector spaces forms a vector space
+      under transformation addition and scalar multiplication.
+    composed_of:
+    - linear_transformation_addition
+    - linear_transformation_scalar_multiplication
+    - vector_space
+    tier: 3
+  linear_transformation_composition:
+    defines: The composition of two linear transformations, applying one after the other, which is itself
+      a linear transformation.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  injective_linear_transformation:
+    defines: A linear transformation where equal outputs always come from equal inputs (one-to-one).
+    composed_of:
+    - linear_transformation
+    tier: 2
+  kernel_of_linear_transformation:
+    defines: The set of all domain vectors that a linear transformation sends to the zero vector of the
+      codomain.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  kernel_is_subspace:
+    defines: The kernel of any linear transformation is always a subspace of the domain.
+    composed_of:
+    - kernel_of_linear_transformation
+    - vector_space
+    tier: 3
+  kernel_and_preimage:
+    defines: A nonempty pre-image of any vector can be constructed as one particular solution vector plus
+      the kernel.
+    composed_of:
+    - kernel_of_linear_transformation
+    - pre_image
+    tier: 3
+  kernel_of_injective_transformation:
+    defines: A linear transformation is injective if and only if its kernel is trivial (contains only
+      the zero vector).
+    composed_of:
+    - kernel_of_linear_transformation
+    - injective_linear_transformation
+    tier: 3
+  injective_transformations_and_linear_independence:
+    defines: Injective linear transformations carry linearly independent sets to linearly independent
+      sets, and are characterized by preserving independence of a basis.
+    composed_of:
+    - injective_linear_transformation
+    tier: 3
+  injective_transformations_and_dimension:
+    defines: If a linear transformation is injective, the dimension of its domain is less than or equal
+      to the dimension of its codomain.
+    composed_of:
+    - injective_linear_transformation
+    tier: 3
+  composition_of_injective_transformations:
+    defines: The composition of two injective linear transformations is itself injective.
+    composed_of:
+    - injective_linear_transformation
+    - linear_transformation_composition
+    tier: 3
+  surjective_linear_transformation:
+    defines: A linear transformation where every element of the codomain is the output of some element
+      of the domain (onto).
+    composed_of:
+    - linear_transformation
+    tier: 2
+  range_of_linear_transformation:
+    defines: The set of all outputs produced by a linear transformation as its input ranges over the whole
+      domain.
+    composed_of:
+    - linear_transformation
+    tier: 2
+  range_is_subspace:
+    defines: The range of any linear transformation is always a subspace of the codomain.
+    composed_of:
+    - range_of_linear_transformation
+    - vector_space
+    tier: 3
+  range_of_surjective_transformation:
+    defines: A linear transformation is surjective if and only if its range equals the entire codomain.
+    composed_of:
+    - range_of_linear_transformation
+    - surjective_linear_transformation
+    tier: 3
+  spanning_set_for_range:
+    defines: The images of a spanning set of the domain form a spanning set for the range of the transformation.
+    composed_of:
+    - range_of_linear_transformation
+    tier: 3
+  range_and_preimage:
+    defines: A vector lies in the range of a linear transformation exactly when its pre-image is nonempty.
+    composed_of:
+    - range_of_linear_transformation
+    - pre_image
+    tier: 3
+  surjective_transformations_and_dimension:
+    defines: If a linear transformation is surjective, the dimension of its domain is greater than or
+      equal to the dimension of its codomain.
+    composed_of:
+    - surjective_linear_transformation
+    tier: 3
+  composition_of_surjective_transformations:
+    defines: The composition of two surjective linear transformations is itself surjective.
+    composed_of:
+    - surjective_linear_transformation
+    - linear_transformation_composition
+    tier: 3
+  invertible_linear_transformation:
+    defines: A linear transformation for which there exists a companion transformation that composes with
+      it (in either order) to give the identity.
+    composed_of:
+    - linear_transformation_composition
+    - identity_linear_transformation
+    tier: 3
+  inverse_of_invertible_transformation_is_linear:
+    defines: If a linear transformation is invertible, its inverse function is itself a linear transformation.
+    composed_of:
+    - invertible_linear_transformation
+    tier: 4
+  invertible_transformations_are_injective_and_surjective:
+    defines: A linear transformation is invertible if and only if it is both injective and surjective
+      (bijective).
+    composed_of:
+    - invertible_linear_transformation
+    - injective_linear_transformation
+    - surjective_linear_transformation
+    tier: 4
+  composition_of_invertible_transformations:
+    defines: The composition of two invertible linear transformations is invertible, with inverse equal
+      to the composition of the inverses in reverse order.
+    composed_of:
+    - invertible_linear_transformation
+    - linear_transformation_composition
+    tier: 4
+  isomorphic_vector_spaces:
+    defines: Two vector spaces are isomorphic if there exists an invertible linear transformation (an
+      isomorphism) between them, meaning they are structurally the same.
+    composed_of:
+    - invertible_linear_transformation
+    tier: 4
+  isomorphic_spaces_have_equal_dimension:
+    defines: If two vector spaces are isomorphic, they must have the same dimension.
+    composed_of:
+    - isomorphic_vector_spaces
+    tier: 5
+  rank_of_linear_transformation:
+    defines: The dimension of the range of a linear transformation.
+    composed_of:
+    - range_of_linear_transformation
+    tier: 3
+  nullity_of_linear_transformation:
+    defines: The dimension of the kernel of a linear transformation.
+    composed_of:
+    - kernel_of_linear_transformation
+    tier: 3
+  rank_plus_nullity_is_domain_dimension:
+    defines: For any linear transformation, the rank and nullity sum to the dimension of the domain.
+    composed_of:
+    - rank_of_linear_transformation
+    - nullity_of_linear_transformation
+    tier: 4
+applications:
+  linear_transformations_and_systems_of_equations:
+    defines: Solving a linear system LS(A, b) is equivalent to finding the pre-image of b under the linear
+      transformation T(x) = Ax, connecting consistency, uniqueness, and infinite solution sets to properties
+      of kernel and range.
+    needs:
+    - pre_image
+    - kernel_of_linear_transformation
+    - range_of_linear_transformation
+    - matrix_vector_product
+    tier: 3

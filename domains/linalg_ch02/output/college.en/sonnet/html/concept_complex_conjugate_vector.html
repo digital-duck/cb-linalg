@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Conjugate Vector | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="complex-conjugate-vector">Complex Conjugate Vector</h2>
+<p>For a vector $\mathbf{v} \in \mathbb{C}^n$ with entries $v_k = a_k + b_k i$, the <strong>complex conjugate vector</strong> $\overline{\mathbf{v}}$ is formed by conjugating each entry individually:</p>
+$$\overline{\mathbf{v}} = \begin{pmatrix} \overline{v_1} \\ \overline{v_2} \\ \vdots \\ \overline{v_n} \end{pmatrix}, \qquad \overline{v_k} = a_k - b_k i.$$
+<p>This operation is entrywise, so it commutes with vector addition and distributes over scalar multiplication with a twist: $\overline{c\mathbf{v}} = \overline{c}\,\overline{\mathbf{v}}$ for any scalar $c \in \mathbb{C}$. The conjugate vector is the algebraic partner that makes the geometry of complex vector spaces work — without it, there is no way to define a length that is guaranteed to be a nonnegative real number.</p>
+<p><strong>Worked example.</strong> Let $\mathbf{v} = \begin{pmatrix} 2 + 3i \\ -1 - i \\ 4i \end{pmatrix}$. Conjugating each entry gives</p>
+$$\overline{\mathbf{v}} = \begin{pmatrix} 2 - 3i \\ -1 + i \\ -4i \end{pmatrix}.$$
+<p>Notice that real entries (there are none here) would be unchanged, since $\overline{a} = a$ when $b = 0$.</p>
+<p><strong>Why it matters — the inner product.</strong> In $\mathbb{C}^n$, the standard inner product is defined as $\langle \mathbf{u}, \mathbf{v} \rangle = \sum_{k=1}^n u_k \overline{v_k} = \mathbf{u}^T \overline{\mathbf{v}}$, not the naive dot product $\sum u_k v_k$. This conjugation is not a cosmetic choice: it is exactly what forces $\langle \mathbf{v}, \mathbf{v} \rangle = \sum_k v_k \overline{v_k} = \sum_k |v_k|^2 \geq 0$ to be real and nonnegative, so that a norm $\|\mathbf{v}\| = \sqrt{\langle \mathbf{v}, \mathbf{v} \rangle}$ exists. If you instead computed $\sum v_k^2$ without conjugating, the result could be negative or complex — e.g., $(2i)^2 = -4$ — and "length" would be meaningless.</p>
+<p><strong>Problem-solving application.</strong> Given $\mathbf{v} = \begin{pmatrix} 1+i \\ 2-i \end{pmatrix}$, find $\|\mathbf{v}\|$. Compute $\langle \mathbf{v}, \mathbf{v} \rangle = (1+i)\overline{(1+i)} + (2-i)\overline{(2-i)} = (1+i)(1-i) + (2-i)(2+i) = 2 + 5 = 7$, so $\|\mathbf{v}\| = \sqrt{7}$. This same conjugate-and-sum pattern is the computational core of checking orthogonality of complex eigenvectors and of verifying that a matrix is unitary ($A^<em>A = I$, where $A^</em> = \overline{A}^T$).</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

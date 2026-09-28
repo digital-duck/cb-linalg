@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vector Addition | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="vector-addition">Vector Addition</h2>
+<p><strong>定义</strong></p>
+<p>设 $\mathbf{v} = (v_1, v_2, \dots, v_n)$ 和 $\mathbf{w} = (w_1, w_2, \dots, w_n)$ 是两个维数相同的向量，则它们的和定义为对应分量相加所得的新向量：</p>
+$$\mathbf{v} + \mathbf{w} = (v_1 + w_1,\ v_2 + w_2,\ \dots,\ v_n + w_n)$$
+<p>这一运算要求两个向量维数完全一致——维数不同的向量无法相加。向量加法满足交换律 $\mathbf{v}+\mathbf{w}=\mathbf{w}+\mathbf{v}$ 和结合律 $(\mathbf{u}+\mathbf{v})+\mathbf{w}=\mathbf{u}+(\mathbf{v}+\mathbf{w})$，这两条性质保证了多个向量相加时不必关心运算顺序。</p>
+<p><strong>几何意义</strong>同样重要：在平面或空间中，向量加法对应"平行四边形法则"或等价的"首尾相接法则"（见下方示意图）。这不是巧合，而是因为向量的分量表示与几何位移表示本质上是同一个数学对象的两种描述方式。</p>
+<p><strong>范例</strong></p>
+<p>设 $\mathbf{v} = (3, 1)$，表示一个物体先向东移动 3 单位、向北移动 1 单位；再设 $\mathbf{w} = (-1, 2)$，表示随后向西移动 1 单位、向北移动 2 单位。两次位移的合成结果为：</p>
+$$\mathbf{v} + \mathbf{w} = (3+(-1),\ 1+2) = (2, 3)$$
+<p>也就是说，无论中途路径如何，物体最终净位移等价于直接从起点移动到 $(2,3)$ 这一点。</p>
+<p><strong>问题求解应用</strong></p>
+<p>向量加法是解决"合成"类问题的核心工具，尤其在物理学中用于求合力、合速度或合位移。例如，若一物体同时受到力 $\mathbf{F}_1 = (4, 0)$ 牛顿和 $\mathbf{F}_2 = (0, 3)$ 牛顿的作用，则合力为 $\mathbf{F}_1 + \mathbf{F}_2 = (4, 3)$ 牛顿，其大小可进一步通过向量的模 $\|\mathbf{F}\| = \sqrt{4^2+3^2} = 5$ 牛顿求得。在实际问题中，先将各分力/位移分解为坐标分量，再逐分量相加，最后合成结果——这一"分解—相加—合成"的三步策略，是处理多向量叠加问题的通用方法。</p>
+<pre class="mermaid">flowchart LR
+    A["向量 v（起点到中点）"] --> C["v + w（合成向量，对角线）"]
+    B["向量 w（v 的终点为起点）"] --> C
+    D["v 与 w 尾部相接（平行四边形）"] -.等价.-> E["w 接在 v 尖端（首尾相接）"]
+    E --> C</pre>
+<p><em>图示：平行四边形法则中，$\mathbf{v}$ 与 $\mathbf{w}$ 尾部对齐所构成平行四边形的对角线即为 $\mathbf{v}+\mathbf{w}$；首尾相接法则给出完全相同的结果向量。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orthogonal Set | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="orthogonal-set">Orthogonal Set</h2>
+<p>A set of vectors $\{v_1, v_2, \dots, v_k\}$ in $\mathbb{R}^n$ is an <strong>orthogonal set</strong> if every pair of distinct vectors in the set is orthogonal — that is,</p>
+$$
+v_i \cdot v_j = 0 \quad \text{whenever } i \neq j.
+$$
+<p>No condition is placed on the vectors' lengths; they need not be unit vectors (a set that is orthogonal <em>and</em> consists of unit vectors is called <strong>orthonormal</strong>). Orthogonal sets matter because, provided none of the vectors is the zero vector, they are automatically <strong>linearly independent</strong> — a fact that follows directly from the definition. Suppose $c_1 v_1 + c_2 v_2 + \cdots + c_k v_k = 0$. Taking the dot product of both sides with $v_i$ eliminates every term except the $i$-th, since $v_i \cdot v_j = 0$ for $j \neq i$:</p>
+$$
+c_i (v_i \cdot v_i) = 0.
+$$
+<p>Since $v_i \neq 0$, $v_i \cdot v_i > 0$, forcing $c_i = 0$ for every $i$. Hence the only linear combination equal to zero is the trivial one, and the set is independent. A nonzero orthogonal set of $n$ vectors in $\mathbb{R}^n$ therefore automatically forms a basis, called an <strong>orthogonal basis</strong>.</p>
+<p><strong>Worked example.</strong> Consider $v_1 = (1, 1, 0)$, $v_2 = (1, -1, 1)$, $v_3 = (-1, 1, 2)$ in $\mathbb{R}^3$. Check pairwise dot products: $v_1 \cdot v_2 = 1 - 1 + 0 = 0$; $v_1 \cdot v_3 = -1 + 1 + 0 = 0$; $v_2 \cdot v_3 = -1 - 1 + 2 = 0$. All three vanish, so $\{v_1, v_2, v_3\}$ is an orthogonal set, and since none is zero, it is a basis for $\mathbb{R}^3$.</p>
+<p><strong>Problem-solving application.</strong> Orthogonal bases make coordinate computation dramatically easier than general bases. To write a vector $y$ as $y = c_1 v_1 + \cdots + c_k v_k$, an arbitrary basis requires solving a linear system. With an orthogonal basis, dot both sides with $v_i$ and use orthogonality to isolate</p>
+$$
+c_i = \frac{y \cdot v_i}{v_i \cdot v_i}.
+$$
+<p>For instance, to express $y = (2, 3, 4)$ in the basis above: $c_1 = \frac{(2)(1)+(3)(1)}{2} = 2.5$, $c_2 = \frac{2-3+4}{3} = 1$, $c_3 = \frac{-2+3+8}{6} = 1.5$ — no matrix inversion needed. This projection formula is the computational engine behind least-squares approximation and the Gram–Schmidt process.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

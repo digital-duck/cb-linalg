@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Product | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="inner-product">Inner Product</h2>
+<p><strong>定义</strong>：给定复向量空间中的两个向量 $\mathbf{u}, \mathbf{v} \in \mathbb{C}^n$，其内积定义为</p>
+$$\langle \mathbf{u}, \mathbf{v} \rangle = \sum_{i=1}^{n} \overline{u_i}\, v_i$$
+<p>其中 $\overline{u_i}$ 表示 $u_i$ 的复共轭。对于实向量空间，共轭不起作用（实数的共轭是其本身），内积退化为熟悉的点积 $\mathbf{u} \cdot \mathbf{v} = \sum u_i v_i$。内积具有三条公理性质：<strong>共轭对称性</strong>（$\langle \mathbf{u}, \mathbf{v} \rangle = \overline{\langle \mathbf{v}, \mathbf{u} \rangle}$）、<strong>第二变元线性</strong>、以及<strong>正定性</strong>（$\langle \mathbf{u}, \mathbf{u} \rangle \geq 0$，且等号仅在 $\mathbf{u} = \mathbf{0}$ 时成立）。正定性保证了由内积诱导的范数 $\|\mathbf{u}\| = \sqrt{\langle \mathbf{u}, \mathbf{u} \rangle}$ 是良定义的实数，这也是为何复向量必须取共轭——若不取共轭，$\langle \mathbf{u}, \mathbf{u} \rangle = \sum u_i^2$ 对复数而言可能为负或为复数，范数便失去意义。</p>
+<p><strong>推导实例</strong>：设 $\mathbf{u} = (1, 2i)$，$\mathbf{v} = (3, i)$。则</p>
+$$\langle \mathbf{u}, \mathbf{v} \rangle = \overline{1} \cdot 3 + \overline{2i} \cdot i = 1 \cdot 3 + (-2i)(i) = 3 - 2i^2 = 3 + 2 = 5$$
+<p>注意结果是实数——这并非巧合：当 $\mathbf{u} = \mathbf{v}$ 时，共轭对称性强制 $\langle \mathbf{u}, \mathbf{u}\rangle$ 必为实数，这正是范数存在的前提。</p>
+<p><strong>问题求解应用</strong>：内积是判断正交性、构造投影、以及量子力学中计算测量概率幅的核心工具。例如，在 Gram-Schmidt 正交化中，从向量 $\mathbf{v}$ 中减去其在已正交化基向量 $\mathbf{e}_k$ 方向上的分量，用的正是投影公式</p>
+$$\text{proj}_{\mathbf{e}_k}(\mathbf{v}) = \langle \mathbf{e}_k, \mathbf{v} \rangle \, \mathbf{e}_k$$
+<p>在量子计算中，若 $|\psi\rangle$ 是量子态、$|0\rangle$ 是测量基态，则测得 $|0\rangle$ 的概率是 $|\langle 0 | \psi \rangle|^2$——这里的共轭恰好保证了概率是非负实数。掌握内积的共轭约定，是正确理解酉矩阵、正交基与量子态叠加的必经之路。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

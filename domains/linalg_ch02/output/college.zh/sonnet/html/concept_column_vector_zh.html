@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Column Vector | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="column-vector">Column Vector</h2>
+<p>列向量是将若干个复数按固定顺序竖直排列所构成的对象，记作</p>
+$$
+v = \begin{pmatrix} z_1 \\ z_2 \\ \vdots \\ z_n \end{pmatrix}, \quad z_i \in \mathbb{C}
+$$
+<p>其中每个 $z_i$ 称为该向量的第 $i$ 个分量。与"一组数"不同，列向量强调<strong>顺序</strong>与<strong>位置</strong>：分量的排列方式本身携带信息，交换两个分量的位置会得到一个不同的向量。这种结构使列向量成为线性代数中表示状态、坐标或量子态的基本载体——例如量子计算中，一个量子比特的状态就写成一个二维复数列向量。</p>
+<p><strong>运算规则</strong>：两个同维数的列向量可以逐分量相加；列向量可以与一个标量（实数或复数）相乘，即每个分量都乘以该标量：</p>
+$$
+v + w = \begin{pmatrix} z_1+w_1 \\ \vdots \\ z_n+w_n \end{pmatrix}, \qquad
+\alpha v = \begin{pmatrix} \alpha z_1 \\ \vdots \\ \alpha z_n \end{pmatrix}
+$$
+<p><strong>范例</strong>：设</p>
+$$
+v = \begin{pmatrix} 1+i \\ 2 \\ -i \end{pmatrix}, \qquad w = \begin{pmatrix} i \\ 1-i \\ 3 \end{pmatrix}
+$$
+<p>则</p>
+$$
+v + 2w = \begin{pmatrix} (1+i)+2i \\ 2+2(1-i) \\ -i+6 \end{pmatrix} = \begin{pmatrix} 1+3i \\ 4-2i \\ 6-i \end{pmatrix}
+$$
+<p><strong>问题求解应用</strong>：在实际计算中，列向量常用于编码问题的多个未知量，使得批量运算（加法、缩放、后续的矩阵变换）可以一次性对整组数据完成，而不必逐个处理。例如，若要将三个复数信号 $z_1, z_2, z_3$ 同时放大 $\alpha$ 倍并叠加另一组偏移信号，只需对列向量做一次标量乘法与加法，而无需写三条独立的方程——这正是矩阵作用于列向量（$Av$）能够高效描述线性变换的基础，也是后续学习矩阵乘法、基变换与量子门操作时反复使用的表示方式。</p>
+<pre class="mermaid">graph TD
+    A["复数 z1"] --> D["列向量 v"]
+    B["复数 z2"] --> D
+    C["复数 z3"] --> D
+    D --> E["标量乘法 / 加法"]
+    D --> F["矩阵作用 Av"]</pre>
+<p><em>该图展示多个复数按顺序组合为一个列向量，并作为标量运算与矩阵变换的输入对象。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

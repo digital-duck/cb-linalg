@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Number | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="complex-number">Complex Number</h2>
+<p>A complex number is an expression of the form $a + bi$, where $a$ and $b$ are real numbers and $i$ is the imaginary unit, defined by the property $i^2 = -1$. Here $a$ is called the real part and $b$ the imaginary part. Complex numbers form a field — closed under addition, subtraction, multiplication, and division (except by zero) — which is exactly what qualifies them, alongside $\mathbb{R}$, to serve as the scalar field underlying a vector space: any vector space defined "over $\mathbb{C}$" simply means its scalars are drawn from this set, and all vector space axioms (distributivity, associativity, existence of inverses) hold with complex scalars just as they do with real ones.</p>
+<p>Arithmetic follows directly from treating $i$ as a symbol satisfying $i^2 = -1$. Addition combines real and imaginary parts separately: $(3 + 2i) + (1 - 5i) = 4 - 3i$. Multiplication uses distribution: $(2 + i)(1 - 3i) = 2 - 6i + i - 3i^2 = 2 - 5i + 3 = 5 - 5i$. Division requires the complex conjugate $\bar{a+bi} = a - bi$, used to clear the imaginary part from the denominator: for example, $\dfrac{1}{2+i} = \dfrac{2-i}{(2+i)(2-i)} = \dfrac{2-i}{5}$.</p>
+<p>Consider a vector space over $\mathbb{C}$, such as $\mathbb{C}^2$, whose elements are pairs of complex numbers, e.g. $(3+i,\ 2-4i)$. Scalar multiplication now uses a complex scalar: multiplying $(3+i, 2-4i)$ by the scalar $i$ gives $(i(3+i),\ i(2-4i)) = (3i + i^2,\ 2i - 4i^2) = (-1+3i,\ 4+2i)$. Notice that multiplying by $i$ does not just scale a vector — over $\mathbb{R}^2$ this operation would have no analogue, since $i \notin \mathbb{R}$. This is the essential reason complex scalars matter in applications like quantum mechanics and signal processing: multiplying by $i$ acts as a "quarter-turn" in the complex plane (since $i = 1 \cdot e^{i\pi/2}$), giving vector spaces over $\mathbb{C}$ a built-in rotational structure unavailable over $\mathbb{R}$.</p>
+<p>When solving problems in a complex vector space, always verify that scalar operations respect field closure — check that the result of any combination $\alpha v$ or $\alpha v + \beta w$ with $\alpha, \beta \in \mathbb{C}$ stays a valid complex-coordinate vector, and simplify $i^2 = -1$ immediately wherever it appears to avoid arithmetic errors.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
