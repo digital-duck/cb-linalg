@@ -48,6 +48,7 @@ request time — it works off local copies:
 npm install
 
 # The spl123 conda env (from SPL.py) provides spl3 and the Claude CLI backend
+conda create -n spl123 python=3.11
 conda activate spl123
 pip install -r requirements-api.txt   # fastapi, click, pyyaml, pydantic-settings, ...
 which spl3                             # sanity check — should resolve inside spl123

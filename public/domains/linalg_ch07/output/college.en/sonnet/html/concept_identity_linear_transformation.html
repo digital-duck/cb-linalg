@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identity Linear Transformation | Linalg Ch07</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="identity-linear-transformation">Identity Linear Transformation</h2>
+<p>The identity linear transformation on a vector space $V$ is the map $I: V \to V$ defined by</p>
+$$I(\mathbf{v}) = \mathbf{v} \quad \text{for every } \mathbf{v} \in V.$$
+<p>It sends each vector to itself, changing nothing. Despite its simplicity, $I$ is a genuine linear transformation: it satisfies additivity, $I(\mathbf{u}+\mathbf{v}) = \mathbf{u}+\mathbf{v} = I(\mathbf{u})+I(\mathbf{v})$, and homogeneity, $I(c\mathbf{v}) = c\mathbf{v} = cI(\mathbf{v})$, for any scalar $c$. In any finite-dimensional vector space with a chosen basis, the matrix representing $I$ is the identity matrix $I_n$ — the $n \times n$ array with $1$'s on the diagonal and $0$'s elsewhere.</p>
+<p><strong>Worked example.</strong> Let $V = \mathbb{R}^3$ with the standard basis, and let $\mathbf{v} = (2, -5, 7)$. Applying the identity transformation gives $I(\mathbf{v}) = (2, -5, 7)$. In matrix form,</p>
+$$
+I_3 \mathbf{v} =
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+\begin{pmatrix} 2 \\ -5 \\ 7 \end{pmatrix}
+=
+\begin{pmatrix} 2 \\ -5 \\ 7 \end{pmatrix}.
+$$
+<p>Each row of $I_3$ selects exactly one coordinate of $\mathbf{v}$ and leaves it unchanged, which is why the product reproduces $\mathbf{v}$ exactly.</p>
+<p><strong>Why it matters for problem-solving.</strong> The identity transformation is the multiplicative identity for composition: for any linear transformation $T: V \to V$, $T \circ I = I \circ T = T$. This makes $I$ the reference point for defining an <em>inverse</em> transformation: $T^{-1}$ exists precisely when $T \circ T^{-1} = T^{-1} \circ T = I$. Concretely, if you are solving a matrix equation $A\mathbf{x} = \mathbf{b}$, finding $A^{-1}$ and checking $A^{-1}A = I$ confirms your inverse is correct — a direct application appears whenever you verify a computed inverse matrix, solve a linear system via $\mathbf{x} = A^{-1}\mathbf{b}$, or prove that a transformation is invertible (bijective) by exhibiting a two-sided inverse that composes to $I$. Recognizing $I$ also simplifies eigenvalue problems: every nonzero vector is an eigenvector of $I$ with eigenvalue $1$, since $I\mathbf{v} = 1 \cdot \mathbf{v}$, a fact used when analyzing transformations like $A - \lambda I$ in the characteristic equation $\det(A - \lambda I) = 0$.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch7: Linear Transformations (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
