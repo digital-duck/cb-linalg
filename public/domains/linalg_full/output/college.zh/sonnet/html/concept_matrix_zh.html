@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="矩阵">矩阵</h2>
+<p><strong>定义。</strong> 一个 $m\times n$ 矩阵是由数排成 $m$ 行、$n$ 列的矩形数组,记作 $A=(a_{ij})$,其中 $a_{ij}$ 位于第 $i$ 行第 $j$ 列。它的"大小"(或"型")写作 $m\times n$。当 $m=n$ 时称为方阵。</p>
+<p>矩阵最常见的用途,是把线性方程组的系数和常数项整齐地记录下来。对于方程组</p>
+$$
+\begin{cases}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1\\
+\quad\vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n=b_m
+\end{cases}
+$$
+<p><strong>系数矩阵</strong>为 $A=(a_{ij})$,把常数列 $\mathbf b$ 并在右侧,就得到<strong>增广矩阵</strong> $[A\mid \mathbf b]$。这样,方程组可以紧凑地写成 $A\mathbf x=\mathbf b$。</p>
+<pre class="mermaid">flowchart LR
+    A["线性方程组"] --> B["提取系数与常数"]
+    B --> C["增广矩阵"]
+    C --> D["行变换"]
+    D --> E["阶梯形矩阵"]
+    E --> F["读出解"]</pre>
+<p><em>图:从方程组到矩阵,再通过行变换求解的流程。</em></p>
+<p><strong>例题。</strong> 把方程组</p>
+$$
+\begin{cases}
+x+2y=5\\
+3x+4y=11
+\end{cases}
+$$
+<p>写成增广矩阵:</p>
+$$
+\left[\begin{array}{cc|c}1&2&5\\3&4&11\end{array}\right].
+$$
+<p>这是一个 $2\times 3$ 矩阵(系数部分为 $2\times 2$)。每一行对应一个方程,每一列对应一个未知数(最后一列对应常数项)。</p>
+<p><strong>问题求解应用。</strong> 用行变换(交换两行、某行乘非零常数、把某行的倍数加到另一行)化简。将第 2 行减去 3 倍的第 1 行:</p>
+$$
+\left[\begin{array}{cc|c}1&2&5\\0&-2&-4\end{array}\right].
+$$
+<p>将第 2 行除以 $-2$,得 $y=2$:</p>
+$$
+\left[\begin{array}{cc|c}1&2&5\\0&1&2\end{array}\right].
+$$
+<p>再将第 1 行减去 2 倍的第 2 行:</p>
+$$
+\left[\begin{array}{cc|c}1&0&1\\0&1&2\end{array}\right].
+$$
+<p>读出解:$x=1,\ y=2$。验证:$1+2\cdot2=5$,$3\cdot1+4\cdot2=11$,均成立。</p>
+<p>行变换之所以可靠,是因为每一种变换都对应对方程组的一个可逆操作,不改变解集。这样,"解方程组"就变成了对数组做机械的、可由计算机执行的运算。</p>
+<p><strong>要点。</strong></p>
+<li>先确认矩阵的型 $m\times n$:行数对应方程个数,列数对应未知数个数(增广矩阵多一列)。</li>
+<li>写增广矩阵时,缺项的系数要补 $0$。</li>
+<li>对角线以下全为 $0$ 的阶梯形,便于由下往上回代求解。</li>
+<p><strong>练习。</strong> 把 $2x-y=3,\ x+y=3$ 写成增广矩阵,并用行变换求解。(答案:$x=2,\ y=1$。)</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

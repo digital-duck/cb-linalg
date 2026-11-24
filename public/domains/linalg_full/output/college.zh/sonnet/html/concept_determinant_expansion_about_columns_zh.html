@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Determinant Expansion About Columns | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="按列展开行列式">按列展开行列式</h2>
+<p><strong>定义。</strong> 设 $A=(a_{ij})$ 为 $n$ 阶方阵,$M_{ij}$ 为删去第 $i$ 行、第 $j$ 列后所得的 $n-1$ 阶子式,$C_{ij}=(-1)^{i+j}M_{ij}$ 称为元素 $a_{ij}$ 的代数余子式。已知按第 $i$ 行展开:</p>
+$$\det A=\sum_{j=1}^{n} a_{ij}C_{ij}.$$
+<p><strong>定理(按列展开)。</strong> 对任意固定的列 $j$,</p>
+$$\det A=\sum_{i=1}^{n} a_{ij}C_{ij}=a_{1j}C_{1j}+a_{2j}C_{2j}+\cdots+a_{nj}C_{nj}.$$
+<p><strong>证明。</strong> 利用 $\det A=\det A^{T}$。记 $B=A^{T}$,则 $b_{ji}=a_{ij}$。删去 $B$ 的第 $j$ 行、第 $i$ 列,所得矩阵恰为删去 $A$ 的第 $i$ 行、第 $j$ 列所得矩阵的转置,而转置不改变行列式,故 $B$ 的相应余子式等于 $M_{ij}$,符号 $(-1)^{i+j}$ 也相同,因此 $B$ 的代数余子式 $C^{B}_{ji}=C_{ij}$。对 $B$ 按第 $j$ 行展开:</p>
+$$\det A=\det B=\sum_{i=1}^{n} b_{ji}C^{B}_{ji}=\sum_{i=1}^{n} a_{ij}C_{ij}.\ \blacksquare$$
+<p><strong>符号规律。</strong> $(-1)^{i+j}$ 构成棋盘格:</p>
+$$\begin{pmatrix}+&-&+\\-&+&-\\+&-&+\end{pmatrix}$$
+<p><strong>例题。</strong> 计算</p>
+$$A=\begin{pmatrix}2&1&0\\3&0&4\\1&0&5\end{pmatrix}.$$
+<p>第 2 列为 $(1,0,0)^T$,含两个零,选它展开:</p>
+$$\det A=a_{12}C_{12}=1\cdot(-1)^{1+2}\begin{vmatrix}3&4\\1&5\end{vmatrix}=-(15-4)=-11.$$
+<p>只需计算一个 $2$ 阶子式。</p>
+<p><strong>问题求解应用。</strong> 求</p>
+$$D=\begin{vmatrix}1&2&0&3\\0&1&0&4\\2&5&3&1\\0&2&0&6\end{vmatrix}.$$
+<p><strong>策略:</strong> 选零最多的列。第 3 列仅有 $a_{33}=3\neq0$,位置符号 $(-1)^{3+3}=+1$:</p>
+$$D=3\begin{vmatrix}1&2&3\\0&1&4\\0&2&6\end{vmatrix}.$$
+<p>再按第 1 列展开,仅剩 $a_{11}=1$:</p>
+$$D=3\cdot1\cdot\begin{vmatrix}1&4\\2&6\end{vmatrix}=3(6-8)=-6.$$
+<p><strong>要点。</strong></p>
+<li>行与列地位对称,哪一行或列零最多就选哪一个,可显著减少运算量。</li>
+<li>先用初等行(列)变换在某列制造零,再展开,是计算高阶行列式的常用手段。</li>
+<li>展开时务必核对 $(-1)^{i+j}$ 的符号,这是最常见的错误来源。</li>
+<pre class="mermaid">flowchart TD
+    A[给定n阶方阵] --> B[选零最多的列]
+    B --> C[对每个非零元素 a_ij]
+    C --> D[计算代数余子式 C_ij]
+    D --> E[求和得行列式]
+    E --> F{阶数是否大于2}
+    F -->|是| B
+    F -->|否| G[直接计算]</pre>
+<p><em>图:按列展开的递归求解流程,每次展开使阶数降低一阶。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Equation | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="线性方程">线性方程</h2>
+<p><strong>定义。</strong> 线性方程是只含有变量的加法以及变量与常数相乘的方程,其一般形式为</p>
+$$a_1x_1 + a_2x_2 + \cdots + a_nx_n = b,$$
+<p>其中 $a_1,\dots,a_n$ 是常数(称为系数),$b$ 是常数项,$x_1,\dots,x_n$ 是未知量。"线性"的含义是:每个变量都只以一次幂出现,变量之间没有乘积,也没有指数、根号或超越函数(如 $\sin x$、$e^x$、$\ln x$)。</p>
+<p>下面几个例子可以帮助判断:</p>
+<li>$3x - 2y = 7$ 是线性方程。</li>
+<li>$x^2 + y = 1$ 不是线性方程,因为含有 $x^2$。</li>
+<li>$xy + z = 4$ 不是线性方程,因为含有变量的乘积 $xy$。</li>
+<li>$\sin x + y = 0$ 不是线性方程,因为含有超越函数。</li>
+<p><strong>几何意义。</strong> 含两个未知量的线性方程 $ax+by=c$($a,b$ 不全为零)的解集是平面上的一条直线。含三个未知量时,解集是空间中的一个平面。一般地,$n$ 个未知量的线性方程的解集是 $n$ 维空间中的一个"超平面"。</p>
+<p><strong>例题。</strong> 求方程 $2x + 3y = 12$ 的所有解。</p>
+<p>解:把 $y$ 用 $x$ 表示出来:</p>
+$$y = \frac{12 - 2x}{3} = 4 - \frac{2}{3}x.$$
+<p>$x$ 可以任取。令 $x = t$($t$ 为任意实数),则解可写成</p>
+$$(x, y) = \left(t,\; 4 - \tfrac{2}{3}t\right).$$
+<p>例如 $t=0$ 得 $(0,4)$,$t=3$ 得 $(3,2)$。代入验证:$2\cdot 3 + 3\cdot 2 = 12$,成立。这说明单个线性方程若含两个未知量,就有无穷多个解,它们恰好落在一条直线上。其中的 $t$ 称为自由参数。</p>
+<p><strong>应用问题。</strong> 某咖啡店用甲、乙两种豆子拌成配方。甲豆每千克 40 元,乙豆每千克 60 元。现有预算 600 元,最多能买多少乙豆?有哪些购买方案?</p>
+<p>建模:设买甲豆 $x$ 千克,乙豆 $y$ 千克,则</p>
+$$40x + 60y = 600.$$
+<p>化简(两边除以 20)得 $2x + 3y = 30$。由于重量不能为负,需要 $x \ge 0,\ y \ge 0$。</p>
+<li>若只买乙豆,令 $x=0$,得 $y=10$,所以乙豆最多 10 千克。</li>
+<li>若只买甲豆,令 $y=0$,得 $x=15$。</li>
+<li>若要求两种豆子重量相等,令 $x=y$,得 $5x=30$,所以 $x=y=6$ 千克。</li>
+<p>可见,线性方程的解集在实际问题中通常还要受到现实约束(这里是非负性)的限制,最后得到的是直线上的一段线段,而不是整条直线。</p>
+<p><strong>要点小结。</strong> 判断是否线性,只需检查三点:变量是否都是一次幂、变量之间是否无乘积、是否无超越函数。求解时,先选出若干个变量作为自由参数,再用它们表示其余变量。这一思路正是后面求解线性方程组的基础。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Determinant Of Transpose | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="转置矩阵的行列式">转置矩阵的行列式</h2>
+<p><strong>定义。</strong> 对任意 $n\times n$ 方阵 $A$,其转置 $A^{T}$ 满足 $(A^{T})_{ij}=A_{ji}$。核心结论是:</p>
+$$\det(A^{T})=\det(A).$$
+<p>也就是说,行列式在转置下保持不变。</p>
+<p><strong>为什么成立。</strong> 由莱布尼茨展开,</p>
+$$\det A=\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\prod_{i=1}^{n}a_{i,\sigma(i)}.$$
+<p>对 $A^{T}$ 有</p>
+$$\det A^{T}=\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\prod_{i=1}^{n}a_{\sigma(i),i}.$$
+<p>在每个乘积中,把因子按行号重新排列。令 $j=\sigma(i)$,则 $i=\sigma^{-1}(j)$,于是</p>
+$$\prod_{i=1}^{n}a_{\sigma(i),i}=\prod_{j=1}^{n}a_{j,\sigma^{-1}(j)}.$$
+<p>又因为 $\operatorname{sgn}(\sigma^{-1})=\operatorname{sgn}(\sigma)$,且 $\sigma\mapsto\sigma^{-1}$ 是 $S_n$ 上的一一对应,所以</p>
+$$\det A^{T}=\sum_{\tau\in S_n}\operatorname{sgn}(\tau)\prod_{j=1}^{n}a_{j,\tau(j)}=\det A.\qquad\blacksquare$$
+<p><strong>例题。</strong> 设</p>
+$$A=\begin{pmatrix}2&1&0\\3&4&5\\1&0&6\end{pmatrix}.$$
+<p>沿第一行展开:</p>
+$$\det A=2(24-0)-1(18-5)+0=48-13=35.$$
+<p>其转置为</p>
+$$A^{T}=\begin{pmatrix}2&3&1\\1&4&0\\0&5&6\end{pmatrix}.$$
+<p>同样沿第一行展开:</p>
+$$\det A^{T}=2(24-0)-3(6-0)+1(5-0)=48-18+5=35.$$
+<p>两者相等,与定理一致。</p>
+<p><strong>解题应用。</strong> 这条性质的实际价值在于:<strong>凡是关于“行”的行列式性质,对“列”同样成立。</strong></p>
+<li><strong>列运算。</strong> 已知交换两行,行列式变号;由此立即得到交换两列也使行列式变号。其证明只需:交换 $A$ 的两列,相当于交换 $A^{T}$ 的两行,而 $\det A=\det A^{T}$。</li>
+<li><strong>按列展开。</strong> 按第 $j$ 列展开 $A$,等价于按第 $j$ 行展开 $A^{T}$,因此可以选择零最多的行或列来简化计算。</li>
+<li><strong>推论。</strong> 若 $A$ 有两列成比例,或有一整列为零,则 $\det A=0$。</li>
+<li><strong>与乘积性质结合。</strong> 若 $Q$ 为正交矩阵,即 $Q^{T}Q=I$,则</li>
+$$(\det Q)^2=\det(Q^{T})\det(Q)=\det(I)=1,$$
+<p>故 $\det Q=\pm1$。这里正是用到了 $\det Q^{T}=\det Q$。</p>
+<p><strong>练习。</strong> 不展开计算,说明为什么 $\begin{pmatrix}1&2&3\\4&5&6\\7&8&9\end{pmatrix}$ 的行列式为 $0$。 提示:第三列减去第二列,恰好等于第二列减去第一列,所以三列线性相关。这是行相关的列版本,可由转置性质直接得到。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
