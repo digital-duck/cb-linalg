@@ -1195,13 +1195,13 @@
       },
       {
         "target": "determinant_by_row_reduction",
-        "file": "output/college.zh/sonnet/html/book_determinant_by_row_reduction.html",
+        "file": "output/college.zh/sonnet/html/book_determinant_by_row_reduction_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
       {
         "target": "fibonacci_closed_form",
-        "file": "output/college.zh/sonnet/html/book_fibonacci_closed_form.html",
+        "file": "output/college.zh/sonnet/html/book_fibonacci_closed_form_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
