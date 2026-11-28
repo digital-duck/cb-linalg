@@ -68,7 +68,32 @@ nav.toc{position:relative;height:auto}}
 $$S(\mathbf{x}_i) = \sum_{k=1}^{d} w_k \, \phi_k(x_i^{(k)}),$$
 <p>where $w_k \geq 0$ with $\sum_k w_k = 1$ are analyst-chosen weights and $\phi_k$ is a normalising transform (e.g., min-max or $z$-score) that renders heterogeneous quantities commensurable. The ranking $\sigma$ is then defined by $\sigma(i) < \sigma(j)$ if and only if $S(\mathbf{x}_i) > S(\mathbf{x}_j)$, placing the highest-scoring city at rank 1.</p>
 <p><strong>Worked example.</strong> Consider three cities with two criteria: monthly disposable income $I$ (USD) and rent-to-income ratio $R$ (dimensionless, lower is better). Suppose</p>
-<p>| City | $I$ | $R$ | |------|-----|-----| | $c_1$ | 3 200 | 0.28 | | $c_2$ | 4 100 | 0.41 | | $c_3$ | 2 900 | 0.19 |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">City</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$I$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$R$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$c_1$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">3 200</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.28</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$c_2$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">4 100</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.41</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$c_3$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2 900</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.19</td>
+    </tr>
+  </tbody>
+</table>
 <p>After min-max normalisation and setting $w_I = 0.6$, $w_R = 0.4$ (with $R$ inverted so that lower rent burden yields a higher score), we obtain $S(c_1) \approx 0.71$, $S(c_2) \approx 0.65$, $S(c_3) \approx 0.58$, yielding the ranking $c_1 \succ c_2 \succ c_3$. City $c_2$ earns higher raw income yet ranks second because its rent burden erodes purchasing power.</p>
 <p><strong>Key theorem (rank sensitivity).</strong> Let $\Delta w$ denote a perturbation of the weight vector satisfying $\|\Delta w\|_1 \leq \varepsilon$. Then the swap probability between adjacent ranks $i$ and $i+1$ is bounded by</p>
 $$P(\text{rank swap}) \leq \frac{\varepsilon \cdot \|\phi(x_i) - \phi(x_{i+1})\|_\infty}{\delta_{\min}},$$

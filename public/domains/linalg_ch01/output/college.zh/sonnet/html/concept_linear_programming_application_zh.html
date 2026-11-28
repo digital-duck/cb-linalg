@@ -51,7 +51,32 @@ $$
 \text{最大化} \quad z = 5x_1 + 4x_2, \quad x_1 + x_2 \leq 6,\; 2x_1 + x_2 \leq 8,\; x_1,x_2 \geq 0.
 $$
 <p>可行域的顶点为 $(0,0)$、$(4,0)$、$(2,4)$、$(0,6)$。逐一代入目标函数：</p>
-<p>| 顶点 | $z = 5x_1 + 4x_2$ | |------|-------------------| | $(0,0)$ | $0$ | | $(4,0)$ | $20$ | | $(2,4)$ | $26$ | | $(0,6)$ | $24$ |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">顶点</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$z = 5x_1 + 4x_2$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$(0,0)$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$0$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$(4,0)$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$20$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$(2,4)$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$26$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$(0,6)$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$24$</td>
+    </tr>
+  </tbody>
+</table>
 <p>最优解为 $(x_1^<em>, x_2^</em>) = (2, 4)$，最大利润 $z^* = 26$ 元。</p>
 <hr>
 <p><strong>关键定理（极值点定理）.</strong> 若线性规划问题存在有界可行域且最优解存在，则最优值必在可行域的某个<strong>顶点</strong>（极点）处取得。</p>

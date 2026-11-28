@@ -67,7 +67,32 @@ $$R: \mathcal{C} \to \{1, 2, \ldots, n\}, \quad R(c_i) = \mathrm{rank}\!\left(s(
 <p>其中综合评分 $s(\mathbf{x}_i) = \mathbf{w}^\top \phi(\mathbf{x}_i)$，$\phi$ 为特征变换映射，$\mathbf{w}$ 为经层次分析法或主成分回归标定的权重向量。该定义是本书前序章节中标量化、归一化与加权聚合三个核心操作的自然终点。</p>
 <h3 id="具体示例">具体示例</h3>
 <p>考虑三座城市 $\{A, B, C\}$，其薪资与生活成本（已归一化至 $[0,1]$）如下：</p>
-<p>| 城市 | 薪资得分 $x_1$ | 成本得分 $x_2$（越低越优） | |------|---------------|---------------------------| | $A$  | 0.8           | 0.7                       | | $B$  | 0.6           | 0.3                       | | $C$  | 0.9           | 0.9                       |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">城市</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">薪资得分 $x_1$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">成本得分 $x_2$（越低越优）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$A$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.8</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.7</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$B$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.6</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.3</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$C$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.9</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">0.9</td>
+    </tr>
+  </tbody>
+</table>
 <p>取权重 $\mathbf{w} = (0.6,\, 0.4)^\top$，令 $\phi(x_1, x_2) = (x_1,\, 1 - x_2)^\top$，则</p>
 $$s(A) = 0.6 \times 0.8 + 0.4 \times 0.3 = 0.60, \quad s(B) = 0.72, \quad s(C) = 0.54.$$
 <p>排名结果为 $B \succ A \succ C$，与直觉一致：高薪且低成本的城市获得最优评级。</p>

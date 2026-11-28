@@ -46,7 +46,28 @@ section:first-of-type{border-top:none;padding-top:0}
 <h3 id="定义">定义</h3>
 <p>直接用余子式展开计算 $n$ 阶行列式需要约 $n!$ 次乘法，当 $n$ 较大时不可行。<strong>行化简法</strong>的思路是：通过初等行变换把矩阵化为上三角矩阵，再利用"三角矩阵的行列式等于对角线元素之积"，同时记录每一步行变换对行列式的影响。</p>
 <p>三种初等行变换对 $\det A$ 的影响如下：</p>
-<p>| 行变换 | 对行列式的影响 | |---|---| | 交换两行 $R_i \leftrightarrow R_j$ | 行列式变号，乘以 $-1$ | | 某行乘以非零常数 $k$：$R_i \to kR_i$ | 行列式乘以 $k$ | | 把一行的倍数加到另一行：$R_i \to R_i + cR_j$ | 行列式<strong>不变</strong> |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">行变换</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">对行列式的影响</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">交换两行 $R_i \leftrightarrow R_j$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">行列式变号，乘以 $-1$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">某行乘以非零常数 $k$：$R_i \to kR_i$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">行列式乘以 $k$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">把一行的倍数加到另一行：$R_i \to R_i + cR_j$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">行列式<strong>不变</strong></td>
+    </tr>
+  </tbody>
+</table>
 <p>若 $A$ 经过 $s$ 次行交换、并且做了若干次倍乘（倍数为 $k_1,\dots,k_m$）后化为上三角矩阵 $U$，则</p>
 $$\det A = \frac{(-1)^s}{k_1 k_2\cdots k_m}\,\det U = \frac{(-1)^s}{k_1\cdots k_m}\,u_{11}u_{22}\cdots u_{nn}.$$
 <p>实际计算中，最好只使用第三种操作（以及必要的交换），这样就无需处理 $k_i$。</p>
