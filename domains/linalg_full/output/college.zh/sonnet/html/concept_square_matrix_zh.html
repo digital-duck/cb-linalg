@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Square Matrix | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="方阵">方阵</h2>
+<p><strong>定义。</strong> 若一个矩阵的行数与列数相等,即 $m=n$,则称它为 $n$ 阶<strong>方阵</strong>,记作 $A\in\mathbb{R}^{n\times n}$。只有方阵才有以下概念:</p>
+<li><strong>主对角线</strong>:元素 $a_{11},a_{22},\dots,a_{nn}$;</li>
+<li><strong>迹</strong>:$\operatorname{tr}(A)=\sum_{i=1}^{n}a_{ii}$;</li>
+<li><strong>行列式</strong> $\det(A)$、<strong>逆矩阵</strong> $A^{-1}$、<strong>特征值</strong>与<strong>特征向量</strong>;</li>
+<li><strong>幂</strong>:$A^k=\underbrace{A\cdots A}_{k\text{ 个}}$(因为 $A$ 的列数等于行数,自己才能与自己相乘)。</li>
+<p>单位矩阵 $I$ 是方阵的"乘法单位元":对任意 $n$ 阶方阵 $A$,有 $AI=IA=A$。</p>
+<p><strong>为什么方阵特殊?</strong> 一个 $n\times n$ 矩阵对应一个从 $\mathbb{R}^n$ 到自身的线性变换,即在同一空间内"变形"(旋转、拉伸、剪切等)。因此可以问:变换后空间的体积变化了多少?($|\det A|$)哪些方向只被拉伸而不改变方向?(特征向量)</p>
+<p><strong>例题。</strong> 设</p>
+$$A=\begin{pmatrix}2&1\\1&3\end{pmatrix}.$$
+<li>迹:$\operatorname{tr}(A)=2+3=5$。</li>
+<li>行列式:$\det(A)=2\cdot3-1\cdot1=5$。</li>
+<li>逆矩阵:因为 $\det(A)\neq0$,</li>
+$$A^{-1}=\frac{1}{5}\begin{pmatrix}3&-1\\-1&2\end{pmatrix}.$$
+<li>平方:</li>
+$$A^2=\begin{pmatrix}5&5\\5&10\end{pmatrix}.$$
+<p>验证:$AA^{-1}=\frac15\begin{pmatrix}6-1&-2+2\\3-3&-1+6\end{pmatrix}=I$。</p>
+<p><strong>问题求解应用。</strong> 解线性方程组 $A\mathbf{x}=\mathbf{b}$,其中 $\mathbf{b}=(4,5)^T$。</p>
+<p>由于 $A$ 是方阵且 $\det(A)=5\neq0$,方程有唯一解:</p>
+$$\mathbf{x}=A^{-1}\mathbf{b}=\frac15\begin{pmatrix}3\cdot4-1\cdot5\\-1\cdot4+2\cdot5\end{pmatrix}=\frac15\begin{pmatrix}7\\6\end{pmatrix}.$$
+<p>代回检验:$2\cdot\frac75+\frac65=4$,$\frac75+3\cdot\frac65=5$,成立。</p>
+<p>这里体现了方阵的核心判据。对 $n$ 阶方阵,下列命题等价:</p>
+<li>$\det(A)\neq0$;</li>
+<li>$A$ 可逆;</li>
+<li>$A\mathbf{x}=\mathbf{b}$ 对每个 $\mathbf{b}$ 有唯一解;</li>
+<li>$A$ 的 $n$ 个列线性无关;</li>
+<li>$0$ 不是 $A$ 的特征值。</li>
+<p>若 $\det(A)=0$,则变换把空间"压扁"到更低维,方程要么无解,要么有无穷多解。</p>
+<p><strong>小结。</strong> 非方阵($m\neq n$)不能求行列式,也没有通常意义上的逆矩阵。方阵让"输入空间"与"输出空间"同维,所以才能比较、迭代($A^k$)和分解(如对角化 $A=PDP^{-1}$)。判断一个线性系统是否"恰好可解",第一步就是检查系数矩阵是否为方阵,再计算 $\det(A)$。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

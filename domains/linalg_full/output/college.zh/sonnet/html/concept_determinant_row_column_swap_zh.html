@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Determinant Row Column Swap | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="行列式的行-列-交换">行列式的行(列)交换</h2>
+<p><strong>定义。</strong> 交换矩阵 $A$ 的任意两行(或任意两列),得到的新矩阵 $B$ 的行列式变号:</p>
+$$\det B = -\det A.$$
+<p>这是行列式的三条基本行变换性质之一(另两条是:某行乘以 $k$,行列式乘以 $k$;某行的倍数加到另一行,行列式不变)。</p>
+<p><strong>为什么成立。</strong> 行列式是各行的"交错多线性函数":若两行相同,则 $\det = 0$。设 $A$ 的第 $i$、$j$ 行分别为 $\mathbf r_i,\mathbf r_j$,把其他行固定,记 $D(\mathbf r_i,\mathbf r_j)$ 为行列式。由多线性与"两行相同则为零":</p>
+$$0 = D(\mathbf r_i+\mathbf r_j,\ \mathbf r_i+\mathbf r_j) = D(\mathbf r_i,\mathbf r_i)+D(\mathbf r_i,\mathbf r_j)+D(\mathbf r_j,\mathbf r_i)+D(\mathbf r_j,\mathbf r_j).$$
+<p>首尾两项为 $0$,故 $D(\mathbf r_i,\mathbf r_j) = -D(\mathbf r_j,\mathbf r_i)$,即交换两行使行列式变号。对列的结论可由 $\det A^{\mathsf T}=\det A$ 得到。</p>
+<p><strong>例题。</strong> 设</p>
+$$A=\begin{pmatrix}1&2\\3&4\end{pmatrix},\quad \det A = 1\cdot4-2\cdot3=-2.$$
+<p>交换两行得 $B=\begin{pmatrix}3&4\\1&2\end{pmatrix}$,</p>
+$$\det B = 3\cdot 2-4\cdot 1 = 2 = -\det A.$$
+<p>交换两列得 $C=\begin{pmatrix}2&1\\4&3\end{pmatrix}$,$\det C = 2\cdot3-1\cdot4=2$,同样变号。</p>
+<p><strong>应用一:高斯消元求行列式。</strong> 计算</p>
+$$M=\begin{vmatrix}0&2&1\\1&3&2\\2&1&4\end{vmatrix}.$$
+<p>左上角为 $0$,不能作主元,交换第 1、2 行(记一次变号):</p>
+$$M=-\begin{vmatrix}1&3&2\\0&2&1\\2&1&4\end{vmatrix}.$$
+<p>用 $R_3\to R_3-2R_1$(行列式不变):</p>
+$$M=-\begin{vmatrix}1&3&2\\0&2&1\\0&-5&0\end{vmatrix}.$$
+<p>再用 $R_3\to R_3+\tfrac52R_2$:第三行变为 $(0,0,\tfrac52)$,得上三角矩阵,行列式为对角线乘积 $1\cdot2\cdot\tfrac52=5$。所以</p>
+$$M=-5.$$
+<p><strong>应用二:推论。</strong> 若矩阵有两行(或两列)相同,交换它们矩阵不变,故 $\det A=-\det A$,即 $\det A=0$。这给出判断矩阵不可逆的快速方法。</p>
+<p><strong>要点与常见错误。</strong> 若经过 $k$ 次行交换,则 $\det$ 乘以 $(-1)^k$:偶数次交换不改变符号,奇数次改变符号。用消元法时务必记录交换次数。另外注意:只有"交换"才变号,而"把一行的倍数加到另一行"不改变行列式,不要混淆。</p>
+<p><strong>练习。</strong> 已知 $\det\begin{pmatrix}a&b\\c&d\end{pmatrix}=5$,求 $\det\begin{pmatrix}b&a\\d&c\end{pmatrix}$。(答案:$-5$,因为交换了两列。)</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

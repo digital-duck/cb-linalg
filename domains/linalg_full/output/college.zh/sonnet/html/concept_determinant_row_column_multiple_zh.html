@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Determinant Row Column Multiple | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="行列倍数与行列式">行列倍数与行列式</h2>
+<p><strong>定义。</strong> 设 $A$ 是 $n\times n$ 矩阵。若把 $A$ 的某一行(或某一列)的每个元素都乘以标量 $k$,得到矩阵 $B$,则</p>
+$$\det B = k\,\det A.$$
+<p>这条性质说明:行列式对每一行(或每一列)是<strong>线性</strong>的。注意,它只对<em>单独一行(列)</em>成立。若把整个矩阵乘以 $k$,则每一行都被乘了一次,共 $n$ 次,所以 $\det(kA)=k^{n}\det A$。</p>
+<p><strong>为什么成立。</strong> 按第 $i$ 行做余子式展开:</p>
+$$\det A=\sum_{j=1}^{n} a_{ij}C_{ij}.$$
+<p>余子式 $C_{ij}$ 是划去第 $i$ 行后得到的,与第 $i$ 行的元素无关。把第 $i$ 行乘以 $k$,每个 $a_{ij}$ 变成 $ka_{ij}$,于是</p>
+$$\det B=\sum_{j=1}^{n} (k a_{ij})C_{ij}=k\sum_{j=1}^{n} a_{ij}C_{ij}=k\det A.$$
+<p><strong>例题。</strong> 设</p>
+$$A=\begin{pmatrix}2&1\\3&4\end{pmatrix},\quad \det A=2\cdot4-1\cdot3=5.$$
+<p>把第一行乘以 $3$,得</p>
+$$B=\begin{pmatrix}6&3\\3&4\end{pmatrix},\quad \det B=6\cdot4-3\cdot3=15=3\cdot5.$$
+<p>结果与性质一致。</p>
+<p><strong>问题求解应用一:提取公因子。</strong> 计算</p>
+$$D=\begin{vmatrix}2&4&6\\1&5&2\\3&1&4\end{vmatrix}.$$
+<p>第一行有公因子 $2$,提出后:</p>
+$$D=2\begin{vmatrix}1&2&3\\1&5&2\\3&1&4\end{vmatrix}.$$
+<p>再用第 2、3 行减去第 1 行的适当倍数(这不改变行列式),把第一列化为 $(1,0,0)^T$:</p>
+$$D=2\begin{vmatrix}1&2&3\\0&3&-1\\0&-5&-5\end{vmatrix}=2\cdot\big(3\cdot(-5)-(-1)(-5)\big)=2\cdot(-20)=-40.$$
+<p><strong>问题求解应用二:比例与缩放。</strong> 若 $A$ 为 $4\times4$ 矩阵且 $\det A=3$,则:</p>
+<li>只把第 2 列乘以 $-2$:行列式变为 $-2\cdot 3=-6$;</li>
+<li>把整个矩阵乘以 $2$:行列式变为 $2^{4}\cdot3=48$。</li>
+<p><strong>判断要点。</strong> 如果某一行(列)全为零,可以看作乘了 $k=0$,所以行列式为 $0$。如果某一行(列)乘了 $k$ 之后行列式变化的倍数不是 $k$,通常说明你同时改动了多行,或做了其他类型的运算。</p>
+<p><strong>几何意义。</strong> 在 $\mathbb{R}^2$ 中,$|\det A|$ 是以 $A$ 的两行为边的平行四边形的面积。把一条边拉长为 $k$ 倍而方向不变,面积自然变为 $|k|$ 倍;若 $k<0$,方向翻转,符号也随之改变。</p>
+<pre class="mermaid">flowchart LR
+A["原矩阵 A"] --> B["某一行或列乘以 k"]
+A --> C["整个矩阵乘以 k"]
+B --> D["行列式变为 k 倍"]
+C --> E["行列式变为 k 的 n 次方倍"]</pre>
+<p><em>图:单独缩放一行(列)与缩放整个矩阵对行列式的不同影响。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

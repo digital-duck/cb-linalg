@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Number | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="complex-number">Complex Number</h2>
+<p><strong>定义</strong></p>
+<p>复数是形如 $a + bi$ 的数，其中 $a, b \in \mathbb{R}$ 分别称为实部与虚部，$i$ 满足 $i^2 = -1$。全体复数构成集合 $\mathbb{C}$，它是实数域 $\mathbb{R}$ 的扩张：每个实数都是虚部为零的复数，而每个复数都可以看作平面上的一个点 $(a, b)$——这就是<strong>复平面</strong>（Argand 平面）的几何图像，横轴为实轴，纵轴为虚轴。</p>
+<p>在本章中，复数之所以重要，是因为它可以作为向量空间的<strong>标量域</strong>。也就是说，向量的分量不必是实数，而可以是复数，此时向量空间称为<strong>复向量空间</strong>，记作 $\mathbb{C}^n$。向量的加法与数乘规则完全相同，只是标量乘法现在允许用复数 $\lambda = c + di$ 去缩放向量：</p>
+$$
+\lambda(a_1 + b_1 i,\, a_2 + b_2 i, \dots) = (\lambda a_1 + \lambda b_1 i,\, \lambda a_2 + \lambda b_2 i, \dots)
+$$
+<p><strong>运算规则（几何意义）</strong></p>
+<p>复数加法对应平面上向量的平移相加；复数乘法则同时改变<strong>模长</strong>（缩放）与<strong>幅角</strong>（旋转）。若 $z = a + bi$，其模长为 $|z| = \sqrt{a^2 + b^2}$，幅角 $\theta = \arg(z)$ 满足 $z = |z|(\cos\theta + i\sin\theta)$。两个复数相乘时，模长相乘、幅角相加——这正是复数域比实数域"多出"的旋转结构，也是它能自然编码向量空间中旋转与相位的原因。</p>
+<p><strong>例题</strong>：设 $\lambda = 1 + i$，向量 $\mathbf{v} = (2, \, 1 - i) \in \mathbb{C}^2$。求 $\lambda \mathbf{v}$。</p>
+<p>计算：$\lambda \cdot 2 = 2 + 2i$；$\lambda \cdot (1-i) = (1+i)(1-i) = 1 - i^2 = 1 + 1 = 2$。 所以 $\lambda \mathbf{v} = (2 + 2i,\ 2)$。</p>
+<p><strong>问题求解应用</strong></p>
+<p>在复向量空间中，判断一组向量是否线性无关、是否张成空间，方法与实数域完全一致，只是消元运算中的系数是复数。例如解方程 $\lambda_1(1, i) + \lambda_2(i, -1) = (0, 0)$（$\lambda_1, \lambda_2 \in \mathbb{C}$），代入第一分量 $\lambda_1 + i\lambda_2 = 0 \Rightarrow \lambda_1 = -i\lambda_2$，代入第二分量验证 $i\lambda_1 - \lambda_2 = i(-i\lambda_2) - \lambda_2 = \lambda_2 - \lambda_2 = 0$ 恒成立，故存在非零解，两向量线性相关。这提醒我们：换标量域后，"无关性"的判断结果可能与在 $\mathbb{R}$ 上不同——这正是复数域作为标量域的实际意义所在。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

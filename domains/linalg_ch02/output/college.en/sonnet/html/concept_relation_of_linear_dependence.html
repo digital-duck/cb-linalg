@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relation Of Linear Dependence | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="relation-of-linear-dependence">Relation Of Linear Dependence</h2>
+<p>A <strong>relation of linear dependence</strong> among vectors $\mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_n$ is a true equation of the form</p>
+$$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + \cdots + c_n\mathbf{v}_n = \mathbf{0}$$
+<p>in which at least one coefficient $c_i$ is nonzero. If the <em>only</em> choice of scalars satisfying this equation is $c_1 = c_2 = \cdots = c_n = 0$ — the <strong>trivial relation</strong> — then the vectors are called linearly independent. If a nontrivial relation exists, the vectors are linearly dependent, and the relation itself is the explicit certificate of that dependence: it tells you exactly how one vector can be rewritten in terms of the others.</p>
+<p><strong>Worked example.</strong> Let $\mathbf{v}_1 = (1, 2, 3)$, $\mathbf{v}_2 = (2, 4, 6)$, and $\mathbf{v}_3 = (1, 0, 1)$. Try to solve $c_1\mathbf{v}_1 + c_2\mathbf{v}_2 + c_3\mathbf{v}_3 = \mathbf{0}$. Since $\mathbf{v}_2 = 2\mathbf{v}_1$, choosing $c_1 = 2,\ c_2 = -1,\ c_3 = 0$ gives</p>
+$$2(1,2,3) - 1(2,4,6) + 0(1,0,1) = (0,0,0).$$
+<p>This is a genuine relation of linear dependence, since not all coefficients are zero. It reveals that $\mathbf{v}_2$ is redundant: $\mathbf{v}_2 = 2\mathbf{v}_1$, so $\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3\}$ spans no more than $\{\mathbf{v}_1,\mathbf{v}_3\}$ does alone.</p>
+<p><strong>Problem-solving application.</strong> Finding a relation of linear dependence is a computational task: form the matrix $A$ whose columns are the given vectors, row-reduce $A$ to echelon form, and identify the free variables in the homogeneous system $A\mathbf{c} = \mathbf{0}$. Each free variable, set to a nonzero value, generates a nontrivial relation. This is the standard method for pruning a spanning set down to a basis — whenever row reduction produces a free column, the corresponding vector is expressible via the others and can be discarded without shrinking the span. Conversely, if row reduction of $A$ yields <em>no</em> free variables (every column is a pivot column), the only solution is $\mathbf{c} = \mathbf{0}$, confirming independence. This link between relations of linear dependence and pivot structure is what makes checking independence and constructing a basis a mechanical, algorithmic process rather than a guessing game.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

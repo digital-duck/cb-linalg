@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution Set | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="solution-set">Solution Set</h2>
+<p>A system of equations places several constraints on the same variables at once. A <strong>solution</strong> is an ordered list of values — one for each variable — that satisfies <em>every</em> equation in the system simultaneously, not just one of them. The <strong>solution set</strong> is the collection of all such lists. Depending on the system, this set might contain exactly one solution, no solutions at all, or infinitely many.</p>
+<p><strong>Worked example.</strong> Consider the system</p>
+$$
+\begin{aligned}
+x + y &= 10 \\
+2x - y &= 2
+\end{aligned}
+$$
+<p>A single equation like $x+y=10$ has infinitely many solutions on its own — $(4,6)$, $(7,3)$, $(0,10)$, and so on. But we need pairs $(x,y)$ that work in <em>both</em> equations. Adding the two equations eliminates $y$: $3x = 12$, so $x=4$. Substituting back gives $y=6$. Checking: $4+6=10$ ✓ and $2(4)-6=2$ ✓. The solution set here is a single ordered pair, written $\{(4,6)\}$. Geometrically, each equation is a line, and $(4,6)$ is the one point where the two lines cross.</p>
+<p><strong>Problem-solving application.</strong> The size of a solution set tells you something important about the system before you even finish solving it. Two lines in a plane either cross once (one solution), never cross because they're parallel (no solution, or the <em>empty set</em> $\varnothing$), or lie exactly on top of each other (infinitely many solutions). This matters in practice: if you're modeling a real situation — say, two companies' pricing plans as functions of usage — and you solve the system to find where costs are equal, an empty solution set tells you the plans <em>never</em> cost the same, while infinitely many solutions would mean the plans are identical for every amount of usage.</p>
+<p>When working with larger systems (three or more variables), the same logic scales up: a solution is now a longer ordered list, such as $(x,y,z) = (1,-2,5)$, and you verify it the same way — plug it into <em>every</em> equation and confirm all are true. Before trusting an answer, always check it against each original equation; a value that satisfies one equation but not another is not part of the solution set, no matter how it was derived.</p>
+  </main>
+  <footer class="spl-credit">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></footer>
+</div>
+</body>
+</html>

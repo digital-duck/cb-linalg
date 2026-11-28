@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Vector Product | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="矩阵与向量的乘积">矩阵与向量的乘积</h2>
+<p><strong>定义。</strong> 设 $A$ 是一个 $m\times n$ 矩阵,其列向量为 $\mathbf a_1,\dots,\mathbf a_n\in\mathbb R^m$。设 $\mathbf u=(u_1,\dots,u_n)^T\in\mathbb R^n$。矩阵与向量的乘积定义为这些列的线性组合,其中 $\mathbf u$ 的各个分量充当系数(标量):</p>
+$$A\mathbf u = u_1\mathbf a_1+u_2\mathbf a_2+\cdots+u_n\mathbf a_n .$$
+<p>要使乘积有意义,$A$ 的列数必须等于 $\mathbf u$ 的分量个数。结果是 $\mathbb R^m$ 中的向量,它必然落在 $A$ 的列空间内。反过来,$A\mathbf u=\mathbf b$ 是否有解,等价于问:$\mathbf b$ 能否写成 $A$ 各列的线性组合。</p>
+<p><strong>逐行计算的等价形式。</strong> 结果的第 $i$ 个分量为</p>
+$$(A\mathbf u)_i=\sum_{j=1}^{n}a_{ij}u_j,$$
+<p>即 $A$ 的第 $i$ 行与 $\mathbf u$ 的点积。两种观点结果相同。"列组合"观点更能体现几何意义,"行点积"观点更便于手算。</p>
+<p><strong>例题。</strong> 设</p>
+$$A=\begin{pmatrix}1&2&0\\ 3&-1&4\end{pmatrix},\qquad \mathbf u=\begin{pmatrix}2\\ 1\\ -1\end{pmatrix}.$$
+<p>按列组合计算:</p>
+$$A\mathbf u=2\begin{pmatrix}1\\3\end{pmatrix}+1\begin{pmatrix}2\\-1\end{pmatrix}-1\begin{pmatrix}0\\4\end{pmatrix}=\begin{pmatrix}2+2-0\\ 6-1-4\end{pmatrix}=\begin{pmatrix}4\\1\end{pmatrix}.$$
+<p>用行点积验算:第一行 $1\cdot2+2\cdot1+0\cdot(-1)=4$,第二行 $3\cdot2+(-1)\cdot1+4\cdot(-1)=1$。两者一致。</p>
+<p><strong>问题求解应用。</strong> 判断 $\mathbf b=\begin{pmatrix}5\\ 5\end{pmatrix}$ 能否由 $B=\begin{pmatrix}1&2\\ 3&-1\end{pmatrix}$ 的列生成。</p>
+<p>这等价于求解 $B\mathbf x=\mathbf b$,即</p>
+$$x_1\begin{pmatrix}1\\3\end{pmatrix}+x_2\begin{pmatrix}2\\-1\end{pmatrix}=\begin{pmatrix}5\\5\end{pmatrix}.$$
+<p>写成方程组:$x_1+2x_2=5$,$3x_1-x_2=5$。由第二式得 $x_2=3x_1-5$,代入第一式:$x_1+6x_1-10=5$,故 $x_1=\tfrac{15}{7}$,$x_2=\tfrac{10}{7}$。因此 $\mathbf b$ 可以表示为两列的线性组合。</p>
+<p><strong>性质。</strong> 矩阵与向量的乘积是线性的:</p>
+$$A(c\mathbf u+d\mathbf v)=cA\mathbf u+dA\mathbf v.$$
+<p>证明:由定义,左边的第 $j$ 个系数是 $cu_j+dv_j$,代入列组合并按 $\mathbf a_j$ 重新分组,即得右边。正是这一性质,使每个矩阵都对应一个线性变换 $\mathbf u\mapsto A\mathbf u$。</p>
+<p><strong>要点。</strong> (1) $A\mathbf u$ 是 $A$ 的各列的线性组合,系数由 $\mathbf u$ 给出。(2) 维数需匹配:$m\times n$ 矩阵乘 $\mathbb R^n$ 中的向量,得到 $\mathbb R^m$ 中的向量。(3) 解 $A\mathbf x=\mathbf b$ 就是寻找能凑出 $\mathbf b$ 的列组合系数。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

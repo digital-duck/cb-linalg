@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagonal Matrix | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="对角矩阵">对角矩阵</h2>
+<p><strong>定义。</strong> 若 $n\times n$ 方阵 $D=(d_{ij})$ 满足 $i\neq j$ 时 $d_{ij}=0$,则称 $D$ 为<strong>对角矩阵</strong>(diagonal matrix)。只有主对角线上的元素可以非零,记作</p>
+$$D=\operatorname{diag}(d_1,d_2,\dots,d_n).$$
+<p>例如</p>
+$$D=\begin{pmatrix}2&0&0\\0&-1&0\\0&0&5\end{pmatrix}=\operatorname{diag}(2,-1,5).$$
+<p><strong>为什么重要。</strong> 对角矩阵的运算几乎退化为"逐项运算":</p>
+<li>乘法:$\operatorname{diag}(a_i)\operatorname{diag}(b_i)=\operatorname{diag}(a_ib_i)$,且两个对角矩阵可交换。</li>
+<li>幂:$D^k=\operatorname{diag}(d_1^k,\dots,d_n^k)$。</li>
+<li>行列式:$\det D=d_1d_2\cdots d_n$。</li>
+<li>逆矩阵:当所有 $d_i\neq0$ 时,$D^{-1}=\operatorname{diag}(1/d_1,\dots,1/d_n)$。</li>
+<li>特征值:恰为对角元 $d_1,\dots,d_n$,对应的特征向量是标准基向量 $\mathbf e_i$。</li>
+<p><strong>几何意义。</strong> $D\mathbf x=(d_1x_1,\dots,d_nx_n)^T$,即沿每个坐标轴分别伸缩 $d_i$ 倍,各坐标之间互不影响。</p>
+<p><strong>例题。</strong> 设 $D=\operatorname{diag}(2,-1,5)$,计算 $D^{10}$、$\det D$ 和 $D^{-1}$。</p>
+<p>解:</p>
+$$D^{10}=\operatorname{diag}(2^{10},(-1)^{10},5^{10})=\operatorname{diag}(1024,1,9765625),$$
+$$\det D=2\cdot(-1)\cdot5=-10,\qquad D^{-1}=\operatorname{diag}\!\left(\tfrac12,-1,\tfrac15\right).$$
+<p>若直接对一般的 $3\times3$ 矩阵做 10 次乘法,计算量大得多。</p>
+<p><strong>问题求解应用:矩阵幂与对角化。</strong> 设 $A$ 可对角化,即 $A=PDP^{-1}$,其中 $D$ 为对角矩阵。则</p>
+$$A^k=PD^kP^{-1}.$$
+<p>这是因为中间的 $P^{-1}P$ 相互抵消。</p>
+<p>例如 $A=\begin{pmatrix}3&1\\0&2\end{pmatrix}$,其特征值为 $3$ 和 $2$,对应特征向量 $(1,0)^T$ 与 $(1,-1)^T$。取</p>
+$$P=\begin{pmatrix}1&1\\0&-1\end{pmatrix},\quad D=\operatorname{diag}(3,2),\quad P^{-1}=\begin{pmatrix}1&1\\0&-1\end{pmatrix}.$$
+<p>于是</p>
+$$A^k=P\begin{pmatrix}3^k&0\\0&2^k\end{pmatrix}P^{-1}=\begin{pmatrix}3^k&3^k-2^k\\0&2^k\end{pmatrix}.$$
+<p>验证:$k=1$ 时得到 $\begin{pmatrix}3&1\\0&2\end{pmatrix}=A$,结果正确。</p>
+<p><strong>要点小结。</strong></p>
+<li>对角矩阵的各种运算都可逐个对角元进行,计算代价从 $O(n^3)$ 降为 $O(n)$。</li>
+<li>对角化把复杂的线性变换转化为沿特征方向的独立伸缩,是求矩阵幂、解线性微分方程组和分析动力系统的核心工具。</li>
+<li>注意:对角矩阵的对角元允许为 $0$,但此时 $D$ 不可逆。</li>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

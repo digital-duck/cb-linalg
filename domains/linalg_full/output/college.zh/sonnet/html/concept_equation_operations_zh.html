@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equation Operations | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="方程的初等运算">方程的初等运算</h2>
+<h3 id="定义">定义</h3>
+<p>解线性方程组时，我们希望把方程组化简为容易读出答案的形式。下面三种运算称为<strong>初等运算</strong>（初等行变换作用于方程）：</p>
+<li><strong>交换</strong>：交换任意两个方程的位置；</li>
+<li><strong>倍乘</strong>：用一个<strong>非零</strong>常数 $c$ 乘以某个方程的两边；</li>
+<li><strong>倍加</strong>：把某个方程的 $c$ 倍加到另一个方程上（$c$ 可为任意实数）。</li>
+<p><strong>核心性质</strong>：每一种运算都不改变方程组的解集。</p>
+<p><strong>为什么成立？</strong> 前两种运算显然可逆：交换两次回到原状；乘以 $c\neq 0$ 后再乘以 $\frac{1}{c}$ 即还原。对倍加运算，设方程组含 $E_i$ 与 $E_j$，将 $E_i$ 替换为 $E_i + cE_j$。若 $(x_1,\dots,x_n)$ 满足原方程组，则它同时满足 $E_i$ 与 $E_j$，因而满足两者的线性组合 $E_i+cE_j$。反过来，新方程组再作一次"加 $-c$ 倍的 $E_j$"就得到原方程组，所以新方程组的解也是原方程组的解。两个解集互相包含，故相等。</p>
+<p>> 注意：倍乘必须要求 $c\neq 0$。若取 $c=0$，方程变为 $0=0$，信息丢失，解集可能变大。</p>
+<h3 id="例题">例题</h3>
+<p>解方程组</p>
+$$
+\begin{cases}
+2y + z = 4 & (E_1)\\
+x + y + z = 6 & (E_2)\\
+2x + 3y + z = 11 & (E_3)
+\end{cases}
+$$
+<p><strong>步骤 1（交换）</strong>：交换 $E_1,E_2$，使首项含 $x$：</p>
+$$
+\begin{cases} x+y+z=6\\ 2y+z=4\\ 2x+3y+z=11 \end{cases}
+$$
+<p><strong>步骤 2（倍加）</strong>：$E_3 \to E_3 - 2E_1$，消去 $x$：</p>
+$$
+y - z = -1
+$$
+<p><strong>步骤 3（倍加）</strong>：用第二个方程消去第三个方程中的 $y$。先把 $y-z=-1$ 乘以 $-2$ 加到 $2y+z=4$ 上会改变主元位置；更直接的做法是 $E_2' \to E_2' - 2E_3'$：得 $3z = 6$，即 $z=2$。</p>
+<p><strong>步骤 4（回代）</strong>：由 $y - z=-1$ 得 $y=1$；由 $x+y+z=6$ 得 $x=3$。</p>
+<p>解为 $(x,y,z)=(3,1,2)$。代入检验：$2\cdot1+2=4$ ✓，$3+1+2=6$ ✓，$6+3+2=11$ ✓。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>策略</strong>：从左到右逐列选取"主元"，用倍加运算消去其下方所有系数；若主元位置为零，先用交换换入非零系数；若想简化数字，可用倍乘把主元变为 $1$。这正是高斯消元法的核心。</p>
+<p><strong>练习</strong>：用初等运算解</p>
+$$
+\begin{cases} 2x + 4y = 10\\ x + 3y = 7 \end{cases}
+$$
+<p><em>解答</em>：倍乘 $\frac12 E_1$ 得 $x+2y=5$；倍加 $E_2 \to E_2 - E_1$ 得 $y=2$；回代得 $x=1$。解为 $(1,2)$。</p>
+<p><strong>判断题</strong>：把 $E_1$ 替换为 $E_1 + 3E_1$ 是否合法？这等价于 $E_1$ 乘以 $4$，合法。但把 $E_1$ 替换为 $E_1 - E_1$ 等价于乘以 $0$，<strong>不合法</strong>——因此倍加时，被加的方程必须是<strong>另一个</strong>方程，且被修改的方程本身的系数不能被"清零"。</p>
+<pre class="mermaid">flowchart LR
+A["原方程组"] --> B["交换两个方程"]
+A --> C["非零倍乘"]
+A --> D["倍加到另一方程"]
+B --> E["解集不变的新方程组"]
+C --> E
+D --> E
+E --> F["阶梯形，回代求解"]</pre>
+<p><em>三种初等运算都把方程组变为同解方程组，反复使用即可化为阶梯形并求解。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

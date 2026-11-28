@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scalar Multiplication | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="scalar-multiplication-标量乘法">Scalar Multiplication（标量乘法）</h2>
+<p><strong>定义</strong></p>
+<p>标量乘法是指用一个固定的标量（scalar，即一个实数）$c$ 去乘以向量 $\mathbf{v}$ 的每一个分量，得到一个新的向量。设</p>
+$$
+\mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{pmatrix}, \qquad c \in \mathbb{R}
+$$
+<p>则标量乘法定义为</p>
+$$
+c\mathbf{v} = \begin{pmatrix} cv_1 \\ cv_2 \\ \vdots \\ cv_n \end{pmatrix}
+$$
+<p>从几何角度看，标量乘法改变的是向量的<strong>长度</strong>（模），而不改变（或反转）它的<strong>方向</strong>：当 $c>1$ 时，向量被拉伸；当 $0<c<1$ 时，向量被压缩；当 $c<0$ 时，向量的方向反转 $180°$，长度按 $|c|$ 缩放；当 $c=0$ 时，结果是零向量。这一点可以由模长公式验证：$\|c\mathbf{v}\| = |c| \cdot \|\mathbf{v}\|$。</p>
+<p><strong>实例演算</strong></p>
+<p>设 $\mathbf{v} = \begin{pmatrix} 3 \\ -2 \end{pmatrix}$，取 $c = 2$，则</p>
+$$
+2\mathbf{v} = \begin{pmatrix} 2 \times 3 \\ 2 \times (-2) \end{pmatrix} = \begin{pmatrix} 6 \\ -4 \end{pmatrix}
+$$
+<p>新向量的方向与原向量完全相同，但长度是原来的 $2$ 倍。若取 $c = -1$，则 $-\mathbf{v} = \begin{pmatrix} -3 \\ 2 \end{pmatrix}$，方向恰好相反，长度不变。</p>
+<p><strong>问题求解应用</strong></p>
+<p>标量乘法是构造<strong>线性组合</strong>与判断<strong>线性相关性</strong>的基础工具。例如，判断向量 $\mathbf{u} = \begin{pmatrix}2\\4\end{pmatrix}$ 与 $\mathbf{w} = \begin{pmatrix}1\\2\end{pmatrix}$ 是否共线（线性相关），只需求是否存在标量 $c$ 使得 $\mathbf{u} = c\mathbf{w}$。观察分量比值 $2/1 = 2$ 且 $4/2 = 2$，比值一致，故取 $c=2$，两向量确实共线。</p>
+<p>在实际应用中，标量乘法也用于<strong>归一化</strong>：将任意非零向量 $\mathbf{v}$ 转化为单位向量，只需取 $c = 1/\|\mathbf{v}\|$，计算 $c\mathbf{v}$，即可得到方向相同但长度为 $1$ 的向量，这在计算机图形学和机器学习的特征归一化中被广泛使用。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

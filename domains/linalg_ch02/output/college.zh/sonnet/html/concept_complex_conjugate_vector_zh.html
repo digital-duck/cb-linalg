@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Conjugate Vector | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="complex-conjugate-vector">Complex Conjugate Vector</h2>
+<p><strong>定义</strong></p>
+<p>设 $\mathbf{v} \in \mathbb{C}^n$ 是一个复向量，其分量为 $v_1, v_2, \dots, v_n$，每个 $v_k = a_k + b_k i$（其中 $a_k, b_k \in \mathbb{R}$）。则 $\mathbf{v}$ 的<strong>复共轭向量</strong>（complex conjugate vector）定义为对每个分量取复共轭所得的新向量：</p>
+$$
+\overline{\mathbf{v}} = \begin{pmatrix} \overline{v_1} \\ \overline{v_2} \\ \vdots \\ \overline{v_n} \end{pmatrix}, \quad \text{其中 } \overline{v_k} = a_k - b_k i
+$$
+<p>也就是说，虚部整体取反，实部保持不变。这个运算是逐分量（entrywise）进行的，不涉及向量的整体几何变换，只是对每个数值取镜像。</p>
+<p><strong>为什么需要它</strong></p>
+<p>复共轭向量在计算复向量的"长度"（范数）时是不可或缺的工具。对于实向量，长度平方是各分量平方之和；但对复数分量而言，$v_k^2$ 本身可能是复数，不能保证非负。于是我们改用 $v_k \overline{v_k} = |v_k|^2$，这总是非负实数。将此推广到向量，就得到内积公式：</p>
+$$
+\langle \mathbf{v}, \mathbf{v} \rangle = \mathbf{v}^{\!\top} \overline{\mathbf{v}} = \sum_{k=1}^n v_k \overline{v_k} = \sum_{k=1}^n |v_k|^2
+$$
+<p>这正是复向量范数 $\|\mathbf{v}\|$ 平方的定义基础，广泛应用于量子力学的态矢量归一化、信号处理中的傅里叶变换幅值计算等场景。</p>
+<p><strong>例题</strong></p>
+<p>设 $\mathbf{v} = \begin{pmatrix} 3+4i \\ 1-2i \\ -5i \end{pmatrix}$，求 $\overline{\mathbf{v}}$，并计算 $\|\mathbf{v}\|^2$。</p>
+<p><strong>解</strong>：逐分量取共轭：</p>
+$$
+\overline{\mathbf{v}} = \begin{pmatrix} 3-4i \\ 1+2i \\ 5i \end{pmatrix}
+$$
+<p>计算 $\|\mathbf{v}\|^2 = \mathbf{v}^{\!\top}\overline{\mathbf{v}}$：</p>
+$$
+(3+4i)(3-4i) + (1-2i)(1+2i) + (-5i)(5i)
+$$
+$$
+= (9+16) + (1+4) + 25 = 25 + 5 + 25 = 55
+$$
+<p>所以 $\|\mathbf{v}\| = \sqrt{55}$。</p>
+<p><strong>问题解决应用</strong></p>
+<p>在判断一个矩阵是否为<strong>厄米矩阵</strong>（Hermitian matrix，满足 $A = \overline{A}^{\!\top}$）时，复共轭向量是关键构件：通过对特征向量取共轭并与原向量做内积，可以验证特征值必为实数——这是量子力学中可观测量必须用厄米算子表示的数学根源。掌握复共轭向量的逐分量运算，是理解复内积空间、酉矩阵及谱定理的第一步。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

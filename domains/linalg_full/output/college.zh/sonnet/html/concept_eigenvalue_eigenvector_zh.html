@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eigenvalue Eigenvector | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="特征值与特征向量">特征值与特征向量</h2>
+<p><strong>定义。</strong> 设 $A$ 为 $n\times n$ 方阵。若存在非零向量 $\mathbf{x}$ 和标量 $\lambda$,使得</p>
+$$A\mathbf{x}=\lambda\mathbf{x},$$
+<p>则称 $\lambda$ 为 $A$ 的<strong>特征值</strong>,$\mathbf{x}$ 为对应的<strong>特征向量</strong>。几何上,$A$ 作用在 $\mathbf{x}$ 上只把它沿原方向拉伸或压缩(若 $\lambda<0$ 则反向),而不改变所在直线。</p>
+<p>将方程改写为 $(A-\lambda I)\mathbf{x}=\mathbf{0}$。要有非零解,矩阵 $A-\lambda I$ 必须奇异,因此</p>
+$$\det(A-\lambda I)=0.$$
+<p>这称为<strong>特征方程</strong>,它是关于 $\lambda$ 的 $n$ 次多项式,所以 $A$ 在复数范围内(计入重数)恰有 $n$ 个特征值。</p>
+<p><strong>例题。</strong> 求 $A=\begin{pmatrix}4&1\\2&3\end{pmatrix}$ 的特征值与特征向量。</p>
+<p>第一步,写出特征方程:</p>
+$$\det\begin{pmatrix}4-\lambda&1\\2&3-\lambda\end{pmatrix}=(4-\lambda)(3-\lambda)-2=\lambda^2-7\lambda+10=(\lambda-2)(\lambda-5)=0,$$
+<p>故 $\lambda_1=2,\ \lambda_2=5$。</p>
+<p>第二步,求特征向量。</p>
+<li>$\lambda_1=2$:解 $(A-2I)\mathbf{x}=\begin{pmatrix}2&1\\2&1\end{pmatrix}\mathbf{x}=\mathbf{0}$,得 $2x_1+x_2=0$,取 $\mathbf{v}_1=\begin{pmatrix}1\\-2\end{pmatrix}$。</li>
+<li>$\lambda_2=5$:解 $\begin{pmatrix}-1&1\\2&-2\end{pmatrix}\mathbf{x}=\mathbf{0}$,得 $x_1=x_2$,取 $\mathbf{v}_2=\begin{pmatrix}1\\1\end{pmatrix}$。</li>
+<p>检验:$A\mathbf{v}_2=\begin{pmatrix}5\\5\end{pmatrix}=5\mathbf{v}_2$ ✓。</p>
+<p><strong>问题求解应用。</strong> 特征值能简化矩阵幂的计算。若 $A$ 有 $n$ 个线性无关的特征向量,令 $P=[\mathbf{v}_1\ \cdots\ \mathbf{v}_n]$,$D=\mathrm{diag}(\lambda_1,\dots,\lambda_n)$,则 $A=PDP^{-1}$,于是</p>
+$$A^k=PD^kP^{-1}.$$
+<p>对上例,$P=\begin{pmatrix}1&1\\-2&1\end{pmatrix}$,$D=\mathrm{diag}(2,5)$,所以 $A^{k}$ 的各项只是 $2^k$ 与 $5^k$ 的线性组合,无需反复做矩阵乘法。</p>
+<p>另外有两个常用的核对关系:</p>
+$$\operatorname{tr}(A)=\sum_i\lambda_i,\qquad \det(A)=\prod_i\lambda_i.$$
+<p>本例中 $2+5=7=4+3$,$2\times5=10=4\cdot3-1\cdot2$,与计算吻合。</p>
+<p><strong>小结。</strong> 求解步骤是:列特征方程 $\det(A-\lambda I)=0$ → 解出 $\lambda$ → 对每个 $\lambda$ 解 $(A-\lambda I)\mathbf{x}=\mathbf{0}$ → 用迹与行列式验算。这一方法也用于分析动力系统的稳定性(看 $|\lambda|$ 是否小于 1)和主成分分析等问题。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

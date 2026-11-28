@@ -1,0 +1,206 @@
+domain: linalg_beezer_ch03
+primitives:
+  matrix:
+    defines: A rectangular array of complex numbers with m rows and n columns, assumed as a starting object
+      of study in this chapter.
+    tier: 0
+  null_space:
+    defines: The set of vectors that a matrix sends to the zero vector, used throughout this chapter but
+      defined in an earlier chapter.
+    tier: 0
+  nonsingular_matrix:
+    defines: A square matrix whose only solution to the homogeneous system is the zero vector, a property
+      defined earlier and used extensively here.
+    tier: 0
+  matrix_equality:
+    defines: Two m x n matrices are equal when all their corresponding entries are equal.
+    tier: 0
+  matrix_addition:
+    defines: The sum of two matrices of the same size formed by adding corresponding entries.
+    tier: 0
+  matrix_scalar_multiplication:
+    defines: The product of a scalar and a matrix formed by multiplying every entry of the matrix by the
+      scalar.
+    tier: 0
+  zero_matrix:
+    defines: The matrix with every entry equal to zero, serving as the additive identity for matrix addition.
+    tier: 0
+  transpose:
+    defines: The matrix formed from a given matrix by swapping its rows and columns.
+    tier: 0
+  complex_conjugate_matrix:
+    defines: The matrix formed by taking the complex conjugate of every entry of a matrix.
+    tier: 0
+concepts:
+  vector_space_properties_matrices:
+    defines: A collection of ten properties (closure, commutativity, associativity, zero matrix, additive
+      inverses, distributivity, etc.) governing matrix addition and scalar multiplication.
+    composed_of:
+    - matrix_addition
+    - matrix_scalar_multiplication
+    - zero_matrix
+    tier: 1
+  symmetric_matrix:
+    defines: A matrix that equals its own transpose.
+    composed_of:
+    - transpose
+    tier: 1
+  adjoint:
+    defines: The matrix formed by conjugating a matrix and then transposing it (or vice versa), denoted
+      A*.
+    composed_of:
+    - transpose
+    - complex_conjugate_matrix
+    tier: 1
+  matrix_vector_product:
+    defines: The linear combination of the columns of a matrix using the entries of a vector as scalars,
+      written Au.
+    composed_of:
+    - matrix
+    tier: 1
+  left_null_space:
+    defines: The null space of the transpose of a matrix, consisting of vectors that produce a zero row
+      combination of the matrix's rows.
+    composed_of:
+    - null_space
+    - transpose
+    tier: 1
+  extended_echelon_form:
+    defines: The reduced row-echelon form of a matrix augmented on the right with an identity matrix,
+      partitioned into submatrices B, J, C, K, and L.
+    composed_of:
+    - matrix
+    tier: 1
+  systems_as_matrix_multiplication:
+    defines: The result that solutions to a linear system LS(A,b) coincide with solutions to the vector
+      equation Ax = b.
+    composed_of:
+    - matrix_vector_product
+    tier: 2
+  matrix_multiplication:
+    defines: The product of two matrices A and B, defined column-by-column as the matrix-vector products
+      of A with each column of B.
+    composed_of:
+    - matrix_vector_product
+    tier: 2
+  column_space:
+    defines: The set of all linear combinations of the columns of a matrix, equal to the set of vectors
+      b for which Ax = b is consistent.
+    composed_of:
+    - matrix
+    - matrix_vector_product
+    tier: 2
+  hermitian_matrix:
+    defines: A square matrix that equals its own adjoint.
+    composed_of:
+    - adjoint
+    tier: 2
+  entries_of_matrix_products:
+    defines: The formula expressing each entry of a matrix product AB as a sum of products of corresponding
+      row and column entries of A and B.
+    composed_of:
+    - matrix_multiplication
+    tier: 3
+  matrix_multiplication_properties:
+    defines: Theorems describing how matrix multiplication interacts with the zero matrix, identity matrix,
+      addition, scalar multiplication, associativity, inner products, conjugation, transposes, and adjoints.
+    composed_of:
+    - matrix_multiplication
+    - adjoint
+    - zero_matrix
+    - matrix_addition
+    - matrix_scalar_multiplication
+    - transpose
+    - complex_conjugate_matrix
+    tier: 3
+  matrix_inverse:
+    defines: For a square matrix A, a matrix B such that AB = BA = the identity matrix, written A^-1.
+    composed_of:
+    - matrix_multiplication
+    - nonsingular_matrix
+    tier: 3
+  row_space:
+    defines: The column space of the transpose of a matrix, i.e. the set of all linear combinations of
+      the matrix's rows.
+    composed_of:
+    - column_space
+    - transpose
+    tier: 3
+  basis_column_space:
+    defines: A linearly independent spanning set for the column space obtained by taking the original
+      columns of A corresponding to pivot columns of its reduced row-echelon form.
+    composed_of:
+    - column_space
+    tier: 3
+  unitary_matrix:
+    defines: A square matrix U satisfying U*U equals the identity matrix.
+    composed_of:
+    - adjoint
+    - matrix_multiplication
+    tier: 3
+  computing_matrix_inverse:
+    defines: A row-reduction procedure that augments a nonsingular matrix with the identity matrix and
+      row-reduces to obtain the inverse.
+    composed_of:
+    - matrix_inverse
+    - nonsingular_matrix
+    tier: 4
+  nonsingular_invertible_equivalence:
+    defines: The result that a square matrix is nonsingular if and only if it is invertible, unifying
+      two previously separate notions.
+    composed_of:
+    - nonsingular_matrix
+    - matrix_inverse
+    tier: 4
+  basis_row_space:
+    defines: A linearly independent spanning set for the row space obtained from the nonzero rows of a
+      row-equivalent reduced row-echelon form matrix.
+    composed_of:
+    - row_space
+    tier: 4
+  four_subsets_theorem:
+    defines: The result that the null space, row space, column space, and left null space of a matrix
+      can all be computed from the submatrices C and L of its extended echelon form.
+    composed_of:
+    - extended_echelon_form
+    - null_space
+    - row_space
+    - column_space
+    - left_null_space
+    tier: 4
+  orthogonal_matrix:
+    defines: The real-entry special case of a unitary matrix, satisfying A^t A equals the identity matrix.
+    composed_of:
+    - unitary_matrix
+    - transpose
+    tier: 4
+  nonsingular_matrix_equivalences:
+    defines: An expanding list of equivalent conditions for a square matrix to be nonsingular, including
+      row-reducing to the identity, trivial null space, unique solutions, independent columns, invertibility,
+      and full column space.
+    composed_of:
+    - nonsingular_matrix
+    - null_space
+    - nonsingular_invertible_equivalence
+    - column_space
+    tier: 5
+applications:
+  money_best_cities_ranking:
+    defines: A real-world use of the matrix-vector product to combine weighted statistics about cities
+      into a single ranking score.
+    needs:
+    - matrix_vector_product
+    tier: 2
+  solving_systems_via_inverse:
+    defines: Using A^-1 to directly compute the unique solution A^-1 b to a nonsingular system Ax = b.
+    needs:
+    - matrix_inverse
+    - systems_as_matrix_multiplication
+    tier: 4
+  unitary_transformations_application:
+    defines: The use of unitary (and orthogonal) matrices to preserve vector length and angle, as in rotations
+      used in computer graphics and simulations.
+    needs:
+    - unitary_matrix
+    - orthogonal_matrix
+    tier: 5

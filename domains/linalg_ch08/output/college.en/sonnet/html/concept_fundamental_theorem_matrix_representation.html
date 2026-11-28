@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamental Theorem Matrix Representation | Linalg Ch08</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="fundamental-theorem-matrix-representation">Fundamental Theorem Matrix Representation</h2>
+<p>Let $T: V \to W$ be a linear transformation between finite-dimensional vector spaces, with ordered bases $B = \{v_1, \dots, v_n\}$ for $V$ and $C = \{w_1, \dots, w_m\}$ for $W$. Every vector $v \in V$ has a unique coordinate representation $[v]_B \in \mathbb{R}^n$, and every $T$ has a unique matrix representation $[T]_C^B$, an $m \times n$ matrix whose $j$-th column is $[T(v_j)]_C$. The Fundamental Theorem of Matrix Representation states:</p>
+$$[T(v)]_C = [T]_C^B \, [v]_B.$$
+<p>In words: to compute $T(v)$, you may instead coordinatize $v$ into a column vector, multiply by the matrix $[T]_C^B$, and interpret the resulting column vector as coordinates in $C$. This converts an abstract linear map — which might act on polynomials, functions, or matrices — into ordinary matrix-vector multiplication.</p>
+<p><strong>Worked example.</strong> Let $T: P_2 \to P_1$ be differentiation, $T(p) = p'$, with basis $B = \{1, x, x^2\}$ for $P_2$ and $C = \{1, x\}$ for $P_1$. Compute $T(1) = 0$, $T(x) = 1$, $T(x^2) = 2x$, and coordinatize each in $C$: $[0]_C = \binom{0}{0}$, $[1]_C = \binom{1}{0}$, $[2x]_C = \binom{0}{2}$. Stack these as columns:</p>
+$$[T]_C^B = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}.$$
+<p>Now take $p(x) = 3 + 2x - x^2$, so $[p]_B = (3, 2, -1)^T$. Then</p>
+$$[T]_C^B [p]_B = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}\begin{pmatrix} 3 \\ 2 \\ -1 \end{pmatrix} = \begin{pmatrix} 2 \\ -2 \end{pmatrix},$$
+<p>which un-coordinatizes to $2(1) + (-2)(x) = 2 - 2x$ — exactly $p'(x)$, confirming the theorem.</p>
+<p><strong>Problem-solving application.</strong> This theorem is what makes computing with linear transformations tractable: once you know $[T]_C^B$, applying $T$ to <em>any</em> vector reduces to a single matrix multiplication, without recomputing $T$ from its definition each time. It also explains why composition of linear maps corresponds to matrix multiplication ($[S \circ T] = [S][T]$) and why invertibility of $T$ corresponds to invertibility of $[T]_C^B$. In practice, when solving problems involving differential operators, rotations, or projections, the standard strategy is: build the matrix once from the basis vectors' images, then let matrix algebra — powers, inverses, eigenvalues — do the rest of the work.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch8: Representations (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

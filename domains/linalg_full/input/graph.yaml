@@ -1,0 +1,1348 @@
+applications:
+  determinant_by_row_reduction:
+    defines: An efficient method for computing a determinant by row-reducing to triangular
+      form while tracking the multiplicative effect of each row operation.
+    needs:
+    - determinant_row_column_swap
+    - determinant_row_column_multiple
+    - determinant_row_column_multiple_and_addition
+    - determinant_upper_triangular
+    - row_operations
+    tier: 5
+  fibonacci_closed_form:
+    defines: Using eigenvalues, eigenvectors, and diagonalization of the Fibonacci
+      recurrence matrix to derive a closed-form expression (Binet's formula) for terms
+      of the Fibonacci sequence.
+    needs:
+    - matrix_power_via_diagonalization
+    - eigenvalue_eigenvector
+    - diagonalization_characterization
+    tier: 6
+  gram_schmidt_procedure:
+    defines: An algorithm that converts a linearly independent set of vectors into
+      an orthogonal set with the same span.
+    needs:
+    - orthogonal_set
+    - linear_independence
+    - inner_product
+    tier: 5
+  linear_programming_application:
+    defines: A real-world optimization scenario, illustrated by the trail mix example,
+      where systems of linear equations model production constraints and profit is
+      maximized by choosing among the resulting solution sets.
+    needs:
+    - system_of_linear_equations
+    - solution_set
+    tier: 3
+  linear_transformations_and_systems_of_equations:
+    defines: Solving a linear system LS(A, b) is equivalent to finding the pre-image
+      of b under the linear transformation T(x) = Ax, connecting consistency, uniqueness,
+      and infinite solution sets to properties of kernel and range.
+    needs:
+    - pre_image
+    - kernel_of_linear_transformation
+    - range_of_linear_transformation
+    - matrix_vector_product
+    tier: 4
+  matrix_power_via_diagonalization:
+    defines: "Using A = SDS\u207B\xB9 to compute high powers of a diagonalizable matrix\
+      \ efficiently as A^k = SD^kS\u207B\xB9, since powers of a diagonal matrix are\
+      \ simple."
+    needs:
+    - diagonalizable_matrix
+    - diagonalization_characterization
+    - diagonal_matrix
+    tier: 5
+  money_best_cities_ranking:
+    defines: A real-world use of the matrix-vector product to combine weighted statistics
+      about cities into a single ranking score.
+    needs:
+    - matrix_vector_product
+    tier: 2
+  orthonormal_basis_normal_matrix:
+    defines: Every normal matrix has an orthonormal basis of C^n composed entirely
+      of its eigenvectors.
+    needs:
+    - orthonormal_diagonalization
+    - normal_matrix
+    tier: 2
+  solving_systems_via_inverse:
+    defines: Using A^-1 to directly compute the unique solution A^-1 b to a nonsingular
+      system Ax = b.
+    needs:
+    - matrix_inverse
+    - systems_as_matrix_multiplication
+    tier: 8
+  unitary_transformations_application:
+    defines: The use of unitary (and orthogonal) matrices to preserve vector length
+      and angle, as in rotations used in computer graphics and simulations.
+    needs:
+    - unitary_matrix
+    - orthogonal_matrix
+    tier: 5
+concepts:
+  adjoint:
+    composed_of:
+    - transpose
+    - complex_conjugate_matrix
+    defines: The matrix formed by conjugating a matrix and then transposing it (or
+      vice versa), denoted A*.
+    tier: 1
+  algebraic_multiplicity:
+    composed_of:
+    - characteristic_polynomial
+    defines: "The highest power of (x \u2212 \u03BB) that divides the characteristic\
+      \ polynomial pA(x) for eigenvalue \u03BB."
+    tier: 4
+  augmented_matrix:
+    composed_of:
+    - coefficient_matrix
+    - vector_of_constants
+    defines: The matrix [A | b] formed by appending the vector of constants as an
+      extra column to the coefficient matrix, representing a full system of equations.
+    tier: 3
+  bases_have_identical_sizes:
+    composed_of:
+    - basis
+    defines: Any two finite bases of the same vector space contain the same number
+      of vectors, which makes the notion of dimension well-defined.
+    tier: 6
+  basis:
+    composed_of:
+    - linear_independence
+    - spanning_set
+    defines: A subset of a vector space that is both linearly independent and spans
+      the vector space, providing a minimal set of "raw materials" for building every
+      vector uniquely.
+    tier: 5
+  basis_column_space:
+    composed_of:
+    - column_space
+    defines: A linearly independent spanning set for the column space obtained by
+      taking the original columns of A corresponding to pivot columns of its reduced
+      row-echelon form.
+    tier: 3
+  basis_for_null_space:
+    composed_of:
+    - spanning_set_of_null_space
+    - linear_independence
+    defines: The spanning set for a null space is also linearly independent, forming
+      a basis for the null space.
+    tier: 6
+  basis_row_space:
+    composed_of:
+    - row_space
+    defines: A linearly independent spanning set for the row space obtained from the
+      nonzero rows of a row-equivalent reduced row-echelon form matrix.
+    tier: 4
+  casting_out_vectors:
+    composed_of:
+    - span
+    - dependency_in_linearly_dependent_sets
+    defines: A procedure for removing redundant vectors from a spanning set, using
+      pivot columns, to obtain a linearly independent set with the same span.
+    tier: 6
+  change_of_basis_matrix:
+    composed_of:
+    - matrix_representation
+    defines: The matrix representation of the identity transformation on V relative
+      to two bases B and C, used to convert vector representations between bases.
+    tier: 1
+  characteristic_polynomial:
+    composed_of:
+    - eigenvalue_eigenvector
+    defines: "For a square matrix A of size n, the polynomial pA(x) = det(A \u2212\
+      \ xIn), whose roots are exactly the eigenvalues of A."
+    tier: 3
+  characterization_finite_dim_vector_spaces:
+    composed_of:
+    - vector_representation_invertible
+    defines: Every finite-dimensional vector space of dimension n is isomorphic to
+      C^n.
+    tier: 8
+  coefficient_matrix:
+    composed_of:
+    - matrix
+    - system_of_linear_equations
+    defines: The matrix formed from the coefficients aij of a system of linear equations,
+      with each row corresponding to one equation.
+    tier: 2
+  column_space:
+    composed_of:
+    - matrix
+    - matrix_vector_product
+    defines: The set of all linear combinations of the columns of a matrix, equal
+      to the set of vectors b for which Ax = b is consistent.
+    tier: 2
+  composition_of_injective_transformations:
+    composed_of:
+    - injective_linear_transformation
+    - linear_transformation_composition
+    defines: The composition of two injective linear transformations is itself injective.
+    tier: 4
+  composition_of_invertible_transformations:
+    composed_of:
+    - invertible_linear_transformation
+    - linear_transformation_composition
+    defines: The composition of two invertible linear transformations is invertible,
+      with inverse equal to the composition of the inverses in reverse order.
+    tier: 5
+  composition_of_surjective_transformations:
+    composed_of:
+    - surjective_linear_transformation
+    - linear_transformation_composition
+    defines: The composition of two surjective linear transformations is itself surjective.
+    tier: 4
+  computing_matrix_inverse:
+    composed_of:
+    - matrix_inverse
+    - nonsingular_matrix
+    defines: A row-reduction procedure that augments a nonsingular matrix with the
+      identity matrix and row-reduces to obtain the inverse.
+    tier: 8
+  conjugate_eigenvalue_pairs:
+    composed_of:
+    - eigenvalue_eigenvector
+    defines: "For a real matrix A, if x is an eigenvector for eigenvalue \u03BB, then\
+      \ the conjugate vector x\u0304 is an eigenvector for the conjugate eigenvalue\
+      \ \u03BB\u0304."
+    tier: 3
+  consistent_system:
+    composed_of:
+    - pivot_column
+    - augmented_matrix
+    - solution_set
+    defines: A system of linear equations that has at least one solution; a system
+      is inconsistent exactly when the last column of its reduced row-echelon augmented
+      matrix is a pivot column.
+    tier: 6
+  coordinatization_and_linear_independence_spanning:
+    composed_of:
+    - vector_representation_invertible
+    defines: A subset of a vector space is linearly independent (or spans/contains
+      a vector) iff its vector representation in C^n has the same property.
+    tier: 8
+  coordinatization_principle:
+    composed_of:
+    - coordinatization_and_linear_independence_spanning
+    defines: Questions about a vector space depending on addition, scalar multiplication,
+      linear independence, or spanning can be translated into C^n via vector representation
+      and back.
+    tier: 9
+  degree_of_characteristic_polynomial:
+    composed_of:
+    - characteristic_polynomial
+    defines: "The characteristic polynomial of an n\xD7n matrix always has degree\
+      \ exactly n."
+    tier: 4
+  dependency_in_linearly_dependent_sets:
+    composed_of:
+    - linear_independence
+    defines: A set of vectors is linearly dependent iff at least one vector can be
+      written as a linear combination of the others.
+    tier: 5
+  determinant_2x2:
+    composed_of:
+    - determinant_definition
+    defines: The shortcut formula det(A) = ad - bc for a 2x2 matrix.
+    tier: 2
+  determinant_definition:
+    composed_of:
+    - square_matrix
+    - submatrix
+    defines: A scalar-valued function of a square matrix, defined recursively via
+      entries and submatrix determinants.
+    tier: 1
+  determinant_elementary_matrix_multiplication:
+    composed_of:
+    - determinant_of_elementary_matrices
+    - elementary_matrices_effect_row_operations
+    - matrix_multiplication
+    defines: det(EA) = det(E)det(A) for any elementary matrix E and square matrix
+      A.
+    tier: 8
+  determinant_equal_rows_columns:
+    composed_of:
+    - determinant_row_column_swap
+    defines: A square matrix with two equal rows or two equal columns has determinant
+      zero.
+    tier: 5
+  determinant_expansion_about_columns:
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_of_transpose
+    defines: The determinant can be computed by a signed sum along any column, obtained
+      via row expansion and the transpose.
+    tier: 3
+  determinant_expansion_about_rows:
+    composed_of:
+    - determinant_definition
+    defines: The determinant can be computed by a signed sum along any row, not just
+      the first.
+    tier: 2
+  determinant_of_elementary_matrices:
+    composed_of:
+    - elementary_matrix
+    - determinant_row_column_swap
+    - determinant_row_column_multiple
+    - determinant_row_column_multiple_and_addition
+    - determinant_of_identity
+    defines: The determinant of each type of elementary matrix (-1, alpha, 1).
+    tier: 7
+  determinant_of_identity:
+    composed_of:
+    - determinant_expansion_about_rows
+    - identity_matrix
+    defines: det(In) = 1 for every size n.
+    tier: 6
+  determinant_of_transpose:
+    composed_of:
+    - determinant_definition
+    defines: A square matrix and its transpose have the same determinant.
+    tier: 2
+  determinant_respects_matrix_multiplication:
+    composed_of:
+    - determinant_elementary_matrix_multiplication
+    - nonsingular_as_product_of_elementary_matrices
+    - singular_matrix_zero_determinant
+    defines: For any two square matrices of the same size, det(AB) = det(A)det(B).
+    tier: 10
+  determinant_row_column_multiple:
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_expansion_about_columns
+    defines: Multiplying a single row or column by a scalar multiplies the determinant
+      by that scalar.
+    tier: 4
+  determinant_row_column_multiple_and_addition:
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_expansion_about_columns
+    defines: Adding a multiple of one row (or column) to another leaves the determinant
+      unchanged.
+    tier: 4
+  determinant_row_column_swap:
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_expansion_about_columns
+    defines: Interchanging two rows or two columns of a matrix negates its determinant.
+    tier: 4
+  determinant_upper_triangular:
+    composed_of:
+    - determinant_expansion_about_columns
+    - determinant_definition
+    defines: The determinant of an upper (or lower) triangular matrix equals the product
+      of its diagonal entries.
+    tier: 4
+  determinant_zero_row_or_column:
+    composed_of:
+    - determinant_expansion_about_rows
+    defines: A square matrix with an entirely zero row or column has determinant zero.
+    tier: 3
+  diagonalizable_full_eigenspaces:
+    composed_of:
+    - diagonalizable_matrix
+    - algebraic_multiplicity
+    - geometric_multiplicity
+    defines: A matrix is diagonalizable if and only if the geometric multiplicity
+      equals the algebraic multiplicity for every eigenvalue.
+    tier: 5
+  diagonalizable_matrix:
+    composed_of:
+    - similar_matrices
+    - diagonal_matrix
+    defines: A square matrix A is diagonalizable if it is similar to a diagonal matrix.
+    tier: 3
+  diagonalization_characterization:
+    composed_of:
+    - diagonalizable_matrix
+    - eigenvalue_eigenvector
+    defines: A matrix of size n is diagonalizable if and only if there exists a linearly
+      independent set of n eigenvectors of the matrix, which then form the columns
+      of the similarity matrix.
+    tier: 4
+  dimension:
+    composed_of:
+    - bases_have_identical_sizes
+    defines: The number of vectors in any basis of a vector space, giving a well-defined
+      measure of the "size" of the space (infinite if no finite basis exists).
+    tier: 7
+  distinct_eigenvalues_diagonalizable:
+    composed_of:
+    - diagonalization_characterization
+    - eigenvectors_distinct_eigenvalues_independent
+    defines: A square matrix of size n with n distinct eigenvalues is necessarily
+      diagonalizable.
+    tier: 5
+  eigenspace:
+    composed_of:
+    - eigenvalue_eigenvector
+    defines: "For an eigenvalue \u03BB of A, the set of all eigenvectors of A for\
+      \ \u03BB together with the zero vector, shown to form a subspace equal to the\
+      \ null space of A \u2212 \u03BBIn."
+    tier: 3
+  eigenvalue_eigenvector:
+    composed_of:
+    - matrix_vector_product
+    defines: "A nonzero vector x is an eigenvector of a square matrix A with eigenvalue\
+      \ \u03BB if Ax = \u03BBx."
+    tier: 2
+  eigenvalue_singularity_link:
+    composed_of:
+    - eigenvalue_eigenvector
+    defines: "A square matrix A is singular if and only if \u03BB = 0 is an eigenvalue\
+      \ of A, extending the nonsingular matrix equivalences list."
+    tier: 3
+  eigenvalue_transformations:
+    composed_of:
+    - eigenvalue_eigenvector
+    - polynomial_of_matrix
+    defines: Rules describing how eigenvalues change under scalar multiples, powers,
+      polynomials, inverses, and transposes of a matrix.
+    tier: 3
+  eigenvalues_eigenvectors_representations:
+    composed_of:
+    - eigenvalue_eigenvector_linear_transformation
+    - matrix_representation_and_similarity
+    defines: The eigenvalues and eigenvectors of T are intrinsic, independent of basis;
+      eigenvectors of T correspond via rho_B to eigenvectors of any matrix representation.
+    tier: 8
+  eigenvectors_distinct_eigenvalues_independent:
+    composed_of:
+    - eigenvalue_eigenvector
+    defines: A set of eigenvectors of A corresponding to pairwise distinct eigenvalues
+      is always linearly independent.
+    tier: 3
+  elementary_matrices_effect_row_operations:
+    composed_of:
+    - elementary_matrix
+    - matrix_multiplication
+    - row_operations
+    defines: Multiplying A on the left by the appropriate elementary matrix produces
+      the same result as performing the corresponding row operation on A.
+    tier: 7
+  elementary_matrices_nonsingular:
+    composed_of:
+    - elementary_matrix
+    - nonsingular_matrix
+    defines: Every elementary matrix row-reduces to the identity matrix and is therefore
+      nonsingular.
+    tier: 7
+  elementary_matrix:
+    composed_of:
+    - identity_matrix
+    - row_operations
+    defines: One of three special square matrices built as small perturbations of
+      the identity matrix that implement a single row operation via left multiplication.
+    tier: 6
+  entries_of_matrix_products:
+    composed_of:
+    - matrix_multiplication
+    defines: The formula expressing each entry of a matrix product AB as a sum of
+      products of corresponding row and column entries of A and B.
+    tier: 3
+  equal_dimensions_yields_equal_subspaces:
+    composed_of:
+    - dimension
+    - subspace
+    defines: If a subspace U is contained in a subspace V and the two have the same
+      (finite) dimension, then U and V must be the identical set.
+    tier: 8
+  equation_operations:
+    composed_of:
+    - linear_equation
+    - system_of_linear_equations
+    defines: Three operations (swap two equations, multiply an equation by a nonzero
+      scalar, add a multiple of one equation to another) that transform a system without
+      changing its solution set.
+    tier: 2
+  equivalent_systems:
+    composed_of:
+    - system_of_linear_equations
+    - solution_set
+    - equation_operations
+    defines: Two systems of linear equations are equivalent if they have identical
+      solution sets.
+    tier: 3
+  existence_of_eigenvalues:
+    composed_of:
+    - eigenvalue_eigenvector
+    - polynomial_of_matrix
+    defines: A theorem (with a determinant-free, constructive proof) establishing
+      that every square matrix has at least one eigenvalue and associated eigenvector.
+    tier: 3
+  extended_echelon_form:
+    composed_of:
+    - matrix
+    defines: The reduced row-echelon form of a matrix augmented on the right with
+      an identity matrix, partitioned into submatrices B, J, C, K, and L.
+    tier: 1
+  four_subsets_theorem:
+    composed_of:
+    - extended_echelon_form
+    - null_space
+    - row_space
+    - column_space
+    - left_null_space
+    defines: The result that the null space, row space, column space, and left null
+      space of a matrix can all be computed from the submatrices C and L of its extended
+      echelon form.
+    tier: 7
+  four_subspace_dimensions:
+    composed_of:
+    - rank_plus_nullity
+    - rank_of_transpose
+    defines: "For an m\xD7n matrix with rank r, the null space has dimension n\u2212\
+      r, the column space and row space each have dimension r, and the left null space\
+      \ has dimension m\u2212r."
+    tier: 10
+  free_dependent_variables:
+    composed_of:
+    - pivot_column
+    - consistent_system
+    defines: "In a consistent system's reduced row-echelon form, variables corresponding\
+      \ to pivot columns are dependent (determined by the others), while the remaining\
+      \ variables are free (may take any value), with n \u2212 r free variables total."
+    tier: 7
+  fundamental_theorem_matrix_representation:
+    composed_of:
+    - matrix_representation
+    - vector_representation
+    defines: The action of T on u equals coordinatizing u, multiplying by the matrix
+      representation of T, then un-coordinatizing the result.
+    tier: 6
+  geometric_multiplicity:
+    composed_of:
+    - eigenspace
+    defines: "The dimension of the eigenspace EA(\u03BB) for eigenvalue \u03BB of\
+      \ matrix A."
+    tier: 4
+  goldilocks_theorem:
+    composed_of:
+    - dimension
+    - linear_independence
+    - spanning_set
+    defines: In a vector space of dimension t, a set of vectors is linearly dependent
+      if it has more than t vectors, fails to span if it has fewer than t vectors,
+      and if it has exactly t vectors then linear independence and spanning each imply
+      the other.
+    tier: 8
+  hermitian_matrix:
+    composed_of:
+    - adjoint
+    defines: A square matrix that equals its own adjoint.
+    tier: 2
+  hermitian_matrix_eigenproperties:
+    composed_of:
+    - eigenvalue_eigenvector
+    defines: A Hermitian matrix has only real eigenvalues, and its eigenvectors for
+      distinct eigenvalues are orthogonal.
+    tier: 3
+  homogeneous_system:
+    composed_of:
+    - system_of_linear_equations
+    - vector_of_constants
+    defines: A system of linear equations LS(A,0) in which every constant term is
+      zero; such a system is always consistent since the trivial (all-zero) solution
+      always works.
+    tier: 3
+  identity_matrix:
+    composed_of:
+    - square_matrix
+    - reduced_row_echelon_form
+    defines: The square matrix Im with 1's on the diagonal and 0's elsewhere, which
+      is already in reduced row-echelon form with every column a pivot column.
+    tier: 5
+  injective_linear_transformation:
+    composed_of:
+    - linear_transformation
+    defines: A linear transformation where equal outputs always come from equal inputs
+      (one-to-one).
+    tier: 3
+  injective_transformations_and_dimension:
+    composed_of:
+    - injective_linear_transformation
+    defines: If a linear transformation is injective, the dimension of its domain
+      is less than or equal to the dimension of its codomain.
+    tier: 4
+  injective_transformations_and_linear_independence:
+    composed_of:
+    - injective_linear_transformation
+    defines: Injective linear transformations carry linearly independent sets to linearly
+      independent sets, and are characterized by preserving independence of a basis.
+    tier: 4
+  inner_product:
+    composed_of:
+    - column_vector
+    - complex_conjugate_vector
+    defines: A scalar formed from two vectors by summing products of entries of the
+      first vector's conjugate with entries of the second.
+    tier: 1
+  inverse_of_invertible_transformation_is_linear:
+    composed_of:
+    - invertible_linear_transformation
+    defines: If a linear transformation is invertible, its inverse function is itself
+      a linear transformation.
+    tier: 5
+  invertible_linear_transformation:
+    composed_of:
+    - linear_transformation_composition
+    - identity_linear_transformation
+    defines: A linear transformation for which there exists a companion transformation
+      that composes with it (in either order) to give the identity.
+    tier: 4
+  invertible_matrix_representations:
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    defines: A linear transformation T is invertible iff its matrix representation
+      is invertible, with the inverse transformation represented by the inverse matrix.
+    tier: 7
+  invertible_transformations_are_injective_and_surjective:
+    composed_of:
+    - invertible_linear_transformation
+    - injective_linear_transformation
+    - surjective_linear_transformation
+    defines: A linear transformation is invertible if and only if it is both injective
+      and surjective (bijective).
+    tier: 5
+  isomorphic_spaces_have_equal_dimension:
+    composed_of:
+    - isomorphic_vector_spaces
+    defines: If two vector spaces are isomorphic, they must have the same dimension.
+    tier: 6
+  isomorphic_vector_spaces:
+    composed_of:
+    - invertible_linear_transformation
+    defines: Two vector spaces are isomorphic if there exists an invertible linear
+      transformation (an isomorphism) between them, meaning they are structurally
+      the same.
+    tier: 5
+  kernel_and_preimage:
+    composed_of:
+    - kernel_of_linear_transformation
+    - pre_image
+    defines: A nonempty pre-image of any vector can be constructed as one particular
+      solution vector plus the kernel.
+    tier: 4
+  kernel_is_subspace:
+    composed_of:
+    - kernel_of_linear_transformation
+    - vector_space
+    defines: The kernel of any linear transformation is always a subspace of the domain.
+    tier: 4
+  kernel_null_space_isomorphism:
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    - vector_representation_invertible
+    defines: The kernel of T is isomorphic to the null space of its matrix representation,
+      via vector representation restricted to the kernel.
+    tier: 8
+  kernel_of_injective_transformation:
+    composed_of:
+    - kernel_of_linear_transformation
+    - injective_linear_transformation
+    defines: A linear transformation is injective if and only if its kernel is trivial
+      (contains only the zero vector).
+    tier: 4
+  kernel_of_linear_transformation:
+    composed_of:
+    - linear_transformation
+    defines: The set of all domain vectors that a linear transformation sends to the
+      zero vector of the codomain.
+    tier: 3
+  left_null_space:
+    composed_of:
+    - null_space
+    - transpose
+    defines: The null space of the transpose of a matrix, consisting of vectors that
+      produce a zero row combination of the matrix's rows.
+    tier: 6
+  linear_combination:
+    composed_of:
+    - vector_addition
+    - scalar_multiplication
+    defines: A vector formed by combining a set of vectors using scalar multiplication
+      and vector addition.
+    tier: 2
+  linear_dependence_relation:
+    composed_of:
+    - linear_combination
+    defines: An equation setting a linear combination of a set of vectors equal to
+      the zero vector; it is trivial if all scalars are zero.
+    tier: 3
+  linear_independence:
+    composed_of:
+    - relation_of_linear_dependence
+    defines: A set of vectors for which the only relation of linear dependence is
+      the trivial one.
+    tier: 4
+  linear_independence_and_homogeneous_systems:
+    composed_of:
+    - linear_independence
+    defines: A set of vectors is linearly independent iff the homogeneous system formed
+      from them as matrix columns has only the trivial solution.
+    tier: 5
+  linear_transformation:
+    composed_of:
+    - function
+    - vector_space
+    - matrix_vector_product
+    defines: A function between vector spaces that preserves vector addition and scalar
+      multiplication.
+    tier: 2
+  linear_transformation_addition:
+    composed_of:
+    - linear_transformation
+    defines: The sum of two linear transformations with the same domain and codomain,
+      defined pointwise by adding their outputs.
+    tier: 3
+  linear_transformation_composition:
+    composed_of:
+    - linear_transformation
+    defines: The composition of two linear transformations, applying one after the
+      other, which is itself a linear transformation.
+    tier: 3
+  linear_transformation_defined_on_basis:
+    composed_of:
+    - linear_transformations_and_linear_combinations
+    defines: A linear transformation is uniquely determined by specifying its outputs
+      on a basis of the domain.
+    tier: 4
+  linear_transformation_scalar_multiplication:
+    composed_of:
+    - linear_transformation
+    defines: The scalar multiple of a linear transformation, defined pointwise by
+      scaling its outputs.
+    tier: 3
+  linear_transformations_and_linear_combinations:
+    composed_of:
+    - linear_transformation
+    defines: A linear transformation applied to a linear combination of vectors equals
+      the same linear combination of the transformed vectors.
+    tier: 3
+  linear_transformations_take_zero_to_zero:
+    composed_of:
+    - linear_transformation
+    defines: Every linear transformation sends the zero vector of the domain to the
+      zero vector of the codomain.
+    tier: 3
+  matrix_inverse:
+    composed_of:
+    - matrix_multiplication
+    - nonsingular_matrix
+    defines: For a square matrix A, a matrix B such that AB = BA = the identity matrix,
+      written A^-1.
+    tier: 7
+  matrix_multiplication:
+    composed_of:
+    - matrix_vector_product
+    defines: The product of two matrices A and B, defined column-by-column as the
+      matrix-vector products of A with each column of B.
+    tier: 2
+  matrix_multiplication_properties:
+    composed_of:
+    - matrix_multiplication
+    - adjoint
+    - zero_matrix
+    - matrix_addition
+    - matrix_scalar_multiplication
+    - transpose
+    - complex_conjugate_matrix
+    defines: Theorems describing how matrix multiplication interacts with the zero
+      matrix, identity matrix, addition, scalar multiplication, associativity, inner
+      products, conjugation, transposes, and adjoints.
+    tier: 3
+  matrix_representation_and_similarity:
+    composed_of:
+    - change_of_basis_matrix
+    - fundamental_theorem_matrix_representation
+    defines: Two matrix representations of the same T relative to different bases
+      are related by a similarity transformation using the change-of-basis matrix.
+    tier: 7
+  matrix_representation_of_combinations:
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    defines: The matrix representation of a sum, scalar multiple, or composition of
+      linear transformations equals the corresponding combination of individual matrix
+      representations.
+    tier: 7
+  matrix_representation_of_linear_transformation:
+    composed_of:
+    - linear_transformation
+    - matrix_vector_product
+    defines: Every linear transformation between vector spaces of column vectors corresponds
+      to a unique matrix such that the transformation is matrix-vector multiplication,
+      and vice versa.
+    tier: 3
+  matrix_vector_product:
+    composed_of:
+    - matrix
+    defines: The linear combination of the columns of a matrix using the entries of
+      a vector as scalars, written Au.
+    tier: 1
+  minor_and_cofactor:
+    composed_of:
+    - submatrix
+    - determinant_definition
+    defines: A minor is the determinant of a submatrix; a cofactor is that minor with
+      sign (-1)^(i+j) attached.
+    tier: 2
+  more_vectors_than_size:
+    composed_of:
+    - linear_independence
+    defines: Any set of more than m vectors from C^m must be linearly dependent.
+    tier: 5
+  multiplicity_bounds:
+    composed_of:
+    - algebraic_multiplicity
+    - geometric_multiplicity
+    defines: "For any eigenvalue \u03BB, 1 \u2264 geometric multiplicity \u2264 algebraic\
+      \ multiplicity \u2264 n, the algebraic multiplicities of all distinct eigenvalues\
+      \ sum to n, and a matrix of size n has at most n distinct eigenvalues."
+    tier: 5
+  nonsingular_as_product_of_elementary_matrices:
+    composed_of:
+    - nonsingular_matrix
+    - elementary_matrix
+    - elementary_matrices_effect_row_operations
+    defines: Any nonsingular matrix can be written as a product of elementary matrices.
+    tier: 8
+  nonsingular_invertible_equivalence:
+    composed_of:
+    - nonsingular_matrix
+    - matrix_inverse
+    defines: The result that a square matrix is nonsingular if and only if it is invertible,
+      unifying two previously separate notions.
+    tier: 8
+  nonsingular_linear_independence:
+    composed_of:
+    - linear_independence
+    defines: A square matrix is nonsingular iff its columns form a linearly independent
+      set.
+    tier: 5
+  nonsingular_matrix:
+    composed_of:
+    - square_matrix
+    - homogeneous_system
+    - trivial_solution
+    - identity_matrix
+    - null_space
+    defines: A square matrix A for which the homogeneous system LS(A,0) has only the
+      trivial solution; equivalently A row-reduces to the identity matrix, has trivial
+      null space, and yields a unique solution to LS(A,b) for every constant vector
+      b.
+    tier: 6
+  nonsingular_matrix_equivalences:
+    composed_of:
+    - nonsingular_matrix
+    - null_space
+    - nonsingular_invertible_equivalence
+    - column_space
+    defines: An expanding list of equivalent conditions for a square matrix to be
+      nonsingular, including row-reducing to the identity, trivial null space, unique
+      solutions, independent columns, invertibility, and full column space.
+    tier: 9
+  nonsingular_matrix_equivalences_round7:
+    composed_of:
+    - singular_matrix_zero_determinant
+    - nonsingular_matrix
+    defines: Extension of equivalent characterizations of a nonsingular matrix to
+      include having a nonzero determinant.
+    tier: 10
+  norm:
+    composed_of:
+    - inner_product
+    defines: The square root of the sum of the squared moduli of a vector's entries.
+    tier: 2
+  null_space:
+    composed_of:
+    - homogeneous_system
+    - trivial_solution
+    - solution_set
+    defines: The set N(A) of all solution vectors to the homogeneous system LS(A,0),
+      viewed as a property of the coefficient matrix A.
+    tier: 5
+  nullity:
+    composed_of:
+    - dimension
+    defines: The dimension of the null space of a matrix.
+    tier: 8
+  nullity_of_linear_transformation:
+    composed_of:
+    - kernel_of_linear_transformation
+    defines: The dimension of the kernel of a linear transformation.
+    tier: 4
+  orthogonal_matrix:
+    composed_of:
+    - unitary_matrix
+    - transpose
+    defines: The real-entry special case of a unitary matrix, satisfying A^t A equals
+      the identity matrix.
+    tier: 4
+  orthogonal_set:
+    composed_of:
+    - orthogonal_vectors
+    defines: A set of vectors in which every pair of distinct vectors is orthogonal.
+    tier: 3
+  orthogonal_sets_linearly_independent:
+    composed_of:
+    - orthogonal_set
+    - linear_independence
+    defines: Any orthogonal set of nonzero vectors is automatically a linearly independent
+      set.
+    tier: 5
+  orthogonal_vectors:
+    composed_of:
+    - inner_product
+    defines: A pair of vectors whose inner product is zero.
+    tier: 2
+  orthonormal_basis:
+    composed_of:
+    - basis
+    defines: A basis whose vectors form an orthogonal set all normalized to length
+      1, allowing coordinates relative to the basis to be computed directly via inner
+      products (Theorem COB).
+    tier: 6
+  orthonormal_diagonalization:
+    composed_of:
+    - normal_matrix
+    defines: A square matrix A can be diagonalized by a unitary matrix iff A is normal.
+    tier: 1
+  orthonormal_set:
+    composed_of:
+    - orthogonal_set
+    - norm
+    defines: An orthogonal set of vectors in which every vector has norm equal to
+      1.
+    tier: 4
+  particular_plus_homogeneous:
+    composed_of:
+    - vector_form_of_solutions
+    defines: Every solution to a consistent linear system can be written as one particular
+      solution plus some solution of the corresponding homogeneous system.
+    tier: 5
+  pivot_column:
+    composed_of:
+    - reduced_row_echelon_form
+    defines: A column of a matrix in reduced row-echelon form that contains a leading
+      1; the set of pivot column indices (D) versus non-pivot indices (F) determines
+      dependent versus free variables.
+    tier: 5
+  polynomial_of_matrix:
+    composed_of:
+    - matrix_vector_product
+    defines: Evaluating a polynomial p(x) by substituting a square matrix A for the
+      variable, using matrix powers, scalar multiplication, and addition in place
+      of the usual operations.
+    tier: 2
+  possible_solution_sets:
+    composed_of:
+    - pivot_column
+    - solution_set
+    - free_dependent_variables
+    defines: Every system of linear equations has exactly zero, one, or infinitely
+      many solutions, determined by comparing the number of pivot columns r to the
+      number of variables n.
+    tier: 8
+  pre_image:
+    composed_of:
+    - linear_transformation
+    defines: For a linear transformation T and vector v in the codomain, the set of
+      all domain vectors that T sends to v.
+    tier: 3
+  range_and_preimage:
+    composed_of:
+    - range_of_linear_transformation
+    - pre_image
+    defines: A vector lies in the range of a linear transformation exactly when its
+      pre-image is nonempty.
+    tier: 4
+  range_column_space_isomorphism:
+    composed_of:
+    - fundamental_theorem_matrix_representation
+    - vector_representation_invertible
+    defines: The range of T is isomorphic to the column space of its matrix representation,
+      via vector representation restricted to the range.
+    tier: 8
+  range_is_subspace:
+    composed_of:
+    - range_of_linear_transformation
+    - vector_space
+    defines: The range of any linear transformation is always a subspace of the codomain.
+    tier: 4
+  range_of_linear_transformation:
+    composed_of:
+    - linear_transformation
+    defines: The set of all outputs produced by a linear transformation as its input
+      ranges over the whole domain.
+    tier: 3
+  range_of_surjective_transformation:
+    composed_of:
+    - range_of_linear_transformation
+    - surjective_linear_transformation
+    defines: A linear transformation is surjective if and only if its range equals
+      the entire codomain.
+    tier: 4
+  rank:
+    composed_of:
+    - dimension
+    defines: The dimension of the column space of a matrix.
+    tier: 8
+  rank_of_linear_transformation:
+    composed_of:
+    - range_of_linear_transformation
+    defines: The dimension of the range of a linear transformation.
+    tier: 4
+  rank_of_transpose:
+    composed_of:
+    - rank
+    defines: For any matrix A, the rank of A equals the rank of its transpose, so
+      the row space and column space always have the same dimension.
+    tier: 9
+  rank_plus_nullity:
+    composed_of:
+    - rank
+    - nullity
+    defines: "For an m\xD7n matrix A, the rank of A plus the nullity of A equals n,\
+      \ the number of columns."
+    tier: 9
+  rank_plus_nullity_is_domain_dimension:
+    composed_of:
+    - rank_of_linear_transformation
+    - nullity_of_linear_transformation
+    defines: For any linear transformation, the rank and nullity sum to the dimension
+      of the domain.
+    tier: 5
+  reduced_row_echelon_form:
+    composed_of:
+    - matrix
+    - row_operations
+    defines: A canonical matrix form characterized by leading 1's (pivots) in a staircase
+      pattern, each the only nonzero entry in its column, with zero rows at the bottom;
+      every matrix has a unique row-equivalent matrix in this form, obtainable via
+      Gauss-Jordan elimination.
+    tier: 4
+  relation_of_linear_dependence:
+    composed_of:
+    - linear_combination
+    defines: A true equation expressing a linear combination of a set of vectors as
+      equal to the zero vector.
+    tier: 3
+  row_equivalent_matrices:
+    composed_of:
+    - row_operations
+    - augmented_matrix
+    - equivalent_systems
+    defines: Two matrices related by a sequence of row operations; row-equivalent
+      augmented matrices represent equivalent systems of equations.
+    tier: 4
+  row_operations:
+    composed_of:
+    - matrix
+    - equation_operations
+    defines: Three operations on a matrix (swap two rows, multiply a row by a nonzero
+      scalar, add a multiple of one row to another) analogous to equation operations,
+      used to transform an augmented matrix.
+    tier: 3
+  row_space:
+    composed_of:
+    - column_space
+    - transpose
+    defines: The column space of the transpose of a matrix, i.e. the set of all linear
+      combinations of the matrix's rows.
+    tier: 3
+  scalar_multiplication:
+    composed_of:
+    - column_vector
+    - complex_number
+    defines: The vector formed by multiplying every entry of a vector by a fixed scalar.
+    tier: 1
+  similar_matrices:
+    composed_of:
+    - matrix_vector_product
+    defines: "Two square matrices A and B of the same size are similar if there exists\
+      \ a nonsingular matrix S such that A = S\u207B\xB9BS."
+    tier: 2
+  similar_matrices_equal_eigenvalues:
+    composed_of:
+    - similar_matrices
+    - characteristic_polynomial
+    defines: Similar matrices share the same characteristic polynomial, and hence
+      the same eigenvalues with the same algebraic multiplicities (though the converse
+      is false).
+    tier: 4
+  similarity_equivalence_relation:
+    composed_of:
+    - similar_matrices
+    defines: The similarity relation between matrices is reflexive, symmetric, and
+      transitive.
+    tier: 3
+  singular_matrix_zero_determinant:
+    composed_of:
+    - nonsingular_as_product_of_elementary_matrices
+    - determinant_elementary_matrix_multiplication
+    - nonsingular_matrix
+    defines: A square matrix is singular if and only if its determinant is zero.
+    tier: 9
+  solution_set:
+    composed_of:
+    - system_of_linear_equations
+    defines: An ordered list of values for the variables that makes every equation
+      in a system simultaneously true, together with the set of all such lists.
+    tier: 2
+  solutions_as_linear_combinations:
+    composed_of:
+    - linear_combination
+    defines: A vector x is a solution to LS(A,b) iff b equals the linear combination
+      of the columns of A formed with the entries of x.
+    tier: 3
+  span:
+    composed_of:
+    - linear_combination
+    defines: The set of all possible linear combinations of a given finite set of
+      vectors.
+    tier: 3
+  spanning_set:
+    composed_of:
+    - span
+    defines: A subset S of a vector space V such that the span of S equals V.
+    tier: 4
+  spanning_set_for_range:
+    composed_of:
+    - range_of_linear_transformation
+    defines: The images of a spanning set of the domain form a spanning set for the
+      range of the transformation.
+    tier: 4
+  spanning_set_of_null_space:
+    composed_of:
+    - span
+    - vector_form_of_solutions
+    defines: A specific set of vectors, derived from free variables of a row-reduced
+      matrix, whose span equals the null space of the matrix.
+    tier: 5
+  spanning_sets_and_dependence:
+    composed_of:
+    - spanning_set
+    - linear_independence
+    defines: If a finite set of t vectors spans a vector space, then any set of more
+      than t vectors from that space must be linearly dependent.
+    tier: 5
+  subspace:
+    composed_of:
+    - vector_space
+    defines: A subset of a vector space that is itself a vector space under the same
+      operations; equivalently, a nonempty subset closed under vector addition and
+      scalar multiplication (Theorem TSS).
+    tier: 1
+  surjective_linear_transformation:
+    composed_of:
+    - linear_transformation
+    defines: A linear transformation where every element of the codomain is the output
+      of some element of the domain (onto).
+    tier: 3
+  surjective_transformations_and_dimension:
+    composed_of:
+    - surjective_linear_transformation
+    defines: If a linear transformation is surjective, the dimension of its domain
+      is greater than or equal to the dimension of its codomain.
+    tier: 4
+  symmetric_matrix:
+    composed_of:
+    - transpose
+    defines: A matrix that equals its own transpose.
+    tier: 1
+  system_of_linear_equations:
+    composed_of:
+    - linear_equation
+    defines: A collection of m linear equations in the same set of n variables x1,...,xn.
+    tier: 1
+  systems_as_matrix_multiplication:
+    composed_of:
+    - matrix_vector_product
+    defines: The result that solutions to a linear system LS(A,b) coincide with solutions
+      to the vector equation Ax = b.
+    tier: 2
+  trivial_solution:
+    composed_of:
+    - homogeneous_system
+    defines: The solution x1=0, x2=0, ..., xn=0 of a homogeneous system, which always
+      exists.
+    tier: 4
+  unitary_matrix:
+    composed_of:
+    - adjoint
+    - matrix_multiplication
+    defines: A square matrix U satisfying U*U equals the identity matrix.
+    tier: 3
+  upper_triangular_matrix_representation:
+    composed_of:
+    - triangular_matrix
+    - eigenvalue_eigenvector_linear_transformation
+    - matrix_representation
+    defines: Every T:V to V has a basis relative to which its matrix representation
+      is upper triangular, with diagonal entries equal to its eigenvalues.
+    tier: 1
+  vector_addition:
+    composed_of:
+    - column_vector
+    defines: The sum of two vectors of the same size, formed by adding corresponding
+      entries.
+    tier: 1
+  vector_equality:
+    composed_of:
+    - column_vector
+    defines: Two vectors are equal when all their corresponding entries are equal.
+    tier: 1
+  vector_form_of_solutions:
+    composed_of:
+    - solutions_as_linear_combinations
+    - linear_combination
+    defines: A technique for expressing all solutions to a consistent linear system
+      as a fixed vector plus a linear combination of vectors.
+    tier: 4
+  vector_of_constants:
+    composed_of:
+    - column_vector
+    - system_of_linear_equations
+    defines: The column vector formed from the right-hand-side constants bi of a system
+      of linear equations.
+    tier: 2
+  vector_representation:
+    composed_of:
+    - linear_independence
+    - spanning_set
+    defines: If a set is linearly independent and spans a vector space, every vector
+      in the space can be written uniquely as a linear combination of that set's vectors.
+    tier: 5
+  vector_representation_invertible:
+    composed_of:
+    - vector_representation_is_linear_transformation
+    defines: Vector representation rho_B is injective and surjective, hence an invertible
+      linear transformation (isomorphism).
+    tier: 7
+  vector_representation_is_linear_transformation:
+    composed_of:
+    - vector_representation
+    defines: The vector representation function rho_B is itself a linear transformation
+      from V to C^n.
+    tier: 6
+  vector_space_cm:
+    composed_of:
+    - column_vector
+    - complex_number
+    defines: The set of all column vectors of a fixed size m with entries from the
+      complex numbers.
+    tier: 1
+  vector_space_of_linear_transformations:
+    composed_of:
+    - linear_transformation_addition
+    - linear_transformation_scalar_multiplication
+    - vector_space
+    defines: The set of all linear transformations between two fixed vector spaces
+      forms a vector space under transformation addition and scalar multiplication.
+    tier: 4
+  vector_space_properties:
+    composed_of:
+    - vector_addition
+    - scalar_multiplication
+    defines: Ten basic algebraic properties satisfied by vector addition and scalar
+      multiplication.
+    tier: 2
+  vector_space_properties_matrices:
+    composed_of:
+    - matrix_addition
+    - matrix_scalar_multiplication
+    - zero_matrix
+    defines: A collection of ten properties (closure, commutativity, associativity,
+      zero matrix, additive inverses, distributivity, etc.) governing matrix addition
+      and scalar multiplication.
+    tier: 1
+domain: linalg_beezer_full
+primitives:
+  column_vector:
+    defines: An ordered list of m numbers written vertically, used to represent variables,
+      constants, or solutions of a system.
+    tier: 0
+  complex_conjugate_matrix:
+    defines: The matrix formed by taking the complex conjugate of every entry of a
+      matrix.
+    tier: 0
+  complex_conjugate_vector:
+    defines: The vector formed by taking the complex conjugate of every entry of a
+      vector.
+    tier: 0
+  complex_number:
+    defines: A number of the form a + bi used as the scalar field for vectors in this
+      chapter.
+    tier: 0
+  diagonal_matrix:
+    defines: A square matrix whose entries off the main diagonal are all zero.
+    tier: 0
+  eigenvalue_eigenvector_linear_transformation:
+    defines: For T:V to V, a nonzero vector v is an eigenvector with eigenvalue lambda
+      if T(v) equals lambda times v.
+    tier: 0
+  function:
+    defines: A rule associating each element of a domain set with exactly one element
+      of a codomain set.
+    tier: 0
+  identity_linear_transformation:
+    defines: The linear transformation on a vector space that maps every vector to
+      itself.
+    tier: 0
+  linear_equation:
+    defines: An equation involving only addition and multiplication of variables by
+      constants (no products of variables, exponents, or transcendental functions),
+      of the form a1x1 + a2x2 + ... = b.
+    tier: 0
+  matrix:
+    defines: A rectangular array of numbers with m rows and n columns, used to encode
+      the coefficients and constants of a linear system.
+    tier: 0
+  matrix_addition:
+    defines: The sum of two matrices of the same size formed by adding corresponding
+      entries.
+    tier: 0
+  matrix_equality:
+    defines: Two m x n matrices are equal when all their corresponding entries are
+      equal.
+    tier: 0
+  matrix_representation:
+    defines: Given a linear transformation T, the m x n matrix whose columns are the
+      vector representations of T applied to each basis vector.
+    tier: 0
+  matrix_scalar_multiplication:
+    defines: The product of a scalar and a matrix formed by multiplying every entry
+      of the matrix by the scalar.
+    tier: 0
+  normal_matrix:
+    defines: A square matrix A that commutes with its adjoint, satisfying A*A equals
+      AA*.
+    tier: 0
+  square_matrix:
+    defines: A matrix with an equal number of rows and columns, m = n.
+    tier: 0
+  standard_unit_vectors:
+    defines: The vectors e_j with a 1 in position j and 0 elsewhere, forming the columns
+      of the identity matrix.
+    tier: 0
+  submatrix:
+    defines: The matrix A(i|j) obtained from a matrix A by deleting row i and column
+      j.
+    tier: 0
+  transpose:
+    defines: The matrix formed from a given matrix by swapping its rows and columns.
+    tier: 0
+  triangular_matrix:
+    defines: A square matrix whose entries below (upper) or above (lower) the main
+      diagonal are all zero.
+    tier: 0
+  vector_space:
+    defines: A set V with vector addition and scalar multiplication (over a field
+      such as the complex numbers) satisfying ten defining properties (closure, commutativity,
+      associativity, zero vector, additive inverses, and distributivity/scalar laws).
+    tier: 0
+  zero_matrix:
+    defines: The matrix with every entry equal to zero, serving as the additive identity
+      for matrix addition.
+    tier: 0

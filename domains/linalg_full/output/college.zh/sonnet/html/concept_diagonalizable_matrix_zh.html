@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagonalizable Matrix | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="可对角化矩阵">可对角化矩阵</h2>
+<h3 id="定义">定义</h3>
+<p>设 $A$ 为 $n\times n$ 方阵。若存在可逆矩阵 $P$ 和对角矩阵 $D$,使得</p>
+$$A = PDP^{-1},$$
+<p>则称 $A$ <strong>可对角化</strong>(即 $A$ 与对角矩阵相似)。此时 $P$ 的各列是 $A$ 的特征向量,$D$ 的对角线元素是对应的特征值。</p>
+<p><strong>判定定理:</strong> $n\times n$ 矩阵 $A$ 可对角化,当且仅当 $A$ 有 $n$ 个线性无关的特征向量。等价地,对每个特征值 $\lambda$,其代数重数等于几何重数,即 $\dim\ker(A-\lambda I)$。特别地,若 $A$ 有 $n$ 个互不相同的特征值,则 $A$ 一定可对角化。</p>
+<p><em>证明思路:</em> 若 $A=PDP^{-1}$,则 $AP=PD$。设 $P$ 的第 $j$ 列为 $\mathbf p_j$,则 $A\mathbf p_j=d_j\mathbf p_j$,所以每一列都是特征向量。因为 $P$ 可逆,这 $n$ 列线性无关。反过来,把 $n$ 个线性无关的特征向量作为列构成 $P$,上述推导可以倒推,得到 $AP=PD$,再由 $P$ 可逆即得 $A=PDP^{-1}$。</p>
+<h3 id="例题">例题</h3>
+<p>判断 $A=\begin{pmatrix}4&1\\2&3\end{pmatrix}$ 是否可对角化,若可以,求出 $P$ 和 $D$。</p>
+<p><strong>第一步:求特征值。</strong> 特征多项式为</p>
+$$\det(A-\lambda I)=(4-\lambda)(3-\lambda)-2=\lambda^2-7\lambda+10=(\lambda-2)(\lambda-5),$$
+<p>所以 $\lambda_1=2,\ \lambda_2=5$。两个特征值互不相同,因此 $A$ 可对角化。</p>
+<p><strong>第二步:求特征向量。</strong></p>
+<li>$\lambda=2$:解 $(A-2I)\mathbf x=\mathbf 0$,即 $\begin{pmatrix}2&1\\2&1\end{pmatrix}\mathbf x=\mathbf 0$,得 $\mathbf p_1=\begin{pmatrix}1\\-2\end{pmatrix}$。</li>
+<li>$\lambda=5$:解 $\begin{pmatrix}-1&1\\2&-2\end{pmatrix}\mathbf x=\mathbf 0$,得 $\mathbf p_2=\begin{pmatrix}1\\1\end{pmatrix}$。</li>
+<p><strong>第三步:组装。</strong></p>
+$$P=\begin{pmatrix}1&1\\-2&1\end{pmatrix},\quad D=\begin{pmatrix}2&0\\0&5\end{pmatrix}.$$
+<h3 id="反例">反例</h3>
+<p>$B=\begin{pmatrix}1&1\\0&1\end{pmatrix}$ 只有特征值 $\lambda=1$,代数重数为 2。但 $B-I=\begin{pmatrix}0&1\\0&0\end{pmatrix}$ 的零空间只有 1 维,几何重数为 1。因此 $B$ 只有一个线性无关的特征向量,<strong>不可对角化</strong>。</p>
+<h3 id="问题求解应用-计算矩阵的高次幂">问题求解应用:计算矩阵的高次幂</h3>
+<p>若 $A=PDP^{-1}$,则</p>
+$$A^k=PD^kP^{-1},\qquad D^k=\operatorname{diag}(d_1^k,\dots,d_n^k).$$
+<p>对上面的 $A$,有</p>
+$$A^k=\begin{pmatrix}1&1\\-2&1\end{pmatrix}\begin{pmatrix}2^k&0\\0&5^k\end{pmatrix}\frac13\begin{pmatrix}1&-1\\2&1\end{pmatrix}=\frac13\begin{pmatrix}2^k+2\cdot5^k & -2^k+5^k\\ -2^{k+1}+2\cdot 5^k & 2^{k+1}+5^k\end{pmatrix}.$$
+<p>检验 $k=1$:左上角为 $\frac13(2+10)=4$,与 $A$ 吻合。</p>
+<p>这个方法同样适用于线性递推和线性微分方程组 $\mathbf x'=A\mathbf x$。解的形式为 $\mathbf x(t)=Pe^{Dt}P^{-1}\mathbf x(0)$。对角化把耦合的系统拆成 $n$ 个相互独立的一维问题。</p>
+<pre class="mermaid">flowchart LR
+A["方阵 A"] --> B["求特征值"]
+B --> C["求特征向量"]
+C --> D{"是否有 n 个线性无关的特征向量?"}
+D -->|"是"| E["可对角化: A = P D P⁻¹"]
+D -->|"否"| F["不可对角化"]
+E --> G["计算 A 的 k 次幂 = P D^k P⁻¹"]</pre>
+<p><em>判断矩阵是否可对角化的流程,以及对角化之后如何计算矩阵的高次幂。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

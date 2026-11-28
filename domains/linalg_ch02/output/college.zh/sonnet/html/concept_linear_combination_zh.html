@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Combination | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="linear-combination">Linear Combination</h2>
+<p><strong>定义</strong></p>
+<p>给定一组向量 $\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n$（同属某个向量空间）以及一组标量 $c_1, c_2, \ldots, c_n$（实数或复数），它们的<strong>线性组合</strong>定义为</p>
+$$
+\mathbf{w} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \cdots + c_n \mathbf{v}_n
+$$
+<p>这里的两种基本运算——标量乘法（拉伸或压缩每个向量）与向量加法（首尾相接求和）——是线性代数中几乎所有结构（张成空间、线性无关、基、线性变换）得以定义的出发点。系数 $c_i$ 可以取任意实数，包括零或负数，因此线性组合既能"缩短"某个方向的贡献，也能将其反向。</p>
+<p><strong>范例</strong></p>
+<p>设 $\mathbf{v}_1 = (1, 0)$，$\mathbf{v}_2 = (0, 1)$，取 $c_1 = 3$，$c_2 = -2$。则</p>
+$$
+\mathbf{w} = 3(1,0) + (-2)(0,1) = (3, -2)
+$$
+<p>事实上，平面上任意向量 $(x, y)$ 都可以写成 $x\mathbf{v}_1 + y\mathbf{v}_2$，这说明 $\{\mathbf{v}_1, \mathbf{v}_2\}$ 张成了整个平面——每个平面向量都是它们的某个线性组合。</p>
+<p><strong>应用于问题求解</strong></p>
+<p>线性组合的核心用途是判断一个向量能否由给定的一组向量"表示"出来。例如，问：$(4, 1)$ 能否表示为 $\mathbf{u} = (1, 2)$ 与 $\mathbf{v} = (2, -1)$ 的线性组合？设 $c_1\mathbf{u} + c_2\mathbf{v} = (4,1)$，展开得方程组：</p>
+$$
+\begin{cases} c_1 + 2c_2 = 4 \\ 2c_1 - c_2 = 1 \end{cases}
+$$
+<p>解得 $c_1 = \frac{6}{5}$，$c_2 = \frac{7}{5}$——存在唯一解，说明 $(4,1)$ 确实是 $\mathbf{u}, \mathbf{v}$ 的线性组合。这类"能否表示"的问题正是求解线性方程组的几何意义：方程组有解，等价于目标向量落在这些向量所张成的空间（span）之中。</p>
+<pre class="mermaid">graph TD
+    v1["向量 v1"] -->|"乘以 c1"| c1v1["c1·v1"]
+    v2["向量 v2"] -->|"乘以 c2"| c2v2["c2·v2"]
+    c1v1 -->|"向量相加"| w["w = c1·v1 + c2·v2"]
+    c2v2 -->|"向量相加"| w
+    w -.->|"落在张成空间内"| span["v1, v2 的张成空间"]</pre>
+<p><em>图示：向量 $\mathbf{v}_1$ 与 $\mathbf{v}_2$ 分别按系数 $c_1$、$c_2$ 缩放后相加，得到的结果 $\mathbf{w}$ 位于二者所张成的空间之中。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

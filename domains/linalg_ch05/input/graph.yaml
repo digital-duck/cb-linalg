@@ -1,0 +1,177 @@
+domain: linalg_beezer_ch05
+primitives:
+  row_operations:
+    defines: Operations on a matrix (swap two rows, multiply a row by a nonzero scalar, add a multiple
+      of one row to another) used to build elementary matrices.
+    tier: 0
+  matrix_multiplication:
+    defines: The operation combining two matrices, used to define how elementary matrices act on a matrix.
+    tier: 0
+  identity_matrix:
+    defines: The square matrix with ones on the diagonal and zeros elsewhere, used as the base for constructing
+      elementary matrices.
+    tier: 0
+  nonsingular_matrix:
+    defines: A square matrix that row-reduces to the identity matrix.
+    tier: 0
+  square_matrix:
+    defines: A matrix with an equal number of rows and columns, the type of matrix for which a determinant
+      is defined.
+    tier: 0
+  submatrix:
+    defines: The matrix A(i|j) obtained from a matrix A by deleting row i and column j.
+    tier: 0
+concepts:
+  elementary_matrix:
+    defines: One of three special square matrices built as small perturbations of the identity matrix
+      that implement a single row operation via left multiplication.
+    composed_of:
+    - identity_matrix
+    - row_operations
+    tier: 1
+  elementary_matrices_effect_row_operations:
+    defines: Multiplying A on the left by the appropriate elementary matrix produces the same result as
+      performing the corresponding row operation on A.
+    composed_of:
+    - elementary_matrix
+    - matrix_multiplication
+    - row_operations
+    tier: 2
+  elementary_matrices_nonsingular:
+    defines: Every elementary matrix row-reduces to the identity matrix and is therefore nonsingular.
+    composed_of:
+    - elementary_matrix
+    - nonsingular_matrix
+    tier: 2
+  nonsingular_as_product_of_elementary_matrices:
+    defines: Any nonsingular matrix can be written as a product of elementary matrices.
+    composed_of:
+    - nonsingular_matrix
+    - elementary_matrix
+    - elementary_matrices_effect_row_operations
+    tier: 3
+  determinant_definition:
+    defines: A scalar-valued function of a square matrix, defined recursively via entries and submatrix
+      determinants.
+    composed_of:
+    - square_matrix
+    - submatrix
+    tier: 1
+  determinant_2x2:
+    defines: The shortcut formula det(A) = ad - bc for a 2x2 matrix.
+    composed_of:
+    - determinant_definition
+    tier: 2
+  determinant_expansion_about_rows:
+    defines: The determinant can be computed by a signed sum along any row, not just the first.
+    composed_of:
+    - determinant_definition
+    tier: 2
+  determinant_of_transpose:
+    defines: A square matrix and its transpose have the same determinant.
+    composed_of:
+    - determinant_definition
+    tier: 2
+  determinant_expansion_about_columns:
+    defines: The determinant can be computed by a signed sum along any column, obtained via row expansion
+      and the transpose.
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_of_transpose
+    tier: 3
+  minor_and_cofactor:
+    defines: A minor is the determinant of a submatrix; a cofactor is that minor with sign (-1)^(i+j)
+      attached.
+    composed_of:
+    - submatrix
+    - determinant_definition
+    tier: 2
+  determinant_zero_row_or_column:
+    defines: A square matrix with an entirely zero row or column has determinant zero.
+    composed_of:
+    - determinant_expansion_about_rows
+    tier: 3
+  determinant_of_identity:
+    defines: det(In) = 1 for every size n.
+    composed_of:
+    - determinant_expansion_about_rows
+    - identity_matrix
+    tier: 3
+  determinant_row_column_swap:
+    defines: Interchanging two rows or two columns of a matrix negates its determinant.
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_expansion_about_columns
+    tier: 4
+  determinant_row_column_multiple:
+    defines: Multiplying a single row or column by a scalar multiplies the determinant by that scalar.
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_expansion_about_columns
+    tier: 4
+  determinant_row_column_multiple_and_addition:
+    defines: Adding a multiple of one row (or column) to another leaves the determinant unchanged.
+    composed_of:
+    - determinant_expansion_about_rows
+    - determinant_expansion_about_columns
+    tier: 4
+  determinant_upper_triangular:
+    defines: The determinant of an upper (or lower) triangular matrix equals the product of its diagonal
+      entries.
+    composed_of:
+    - determinant_expansion_about_columns
+    - determinant_definition
+    tier: 4
+  determinant_equal_rows_columns:
+    defines: A square matrix with two equal rows or two equal columns has determinant zero.
+    composed_of:
+    - determinant_row_column_swap
+    tier: 5
+  determinant_of_elementary_matrices:
+    defines: The determinant of each type of elementary matrix (-1, alpha, 1).
+    composed_of:
+    - elementary_matrix
+    - determinant_row_column_swap
+    - determinant_row_column_multiple
+    - determinant_row_column_multiple_and_addition
+    - determinant_of_identity
+    tier: 6
+  determinant_elementary_matrix_multiplication:
+    defines: det(EA) = det(E)det(A) for any elementary matrix E and square matrix A.
+    composed_of:
+    - determinant_of_elementary_matrices
+    - elementary_matrices_effect_row_operations
+    - matrix_multiplication
+    tier: 7
+  singular_matrix_zero_determinant:
+    defines: A square matrix is singular if and only if its determinant is zero.
+    composed_of:
+    - nonsingular_as_product_of_elementary_matrices
+    - determinant_elementary_matrix_multiplication
+    - nonsingular_matrix
+    tier: 8
+  nonsingular_matrix_equivalences_round7:
+    defines: Extension of equivalent characterizations of a nonsingular matrix to include having a nonzero
+      determinant.
+    composed_of:
+    - singular_matrix_zero_determinant
+    - nonsingular_matrix
+    tier: 9
+  determinant_respects_matrix_multiplication:
+    defines: For any two square matrices of the same size, det(AB) = det(A)det(B).
+    composed_of:
+    - determinant_elementary_matrix_multiplication
+    - nonsingular_as_product_of_elementary_matrices
+    - singular_matrix_zero_determinant
+    tier: 9
+applications:
+  determinant_by_row_reduction:
+    defines: An efficient method for computing a determinant by row-reducing to triangular form while
+      tracking the multiplicative effect of each row operation.
+    needs:
+    - determinant_row_column_swap
+    - determinant_row_column_multiple
+    - determinant_row_column_multiple_and_addition
+    - determinant_upper_triangular
+    - row_operations
+    tier: 6

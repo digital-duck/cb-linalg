@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gram Schmidt Procedure | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="gram-schmidt-procedure">Gram Schmidt Procedure</h2>
+<p><strong>定义</strong></p>
+<p>Gram-Schmidt 正交化过程是一种算法,它将一组线性无关的向量 $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ 转换为一组正交向量 $\{\mathbf{u}_1, \mathbf{u}_2, \ldots, \mathbf{u}_n\}$,且两组向量张成相同的子空间。若进一步将每个 $\mathbf{u}_i$ 单位化,则得到一组<strong>标准正交基</strong>(orthonormal basis)。</p>
+<p>算法的核心思想是:逐个处理向量,每次从当前向量中减去它在之前所有正交向量方向上的投影分量,只保留与它们都垂直的部分。递推公式为:</p>
+$$
+\mathbf{u}_1 = \mathbf{v}_1, \qquad
+\mathbf{u}_k = \mathbf{v}_k - \sum_{i=1}^{k-1} \operatorname{proj}_{\mathbf{u}_i}(\mathbf{v}_k), \quad k = 2, \ldots, n
+$$
+<p>其中投影算子定义为 $\operatorname{proj}_{\mathbf{u}}(\mathbf{v}) = \dfrac{\langle \mathbf{v}, \mathbf{u} \rangle}{\langle \mathbf{u}, \mathbf{u} \rangle}\mathbf{u}$。可以证明,若 $\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}$ 线性无关,则每一步得到的 $\mathbf{u}_k \neq \mathbf{0}$,且 $\operatorname{span}\{\mathbf{u}_1,\ldots,\mathbf{u}_k\} = \operatorname{span}\{\mathbf{v}_1,\ldots,\mathbf{v}_k\}$——这正是算法正确性的关键。</p>
+<p><strong>示例</strong></p>
+<p>设 $\mathbf{v}_1 = (1,1,0)$,$\mathbf{v}_2 = (1,0,1)$。</p>
+<p>第一步:$\mathbf{u}_1 = \mathbf{v}_1 = (1,1,0)$。</p>
+<p>第二步:计算投影</p>
+$$
+\operatorname{proj}_{\mathbf{u}_1}(\mathbf{v}_2) = \frac{1}{2}(1,1,0)
+$$
+<p>于是</p>
+$$
+\mathbf{u}_2 = (1,0,1) - \left(\tfrac{1}{2},\tfrac{1}{2},0\right) = \left(\tfrac{1}{2}, -\tfrac{1}{2}, 1\right)
+$$
+<p>验证 $\mathbf{u}_1 \cdot \mathbf{u}_2 = \tfrac{1}{2} - \tfrac{1}{2} + 0 = 0$,确认正交。</p>
+<p><strong>应用</strong></p>
+<p>该算法是 <strong>QR 分解</strong>的理论基础:将矩阵 $A$ 的列向量正交化后单位化,即得正交矩阵 $Q$,而投影系数恰好构成上三角矩阵 $R$,满足 $A = QR$。QR 分解广泛应用于最小二乘回归、特征值数值计算(QR 算法)以及数据降维中的正交基构造。掌握这一过程,是理解后续线性代数中"正交投影解决最优逼近问题"这一核心思想的关键一步。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

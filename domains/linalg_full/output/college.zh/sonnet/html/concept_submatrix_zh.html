@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submatrix | Linalg Full</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="子矩阵-submatrix">子矩阵(Submatrix)</h2>
+<p><strong>定义。</strong> 设 $A$ 是一个 $n\times n$ 矩阵。删去第 $i$ 行和第 $j$ 列后,剩下的 $(n-1)\times(n-1)$ 矩阵称为 $A$ 的<strong>子矩阵</strong>,记作 $A(i|j)$。更一般地,从任意 $m\times n$ 矩阵中选取若干行和若干列,保留它们交叉处的元素,所得矩阵也叫子矩阵。本节只讨论"删去一行一列"这种形式。</p>
+<p>它是行列式余子式展开的基本构件:元素 $a_{ij}$ 的<strong>余子式</strong>为 $M_{ij}=\det A(i|j)$,<strong>代数余子式</strong>为 $C_{ij}=(-1)^{i+j}M_{ij}$。</p>
+<p><strong>例题。</strong> 设</p>
+$$A=\begin{pmatrix}2&1&3\\0&-1&4\\5&2&1\end{pmatrix}.$$
+<p>求 $A(2|3)$ 和 $A(1|1)$。</p>
+<li>删去第 2 行、第 3 列:</li>
+$$A(2|3)=\begin{pmatrix}2&1\\5&2\end{pmatrix}.$$
+<li>删去第 1 行、第 1 列:</li>
+$$A(1|1)=\begin{pmatrix}-1&4\\2&1\end{pmatrix}.$$
+<p>检验规则:保留的元素,其行号不等于 $i$,列号不等于 $j$,并且相对位置保持不变。</p>
+<p><strong>问题求解应用。</strong> 用第一行的代数余子式展开计算 $\det A$:</p>
+$$\det A=\sum_{j=1}^{3}(-1)^{1+j}a_{1j}\det A(1|j).$$
+<p>先写出三个子矩阵:</p>
+$$A(1|1)=\begin{pmatrix}-1&4\\2&1\end{pmatrix},\quad A(1|2)=\begin{pmatrix}0&4\\5&1\end{pmatrix},\quad A(1|3)=\begin{pmatrix}0&-1\\5&2\end{pmatrix}.$$
+<p>它们的行列式分别为</p>
+$$\det A(1|1)=-1-8=-9,\quad \det A(1|2)=0-20=-20,\quad \det A(1|3)=0+5=5.$$
+<p>代入展开式:</p>
+$$\det A=2\cdot(-9)-1\cdot(-20)+3\cdot 5=-18+20+15=17.$$
+<p><strong>为什么这样做有效?</strong> 子矩阵把 $n$ 阶行列式化为 $n-1$ 阶行列式,这是一个递归结构:</p>
+$$\det A=\sum_{j=1}^{n}(-1)^{1+j}a_{1j}\det A(1|j).$$
+<p>递归直到 $1\times1$ 或 $2\times2$ 矩阵为止。可以沿任意一行或一列展开,所以应选零最多的一行或一列,这样可以省去许多子矩阵的计算。</p>
+<p>子矩阵还用于求逆矩阵。伴随矩阵 $\operatorname{adj}(A)$ 的 $(i,j)$ 元素是 $C_{ji}$,当 $\det A\neq 0$ 时</p>
+$$A^{-1}=\frac{1}{\det A}\operatorname{adj}(A).$$
+<p><strong>常见错误。</strong></p>
+<li>删错行列:$A(i|j)$ 删的是第 $i$ 行、第 $j$ 列,不要把下标顺序弄反。</li>
+<li>忘记符号因子 $(-1)^{i+j}$。</li>
+<li>删除后改变了保留元素的相对顺序。</li>
+<p><strong>小结。</strong> 子矩阵 $A(i|j)$ 是删去一行一列后得到的低一阶矩阵。用它定义余子式,就能把高阶行列式化为低阶行列式来计算。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra: Full Book (Beezer FCLA) (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

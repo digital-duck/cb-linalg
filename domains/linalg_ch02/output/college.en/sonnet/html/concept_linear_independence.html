@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Independence | Linalg Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="linear-independence">Linear Independence</h2>
+<p>A set of vectors $\{v_1, v_2, \dots, v_n\}$ in a vector space $V$ is <strong>linearly independent</strong> if the only scalars $c_1, c_2, \dots, c_n$ satisfying</p>
+$$c_1 v_1 + c_2 v_2 + \cdots + c_n v_n = 0$$
+<p>are $c_1 = c_2 = \cdots = c_n = 0$ — the <em>trivial</em> solution. If some other combination of scalars, not all zero, also produces the zero vector, the set is <strong>linearly dependent</strong>: at least one vector can be written as a combination of the others, so it carries no new directional information.</p>
+<p><strong>Worked example.</strong> Consider $v_1 = (1, 2, 3)$, $v_2 = (0, 1, 4)$, $v_3 = (2, 1, -2)$ in $\mathbb{R}^3$. Set up $c_1 v_1 + c_2 v_2 + c_3 v_3 = 0$ and solve:</p>
+$$
+\begin{aligned}
+c_1 + 2c_3 &= 0 \\
+2c_1 + c_2 + c_3 &= 0 \\
+3c_1 + 4c_2 - 2c_3 &= 0
+\end{aligned}
+$$
+<p>Row-reducing the coefficient matrix $\begin{bmatrix} 1 & 0 & 2 \\ 2 & 1 & 1 \\ 3 & 4 & -2 \end{bmatrix}$ yields a unique solution $c_1 = c_2 = c_3 = 0$ (the matrix has full rank 3, hence nonzero determinant). Since no nontrivial combination vanishes, the three vectors are linearly independent — and because there are exactly three of them in $\mathbb{R}^3$, they form a basis.</p>
+<p><strong>Why this matters — the practical test.</strong> For $n$ vectors in $\mathbb{R}^n$, linear independence is equivalent to the matrix formed from them (as columns) having a nonzero determinant, or equivalently, having rank $n$. This equivalence is the workhorse test used throughout linear algebra: checking independence reduces to Gaussian elimination or determinant computation, both of which are algorithmic and machine-checkable.</p>
+<p><strong>Problem-solving application.</strong> Linear independence determines whether a spanning set is "wasteful." Given vectors that span a subspace, discarding any that are linear combinations of the others (i.e., removing dependencies) yields a minimal spanning set — a basis. This is exactly the procedure behind dimensionality reduction: identifying and eliminating redundant directions in a dataset, retaining only the independent ones needed to reconstruct all the information.</p>
+<pre class="mermaid">flowchart LR
+    A["Set of vectors"] --> B{"Only trivial<br/>combination = 0?"}
+    B -->|Yes| C["Linearly independent"]
+    B -->|No| D["Linearly dependent"]
+    C --> E["Candidate for a basis"]
+    D --> F["At least one vector<br/>is redundant"]</pre>
+<p><em>Decision flow for testing and interpreting linear independence.</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Linear Algebra Ch2: Vectors (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
